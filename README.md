@@ -1,22 +1,16 @@
-
 # Makanan Halal di Bali
 
-### Anggota Kelompok
-2306211231 - Rafansya Daryltama Santoso
+## Anggota Kelompok
+1. 2306211231 - Rafansya Daryltama Santoso
+2. 2306165843 - Dandi Apriyansyah
+3. 2306165673 - Anggun Sasmitha Dewi
+4. 2306245560 - Salsabila Arumdapta
+5. 2306230590 - Olav Dendy Christian Manullang
+6. 2306165710 - Leonita Cecilia
 
-2306165843 - Dandi Apriyansyah
+## Deskripsi Aplikasi
 
-2306165673 - Anggun Sasmitha Dewi
-
-2306245560 - Salsabila Arumdapta
-
-2306230590 - Olav Dendy Christian Manullang
-
-2306165710 - Leonita Cecilia
-
-### Deskripsi Aplikasi
-
-### List Modul
+## List Modul
 i. Landing Page/Homepage
 
 ii. Authentication
@@ -32,8 +26,9 @@ iii. *Card* Informasi Makanan
 
 iv. Souvenir
 
-### Sumber Initial Dataset
+## Sumber Initial Dataset
 Kami mengumpulkan *dataset* secara *manual*, yang dapat diakses pada tautan berikut:
+
 ristek.link/DatasetPBPA10
 
-### Role Pengguna
+## Role Pengguna
