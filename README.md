@@ -25,6 +25,7 @@ iii. *Card* Informasi Makanan
 - *User* dapat mengetahui informasi mengenai restoran yang menyediakan makanan yang tertera pada *card* informasi.
 
 iv. Souvenir
+    Modul ini memberikan informasi tentang apa saja jenis souvenir yang tersedia di Bali kepada User.
 
 ## Sumber Initial Dataset
 Kami mengumpulkan *dataset* secara *manual*, yang dapat diakses pada tautan berikut:
