@@ -22,16 +22,23 @@ i. Landing Page/Homepage
 
 ii. Authentication
 
-iii. *Card* Informasi Makanan
-- *User* dapat melihat gambar makanan halal *card* informasi.
-- *User* dapat membaca deskripsi makanan, termasuk bahan-bahan yang digunakan pada *card* informasi.
-- *User* dapat mengidentifikasi bahan-bahan yang berpotensi menyebabkan alergi dari informasi yang tersedia pada *card* informasi.
-- *User* dapat mengetahui kategori makanan (berupa makanan ringan atau makanan berat) pada *card* informasi.
-- *User* dapat melihat informasi mengenai kisaran harga makanan pada *card* informasi.
-- *User* dapat membaca ulasan tentang makanan yang tersedia pada *card* informasi.
-- *User* dapat mengetahui informasi mengenai restoran yang menyediakan makanan yang tertera pada *card* informasi.
+iii. Profile
 
-iv. Souvenir
+iv. *Card* Restoran
+- *User* dapat melihat nama dan gambar restoran.
+- *User* dapat melihat lokasi restoran.
+- *User* dapat melihat *review* dan *rating* restoran.
+- *Card* Makanan
+  - *User* dapat melihat nama dan gambar makanan halal *card* informasi.
+  - *User* dapat membaca deskripsi makanan, termasuk bahan-bahan yang digunakan pada *card* informasi.
+  - *User* dapat mengidentifikasi bahan-bahan yang berpotensi menyebabkan alergi dari informasi yang tersedia pada *card* informasi.
+  - *User* dapat mengetahui kategori makanan (berupa makanan ringan atau makanan berat) pada *card* informasi.
+  - *User* dapat melihat informasi mengenai kisaran harga makanan pada *card* informasi.
+  - *User* dapat membaca ulasan tentang makanan yang tersedia pada *card* informasi.
+  - *User* dapat memasukkan makanan ke dalam *wishlist* pribadi.
+  - *User* dapat mengetahui informasi mengenai restoran yang menyediakan makanan yang tertera pada *card* informasi.
+
+v. Souvenir
 
 Modul ini memberikan informasi tentang apa saja jenis souvenir yang tersedia di Bali kepada User.
 
