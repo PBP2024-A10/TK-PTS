@@ -33,10 +33,12 @@ Authentication merupakan tahap memvalidasi akun milik user. Authentication melip
 
 Home Page merupakan tampilan awal dari situs website yang diakses user setelah _login_. Home Page berisikan _navigation bar_ serta menampilkan daftar restoran yang menjual makanan halal. Selain itu, _home page_ berisi fitur *search* di mana user dapat mencari nama restoran dan nama makanan yang diinginkan
 
-iii. Profile
+**iii. Profile** 
+
 Modul Profile memungkinkan user untuk mengelola informasi pribadi mereka. User dapat melihat dan mengedit data profil seperti nama, foto profile, serta alamat email. Profile juga memungkinkan user untuk melihat riwayat pemesanan dan ulasan yang pernah mereka buat.
 
-iv. Manajemen Makanan
+**iv. Manajemen Makanan** 
+
 Manajemen makanan menyediakan berbagai informasi terkait restoran dan makanan halal yang tersedia dalam bentuk _cards_. Manajemen makanan melibatkan dua pihak, yakni Admin dan User.
 Admin:
 - Dapat menambahkan informasi restoran yang terdiri dari nama, gambar, *review*, dann lokasi restoran.
@@ -56,17 +58,21 @@ User:
   - *User* dapat mengetahui informasi mengenai restoran yang menyediakan makanan yang tertera pada *card* informasi.
   - User* dapat menambahkan makanan ke dalam *wishlist page*.
 
-iv. *Wishlist page*
+**iv. *Wishlist page*** 
+
 *Wishlist page* memungkinkan user untuk menyimpan makanan favorit mereka untuk dilihat di kemudian hari. Fitur ini memudahkan user dalam menyusun daftar makanan yang ingin dicoba atau restoran yang ingin dikunjungi. Pada modul ini, user dapat menambahkan makanan ke dalam *wishlist* page, menghapus makanan dari *wishlist* page, dan mengedit makanan dari *wishlist page*
 
-v. Manajemen Pemesanan
+**v. Manajemen Pemesanan** 
+
 Manajemen pemesanan menyediakan informasi mengenai seluruh proses pemesanan makanan. Terdapat dua pihak yang terlibat dalam modul ini, yakni Admin dan User. Pada modul ini, user dapat memilih makanan, menambahkan ke keranjang, dan melacak status pesanan mereka, termasuk pemesanan yang sedang berjalan dan riwayat pesanan yang telah selesai. Admin dapat mengatur pemesanan yang dilakukan user, dan melakukan otomatisasi apabila user belum mengonfirmasi menerima pesanan sampai waktu yang telah ditentukan.
 
-vi. Manajemen Oleh-oleh
+**vi. Manajemen Oleh-oleh** 
+
 Manajemen oleh-oleh menyediakan informasi mengenai oleh-oleh yang dapat dibeli di Bali. 
 Modul ini memberikan informasi tentang apa saja jenis souvenir yang tersedia di Bali kepada User. Terdapat dua pihak yang terlibat dalam modul ini, yakni Admin dan User. User dapat melihat oleh-oleh yang dapat dibeli di daerah Bali. Admin dapat menambahkan informasi mengenai oleh-oleh, meliputi nama, gambar, dan deskripsi.
 
-vii. *Editor's Choice*
+**vii. *Editor's Choice*** 
+
 *Editor's Choice* menampilkan rekomendasi makanan dan restoran terbaik berdasarkan *rating* dan *review* user. User dapat menemukan pilihan makanan atau restoran yang sedang populer atau memiliki ulasan terbaik. Pada modul ini, user juga dapat menambahkan *review* dan *rating* makanan yang tertera.
 
 
