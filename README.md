@@ -18,9 +18,9 @@ Dengan keberagaman lokal yang melimpah, Pulau Bali tidak luput atas perhatian wi
 # 🥐 Manfaat 🥐
 Aplikasi `Ajengan Halal` hadir dengan harapan membawa dampak positif bagi masyarakat, khususnya para wisatawan dan penduduk Bali yang sedang mencari makanan halal. Dengan aplikasi `Ajengan Halal`, kami berharap pengguna dapat dengan mudah menemukan restoran dan tempat makan halal yang terverifikasi, sehingga memberikan rasa aman dan nyaman dalam memilih makanan sesuai dengan kepercayaan mereka.
 
-Aplikasi `Ajengan Halal` menyediakan fitur rating, rekomendasi tempat makan, daftar alergi, kisaran harga, dan daftar souvenir yang ada di Bali. Melalui fitur-fitur ini, harapannya pengguna dapat menemukan pilihan makanan terbaik yang sesuai dengan selera dan preferensi mereka. Selain itu, pengguna juga dapat terbantu dalam memilih rekomendasi souvenir yang dapat dibeli di sekitar Bali. 
+Aplikasi ini menyediakan fitur rating, rekomendasi tempat makan, daftar alergi, kisaran harga, dan daftar souvenir yang ada di Bali. Melalui fitur ini, harapannya pengguna dapat menemukan pilihan makanan terbaik yang sesuai dengan selera dan preferensi mereka. Selain itu, pengguna juga dapat terbantu dalam memilih rekomendasi souvenir yang dapat dibeli di sekitar Bali. 
 
-Kami juga berharap aplikasi `Ajengan Halal` dapat berkontribusi pada pengembangan sektor pariwisata Bali dengan memberikan solusi yang memudahkan wisatawan Muslim. Dengan kemudahan akses informasi yang ditawarkan, diharapkan wisatawan dapat menikmati pengalaman kuliner yang lebih menyenangkan dan berkesan.
+Kami juga berharap aplikasi ini dapat berkontribusi pada pengembangan sektor pariwisata Bali dengan memberikan solusi yang memudahkan wisatawan Muslim. Dengan kemudahan akses informasi yang ditawarkan, diharapkan wisatawan dapat menikmati pengalaman kuliner yang lebih menyenangkan dan berkesan.
 
 Dengan beragam fitur yang tersedia, harapannya aplikasi ini dapat memudahkan pengguna dan mendorong penggunaan teknologi dalam kehidupan sehari-hari, yang pada akhirnya akan meningkatkan kenyamanan dalam mencari makanan halal di Bali.
 
@@ -31,27 +31,50 @@ Authentication merupakan tahap memvalidasi akun milik user. Authentication melip
 
 **ii. Home Page** 
 
-Home Page merupakan tampilan awal dari situs website yang diakses user setelah _login_. Home Page berisikan _navigation bar_ serta menampilkan daftar restoran yang menjual makanan halal.
+Home Page merupakan tampilan awal dari situs website yang diakses user setelah _login_. Home Page berisikan _navigation bar_ serta menampilkan daftar restoran yang menjual makanan halal. Selain itu, _home page_ berisi fitur *search* di mana user dapat mencari nama restoran dan nama makanan yang diinginkan
 
-**iii. Profile**
+**iii. Profile** 
 
-iv. ***Card* Restoran**
-- *User* dapat melihat nama dan gambar restoran.
-- *User* dapat melihat lokasi restoran.
-- *User* dapat melihat *review* dan *rating* restoran.
-- *Card* Makanan
+Modul Profile memungkinkan user untuk mengelola informasi pribadi mereka. User dapat melihat dan mengedit data profil seperti nama, foto profile, serta alamat email. Profile juga memungkinkan user untuk melihat riwayat pemesanan dan ulasan yang pernah mereka buat.
+
+**iv. Manajemen Makanan** 
+
+Manajemen makanan menyediakan berbagai informasi terkait restoran dan makanan halal yang tersedia dalam bentuk _cards_. Manajemen makanan melibatkan dua pihak, yakni Admin dan User.
+Admin:
+- Dapat menambahkan informasi restoran yang terdiri dari nama, gambar, *review*, dann lokasi restoran.
+- Dapat menghapus informasi mengenai restoran.
+- Dapat mengedit informasi mengenai restoran.
+  
+User:
+- *User* dapat melihat nama, gambar, lokasi, dan *review* makanan. (READ)
+- *User* dapat melihat *card* makanan, dengan rincian:
   - *User* dapat melihat nama dan gambar makanan halal *card* informasi.
   - *User* dapat membaca deskripsi makanan, termasuk bahan-bahan yang digunakan pada *card* informasi.
-  - *User* dapat mengidentifikasi bahan-bahan yang berpotensi menyebabkan alergi dari informasi yang tersedia pada *card* informasi.
+  - *User* dapat mengetahui bahan-bahan yang berpotensi menyebabkan alergi dari informasi yang tersedia pada *card* informasi.
   - *User* dapat mengetahui kategori makanan (berupa makanan ringan atau makanan berat) pada *card* informasi.
   - *User* dapat melihat informasi mengenai kisaran harga makanan pada *card* informasi.
   - *User* dapat membaca ulasan tentang makanan yang tersedia pada *card* informasi.
   - *User* dapat memasukkan makanan ke dalam *wishlist* pribadi.
   - *User* dapat mengetahui informasi mengenai restoran yang menyediakan makanan yang tertera pada *card* informasi.
+  - User* dapat menambahkan makanan ke dalam *wishlist page*.
 
-**v. Souvenir**
+**iv. *Wishlist page*** 
 
-Modul ini memberikan informasi tentang apa saja jenis souvenir yang tersedia di Bali kepada User.
+*Wishlist page* memungkinkan user untuk menyimpan makanan favorit mereka untuk dilihat di kemudian hari. Fitur ini memudahkan user dalam menyusun daftar makanan yang ingin dicoba atau restoran yang ingin dikunjungi. Pada modul ini, user dapat menambahkan makanan ke dalam *wishlist* page, menghapus makanan dari *wishlist* page, dan mengedit makanan dari *wishlist page*
+
+**v. Manajemen Pemesanan** 
+
+Manajemen pemesanan menyediakan informasi mengenai seluruh proses pemesanan makanan. Terdapat dua pihak yang terlibat dalam modul ini, yakni Admin dan User. Pada modul ini, user dapat memilih makanan, menambahkan ke keranjang, dan melacak status pesanan mereka, termasuk pemesanan yang sedang berjalan dan riwayat pesanan yang telah selesai. Admin dapat mengatur pemesanan yang dilakukan user, dan melakukan otomatisasi apabila user belum mengonfirmasi menerima pesanan sampai waktu yang telah ditentukan.
+
+**vi. Manajemen Oleh-oleh** 
+
+Manajemen oleh-oleh menyediakan informasi mengenai oleh-oleh yang dapat dibeli di Bali. 
+Modul ini memberikan informasi tentang apa saja jenis souvenir yang tersedia di Bali kepada User. Terdapat dua pihak yang terlibat dalam modul ini, yakni Admin dan User. User dapat melihat oleh-oleh yang dapat dibeli di daerah Bali. Admin dapat menambahkan informasi mengenai oleh-oleh, meliputi nama, gambar, dan deskripsi.
+
+**vii. *Editor's Choice*** 
+
+*Editor's Choice* menampilkan rekomendasi makanan dan restoran terbaik berdasarkan *rating* dan *review* user. User dapat menemukan pilihan makanan atau restoran yang sedang populer atau memiliki ulasan terbaik. Pada modul ini, user juga dapat menambahkan *review* dan *rating* makanan yang tertera.
+
 
 # 📖 Sumber Initial Dataset 📖
 Kami mengumpulkan *dataset* secara *manual*, yang dapat diakses pada tautan berikut:
@@ -70,6 +93,8 @@ Admin memiliki kontrol penuh terhadap aplikasi dan dapat mengelola pengguna, kon
 **3. *Registered User***
 
 *Registered user* dapat mengakses semua halaman dan semua fitur yang ada dalam aplikasi.
+
+# Tautan Deployment Aplikasi
 
 ## Daftar Pustaka
 https://gis.dukcapil.kemendagri.go.id/peta/
