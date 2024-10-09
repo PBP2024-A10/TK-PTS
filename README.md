@@ -17,10 +17,14 @@ Dengan keberagaman lokal yang melimpah, Pulau Bali tidak luput atas perhatian wi
 
 ## Deskripsi Aplikasi
 
-## List Modul
-i. Landing Page/Homepage
+# 📚 Daftar Modul 📚
+**i. Authentication** 
 
-ii. Authentication
+Authentication merupakan tahap memvalidasi akun milik user. Authentication meliputi _login_, _logout_, dan _sign-in._ Pada tahapan awal, user akan diminta untuk _sign-in_ dengan membentuk username dan password. Terdapat _constraint_ yang harus dipenuhi dalam pembuatan password, yakni minimal terdiri atas 6 karakter dan merupakan kombinasi huruf besar, huruf kecil, dan juga simbol/angka.
+
+**ii. Home Page** 
+
+Home Page merupakan tampilan awal dari situs website yang diakses user setelah _login_. Home Page berisikan _navigation bar_ serta menampilkan daftar restoran yang menjual makanan halal.
 
 iii. Profile
 
