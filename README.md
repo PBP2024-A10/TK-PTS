@@ -15,6 +15,15 @@ Dengan keberagaman lokal yang melimpah, Pulau Bali tidak luput atas perhatian wi
 
 **Aplikasi `<isi nama aplikasi>` menampilkan rekomendasi wisata kuliner halal Pulau Bali** dengan menyeluruh. Tidak hanya **menampilkan restoran makanan halal Bali**, tetapi juga **lokasinya dan rekomendasi makanannya** beserta detail-detail pentingnya. Aplikasi ini juga memudahkan Anda yang memunyai alergi untuk **mengetahui makanan beralergen**. Anda juga akan mendapatkan informasi mengenai **tempat membeli dan peruntukan (makanan besar / kecil)** makanan tersebut. Dengan menggunakan aplikasi ini, kami berharap warga dan wisatawan Bali mendapatkan rekomendasi wisata halal terkini.
 
+# 🥐 Manfaat 🥐
+Aplikasi ini hadir dengan harapan membawa dampak positif bagi masyarakat, khususnya para wisatawan dan penduduk Bali yang sedang mencari makanan halal. Dengan aplikasi ini, kami berharap pengguna dapat dengan mudah menemukan restoran dan tempat makan halal yang terverifikasi, sehingga memberikan rasa aman dan nyaman dalam memilih makanan sesuai dengan kepercayaan mereka.
+
+Aplikasi ini menyediakan fitur rating, rekomendasi tempat makan, daftar alergi, kisaran harga, dan daftar souvenir yang ada di Bali. Melalui fitur ini, harapannya pengguna dapat menemukan pilihan makanan terbaik yang sesuai dengan selera dan preferensi mereka. Selain itu, pengguna juga dapat terbantu dalam memilih rekomendasi souvenir yang dapat dibeli di sekitar Bali. 
+
+Kami juga berharap aplikasi ini dapat berkontribusi pada pengembangan sektor pariwisata Bali dengan memberikan solusi yang memudahkan wisatawan Muslim. Dengan kemudahan akses informasi yang ditawarkan, diharapkan wisatawan dapat menikmati pengalaman kuliner yang lebih menyenangkan dan berkesan.
+
+Dengan beragam fitur yang tersedia, harapannya aplikasi ini dapat memudahkan pengguna dan mendorong penggunaan teknologi dalam kehidupan sehari-hari, yang pada akhirnya akan meningkatkan kenyamanan dalam mencari makanan halal di Bali.
+
 ## Deskripsi Aplikasi
 
 # 📚 Daftar Modul 📚
