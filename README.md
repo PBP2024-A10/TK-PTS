@@ -1,4 +1,4 @@
-# Makanan Halal di Bali
+# Ajengan Halal: *Website* Makanan Halal di Bali
 
 ## Anggota Kelompok
 1. 2306211231 - Rafansya Daryltama Santoso
@@ -8,7 +8,7 @@
 5. 2306230590 - Olav Dendy Christian Manullang
 6. 2306165710 - Leonita Cecilia
 
-## Latar Belakang
+# 📒 Latar Belakang 📒
 **Bali telah menjadi tempat wisata yang mendunia**, baik untuk wisatawan lokal maupun mancanegara. Pulau yang dihuni sekitar empat juta orang (dilansir dari Dukcapil, 2024) ini memiliki aspek budaya yang beragam. Oleh karena alasan itu, **Pulau Bali wajib dikunjungi** oleh wisatawan lokal atau mancanegara yang sedang mengunjungi Indonesia.
 
 Dengan keberagaman lokal yang melimpah, Pulau Bali tidak luput atas perhatian wisatawan Muslim. Salah satu aspek penting dalam kehidupan sehari-hari bagi umat Islam adalah memastikan kehalalan makanan yang dikonsumsi. Dengan penduduk agama nonmuslim yang **hampir mencapai 90%** (dilansir dari Dukcapil, 2024), Bali tetap memiliki banyak pilihan kuliner halal untuk memenuhi kebutuhan wisatawan Muslim. Oleh karena itu, aplikasi `<isi nama aplikasi>` hadir untuk membantu wisatawan Muslim menikmati kuliner halal Bali.
@@ -23,8 +23,6 @@ Aplikasi ini menyediakan fitur rating, rekomendasi tempat makan, daftar alergi, 
 Kami juga berharap aplikasi ini dapat berkontribusi pada pengembangan sektor pariwisata Bali dengan memberikan solusi yang memudahkan wisatawan Muslim. Dengan kemudahan akses informasi yang ditawarkan, diharapkan wisatawan dapat menikmati pengalaman kuliner yang lebih menyenangkan dan berkesan.
 
 Dengan beragam fitur yang tersedia, harapannya aplikasi ini dapat memudahkan pengguna dan mendorong penggunaan teknologi dalam kehidupan sehari-hari, yang pada akhirnya akan meningkatkan kenyamanan dalam mencari makanan halal di Bali.
-
-## Deskripsi Aplikasi
 
 # 📚 Daftar Modul 📚
 **i. Authentication** 
@@ -55,12 +53,12 @@ v. Souvenir
 
 Modul ini memberikan informasi tentang apa saja jenis souvenir yang tersedia di Bali kepada User.
 
-## Sumber Initial Dataset
+# 📖 Sumber Initial Dataset 📖
 Kami mengumpulkan *dataset* secara *manual*, yang dapat diakses pada tautan berikut:
 
 ristek.link/DatasetPBPA10
 
-## 🎭 Role Pengguna 🎭
+# 🎭 Role Pengguna 🎭
 **1. Admin**
 
 Admin memiliki kontrol penuh terhadap aplikasi dan dapat mengelola pengguna, konten, pengaturan sistem, serta keamanan aplikasi. 
