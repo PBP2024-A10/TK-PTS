@@ -88,11 +88,11 @@ Admin memiliki kontrol penuh terhadap aplikasi dan dapat mengelola pengguna, kon
 
 **2. *Non-registered User***
 
-*Non-registered user* hanya dapat mengakses Home Page dan tidak dapat mengakses semua fitur yang ada dalam aplikasi.
+*Non-registered user* hanya dapat mengakses *home page*, melihat *card* makanan, editor's choice, dan melihat oleh-oleh. Beberapa fitur tidak dapat diakses, seperti melakukan pemesanan, menyimpan makanan favorit pada *Wishlist page*, dan memberikan penilaian makanan.
 
 **3. *Registered User***
 
-*Registered user* dapat mengakses semua halaman dan semua fitur yang ada dalam aplikasi.
+*Registered user* dapat mengakses semua halaman dan fitur yang ada dalam aplikasi, seperti melakukan pemesanan, menambahkan dan mengedit makanan di *Wishlist page*, dan dapat memberikan penilaian berupa *rating* dan *review*.
 
 # 🔗Tautan Deployment Aplikasi🔗
 🔗 PWS: http://rafansya-daryltama-ajenganhalal.pbp.cs.ui.ac.id/
