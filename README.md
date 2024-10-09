@@ -60,8 +60,18 @@ Kami mengumpulkan *dataset* secara *manual*, yang dapat diakses pada tautan beri
 
 ristek.link/DatasetPBPA10
 
-## Role Pengguna
+## 🎭 Role Pengguna 🎭
+**1. Admin**
 
+Admin memiliki kontrol penuh terhadap aplikasi dan dapat mengelola pengguna, konten, pengaturan sistem, serta keamanan aplikasi. 
+
+**2. *Non-registered User***
+
+*Non-registered user* hanya dapat mengakses Home Page dan tidak dapat mengakses semua fitur yang ada dalam aplikasi.
+
+**3. *Registered User***
+
+*Registered user* dapat mengakses semua halaman dan semua fitur yang ada dalam aplikasi.
 
 ## Daftar Pustaka
 https://gis.dukcapil.kemendagri.go.id/peta/
