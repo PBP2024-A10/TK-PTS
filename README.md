@@ -94,7 +94,8 @@ Admin memiliki kontrol penuh terhadap aplikasi dan dapat mengelola pengguna, kon
 
 *Registered user* dapat mengakses semua halaman dan semua fitur yang ada dalam aplikasi.
 
-# Tautan Deployment Aplikasi
+# 🔗Tautan Deployment Aplikasi🔗
+🔗 PWS: http://rafansya-daryltama-ajenganhalal.pbp.cs.ui.ac.id/
 
 ## Daftar Pustaka
-https://gis.dukcapil.kemendagri.go.id/peta/
+🔗 https://gis.dukcapil.kemendagri.go.id/peta/
