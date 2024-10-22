@@ -1,51 +1,111 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from .models import FoodItem, Order, OrderItem
+from django.shortcuts import render, redirect
+import json
+from django.shortcuts import render
+from django.contrib.auth.models import User
+from django.core import serializers
+from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect, HttpResponse, JsonResponse, HttpResponseNotFound
+from django.urls import reverse
+from .forms import FoodOrderForm  # Pastikan Anda telah membuat form sesuai kebutuhan
+from .models import FoodOrder
 
-@login_required(login_url='authentication:login')
 def show_main(request):
+    food_entries = FoodOrder.objects.all()
+
     context = {
-        'npm' : '2306123456',
-        'name': 'Pak Bepe',
-        'class': 'PBP E'
+        'makanan': 'Bebek Betutu',
+        'alamat': 'Jalan Tole Iskandar',
+        'status': 'Pending',
+        'food_entries': food_entries
     }
 
-    return render(request, 'main.html', context)
+    return render(request, "main.html", context)
 
-@login_required
-def food_list(request):
-    food_items = FoodItem.objects.all()
-    return render(request, 'food_list.html', {'food_items': food_items})
+@csrf_exempt
+@login_required(login_url="authentication:login")
+def create_order(request):
+    """Handle order creation."""
+    form = FoodOrderForm(request.POST or None)
 
-@login_required
-def add_to_cart(request, food_id):
-    food_item = get_object_or_404(FoodItem, id=food_id)
-    order, created = Order.objects.get_or_create(user=request.user, is_confirmed=False)
-    order_item, created = OrderItem.objects.get_or_create(order=order, food_item=food_item)
-    order_item.quantity += 1
-    order_item.save()
-    return redirect('view_cart')
+    if form.is_valid() and request.method == 'POST':
+        order = form.save(commit=False)
+        order.user = request.user
+        order.save()
 
-@login_required
-def view_cart(request):
-    order = Order.objects.filter(user=request.user, is_confirmed=False).first()
-    return render(request, 'cart.html', {'order': order})
+        return HttpResponse(b"Order created successfully", status=200)
 
-@login_required
-def confirm_order(request):
-    order = get_object_or_404(Order, user=request.user, is_confirmed=False)
-    order.is_confirmed = True
-    order.save()
-    return redirect('order_history')
+    context = {
+        "form": form,
+    }
+    return render(request, 'create_order.html', context)
 
-@login_required
-def order_history(request):
-    orders = Order.objects.filter(user=request.user, is_confirmed=True).order_by('-created_at')
-    return render(request, 'order_history.html', {'orders': orders})
+@login_required(login_url="authentication:login")
+def show_orders(request):
+    """Display the user's order history."""
+    orders = FoodOrder.objects.filter(user=request.user)
 
-@login_required
-def admin_manage_orders(request):
-    if not request.user.is_staff:
-        return redirect('food_list')
-    orders = Order.objects.filter(is_confirmed=True).order_by('-created_at')
-    return render(request, 'admin_manage_orders.html', {'orders': orders})
+    context = {
+        "orders": orders,
+    }
+    return render(request, "order_history.html", context)
+
+@csrf_exempt
+def update_order_status(request, order_id):
+    """Update the status of an order."""
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        status = data.get("status")
+
+        try:
+            order = FoodOrder.objects.get(id=order_id, user=request.user)
+            if status in dict(FoodOrder.ORDER_STATUS_CHOICES):
+                order.status_pesanan = status
+                order.save()
+                return JsonResponse({"status": "success"}, status=200)
+            else:
+                return JsonResponse({"status": "invalid status"}, status=400)
+        except FoodOrder.DoesNotExist:
+            return JsonResponse({"status": "not found"}, status=404)
+
+    return JsonResponse({"status": "error"}, status=400)
+
+@csrf_exempt
+@login_required(login_url="authentication:login")
+def cancel_order(request, order_id):
+    """Cancel an existing order."""
+    try:
+        order = FoodOrder.objects.get(id=order_id, user=request.user)
+        order.status_pesanan = 'cancelled'
+        order.save()
+        return JsonResponse({"status": "Order cancelled"}, status=200)
+    except FoodOrder.DoesNotExist:
+        return JsonResponse({"status": "Order not found"}, status=404)
+
+def get_order_json(request):
+    """Retrieve all orders as JSON."""
+    orders = FoodOrder.objects.all()
+    return JsonResponse(serializers.serialize('json', orders), safe=False)
+
+@login_required(login_url="authentication:login")
+def get_order_by_user(request):
+    """Retrieve orders for a specific user."""
+    orders = FoodOrder.objects.filter(user=request.user)
+    return JsonResponse(serializers.serialize('json', orders), safe=False)
+
+@csrf_exempt
+def get_order_by_id(request, order_id):
+    """Retrieve a specific order by ID."""
+    try:
+        order = FoodOrder.objects.get(id=order_id)
+        data = {
+            "id": str(order.id),
+            "user": order.user.username,
+            "nama_penerima": order.nama_penerima,
+            "alamat_pengiriman": order.alamat_pengiriman,
+            "tanggal_pemesanan": order.tanggal_pemesanan.strftime('%Y-%m-%d'),
+            "status_pesanan": order.status_pesanan,
+        }
+        return JsonResponse(data, status=200)
+    except FoodOrder.DoesNotExist:
+        return JsonResponse({"status": "Order not found"}, status=404)
