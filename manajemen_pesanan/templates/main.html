@@ -2,7 +2,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container mx-auto px-4">
-    <h1 class="text-2xl font-bold mt-4">Daftar Pesanan</h1>
+    <h1 class="text-2xl font-bold mt-4 text-center">DAFTAR PESANAN</h1>
     <ul class="mt-4">
         {% for order in food_entries %}
             <li class="bg-white shadow-md rounded p-4 mb-4">
@@ -11,6 +11,7 @@
                 <strong>Alamat Pengiriman:</strong> {{ order.alamat_pengiriman }} <br>
                 <strong>Status Pesanan:</strong> {{ order.status_pesanan }} <br>
                 <a href="{% url 'manajemen_pesanan:get_order_by_id' order.id %}" class="text-blue-500 hover:underline">Lihat Detail</a>
+                <a href="{% url 'manajemen_pesanan:update_order_status' order.id %}" class="ml-4 text-blue-500 hover:underline">Update</a>
             </li>
         {% empty %}
             <li>Tidak ada pesanan.</li>

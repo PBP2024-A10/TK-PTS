@@ -1,0 +1,20 @@
+<!-- main/templates/main.html -->
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mx-auto px-4">
+    <h1 class="text-2xl font-bold mt-4">Detail Pesanan</h1>
+    <ul class="mt-4">
+            <li class="bg-white shadow-md rounded p-4 mb-4">
+                <strong>Pesanan ID:</strong> {{ order.id }} <br>
+                <strong>Nama Penerima:</strong> {{ order.nama_penerima }} <br>
+                <strong>Alamat Pengiriman:</strong> {{ order.alamat_pengiriman }} <br>
+                <strong>Status Pesanan:</strong> {{ order.status_pesanan }} <br>
+                <form method="post" action="{% url 'manajemen_pesanan:delete_order' order.id %}" class="mt-4">
+                    {% csrf_token %}
+                    <button type="submit" class="bg-red-500 text-white py-2 px-4 rounded" onclick="return confirm('Apakah Anda yakin ingin menghapus pesanan ini?');">Hapus Pesanan</button>
+                </form>            
+            </li>
+    </ul>
+    <a href="{% url 'manajemen_pesanan:show_main' %}" class="mt-4 inline-block text-blue-500 hover:underline">Kembali ke Daftar Pesanan</a>
+</div>
+{% endblock content %}

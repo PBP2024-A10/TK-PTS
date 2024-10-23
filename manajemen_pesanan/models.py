@@ -25,3 +25,7 @@ class FoodOrder(models.Model):
 
     def __str__(self):
         return f"Order #{self.id} - {self.nama_penerima} ({self.status_pesanan})"
+
+
+
+
