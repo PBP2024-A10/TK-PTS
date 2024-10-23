@@ -10,12 +10,12 @@
                 <strong>Nama Penerima:</strong> {{ order.nama_penerima }} <br>
                 <strong>Alamat Pengiriman:</strong> {{ order.alamat_pengiriman }} <br>
                 <strong>Status Pesanan:</strong> {{ order.status_pesanan }} <br>
-                <a href="{% url 'main:get_order_by_id' order.id %}" class="text-blue-500 hover:underline">Lihat Detail</a>
+                <a href="{% url 'manajemen_pesanan:get_order_by_id' order.id %}" class="text-blue-500 hover:underline">Lihat Detail</a>
             </li>
         {% empty %}
             <li>Tidak ada pesanan.</li>
         {% endfor %}
     </ul>
-    <a href="{% url 'main:create_order' %}" class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded">Buat Pesanan Baru</a>
+    <a href="{% url 'manajemen_pesanan:create_order' %}" class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded">Buat Pesanan Baru</a>
 </div>
 {% endblock content %}

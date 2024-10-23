@@ -11,12 +11,12 @@
                 <strong>Alamat Pengiriman:</strong> {{ order.alamat_pengiriman }} <br>
                 <strong>Tanggal Pemesanan:</strong> {{ order.tanggal_pemesanan }} <br>
                 <strong>Status Pesanan:</strong> {{ order.status_pesanan }} <br>
-                <a href="{% url 'main:get_order_by_id' order.id %}" class="text-blue-500 hover:underline">Lihat Detail</a>
+                <a href="{% url 'manajemen_pesanan:get_order_by_id' order.id %}" class="text-blue-500 hover:underline">Lihat Detail</a>
             </li>
         {% empty %}
             <li>Tidak ada riwayat pesanan.</li>
         {% endfor %}
     </ul>
-    <a href="{% url 'main:show_main' %}" class="mt-4 inline-block text-blue-500 hover:underline">Kembali ke Daftar Pesanan</a>
+    <a href="{% url 'manajemen_pesanan:show_main' %}" class="mt-4 inline-block text-blue-500 hover:underline">Kembali ke Daftar Pesanan</a>
 </div>
 {% endblock content %}
