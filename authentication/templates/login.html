@@ -5,28 +5,39 @@
 {% endblock meta %}
 
 {% block content %}
-<div class="login">
-  <h1>Login</h1>
+<div class="flex items-center justify-center min-h-screen bg-[#3d200a]">
+  <div class="w-full max-w-md p-8 space-y-6 bg-[#e8dcd4] rounded-lg shadow-md">
+    <h2 class="text-3xl font-extrabold text-center text-[#3d200a]">Ajengan Halal</h2>
+    
+    <form method="POST" action="" class="space-y-6">
+      {% csrf_token %}
+      
+      <div>
+        <label for="username" class="block mb-2 text-sm font-medium text-[#654a2d]">Username</label>
+        <input type="text" id="username" name="username" placeholder="Type your Username here" class="w-full px-4 py-2 text-sm border rounded-lg bg-[#cbbcb5] text-[#3d200a] focus:outline-none focus:ring-2 focus:ring-[#654a2d]">
+      </div>
+      
+      <div>
+        <label for="password" class="block mb-2 text-sm font-medium text-[#654a2d]">Password</label>
+        <input type="password" id="password" name="password" placeholder="Type your password here" class="w-full px-4 py-2 text-sm border rounded-lg bg-[#cbbcb5] text-[#3d200a] focus:outline-none focus:ring-2 focus:ring-[#654a2d]">
+      </div>
 
-  <form method="POST" action="">
-    {% csrf_token %}
-    <table>
-      {{ form.as_table }}
-      <tr>
-        <td></td>
-        <td><input class="btn login_btn" type="submit" value="Login" /></td>
-      </tr>
-    </table>
-  </form>
+      <div>
+        <input class="w-full px-4 py-2 text-white bg-[#654a2d] rounded-lg cursor-pointer hover:bg-[#927155]" type="submit" value="Login" />
+      </div>
+    </form>
 
-  {% if messages %}
-  <ul>
-    {% for message in messages %}
-    <li>{{ message }}</li>
-    {% endfor %}
-  </ul>
-  {% endif %} Don't have an account yet?
-  <a href="{% url 'authentication:register' %}">Register Now</a>
+    {% if messages %}
+    <ul class="mt-4">
+      {% for message in messages %}
+      <li class="text-sm text-red-500">{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    <p class="mt-6 text-sm text-center text-[#654a2d]">Don't have an account yet? 
+      <a href="{% url 'authentication:register' %}" class="text-[#3d200a] hover:underline">Register here</a>
+    </p>
+  </div>
 </div>
-
 {% endblock content %}

@@ -5,28 +5,37 @@
 {% endblock meta %}
 
 {% block content %}
+<div class="flex items-center justify-center min-h-screen bg-[#3d200a]">
+  <div class="w-full max-w-md p-8 space-y-6 bg-[#e8dcd4] rounded-lg shadow-md">
+    <h1 class="text-3xl font-extrabold text-center text-[#3d200a]">Register</h1>
+    
+    <form method="POST" class="space-y-6">
+      {% csrf_token %}
+      
+      <div class="space-y-4">
+        {% for field in form %}
+        <div>
+          <label for="{{ field.id_for_label }}" class="block text-sm font-medium text-[#654a2d]">{{ field.label }}</label>
+          {{ field }}
+          {% if field.help_text %}
+          <p class="text-xs text-[#927155]">{{ field.help_text }}</p>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+      
+      <div>
+        <input type="submit" name="submit" value="Daftar" class="w-full px-4 py-2 text-white bg-[#654a2d] rounded-lg cursor-pointer hover:bg-[#927155]" />
+      </div>
+    </form>
 
-<div class="login">
-  <h1>Register</h1>
-
-  <form method="POST">
-    {% csrf_token %}
-    <table>
-      {{ form.as_table }}
-      <tr>
-        <td></td>
-        <td><input type="submit" name="submit" value="Daftar" /></td>
-      </tr>
-    </table>
-  </form>
-
-  {% if messages %}
-  <ul>
-    {% for message in messages %}
-    <li>{{ message }}</li>
-    {% endfor %}
-  </ul>
-  {% endif %}
+    {% if messages %}
+    <ul class="mt-4">
+      {% for message in messages %}
+      <li class="text-sm text-red-500">{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
 </div>
-
 {% endblock content %}

@@ -1,0 +1,50 @@
+<nav class="bg-[#654a2d] shadow-lg fixed top-0 left-0 z-40 w-full">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center">
+        <h1 class="text-2xl font-bold text-[#e8dcd4]">Ajengan Halal</h1>
+      </div>
+      <!-- Navigation Links for Desktop -->
+      <div class="hidden md:flex items-center space-x-4">
+        {% if user.is_authenticated %}
+          <a href="{% url 'main:show_main' %}" class="text-[#e8dcd4] hover:text-[#927155]">Homepage</a>
+          <a href="{% url 'user_profile:profile' %}" class="text-[#e8dcd4] hover:text-[#927155]">Profile</a>
+          <a href="{% url 'authentication:logout' %}" class="bg-[#3d200a] hover:bg-[#654a2d] text-[#e8dcd4] font-bold py-2 px-4 rounded transition duration-300">Logout</a>
+        {% else %}
+          <a href="{% url 'authentication:login' %}" class="text-[#e8dcd4] hover:text-[#927155]">Login</a>
+          <a href="{% url 'authentication:register' %}" class="text-[#e8dcd4] hover:text-[#927155]">Register</a>
+        {% endif %}
+      </div>
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden flex items-center">
+        <button class="mobile-menu-button">
+          <svg class="w-6 h-6 text-[#e8dcd4]" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Mobile menu -->
+  <div class="mobile-menu hidden absolute w-full bg-[#654a2d] shadow-lg z-20">
+    <div class="py-2 space-y-1">
+      {% if user.is_authenticated %}
+        <a href="{% url 'main:show_main' %}" class="block text-center text-[#e8dcd4] hover:text-[#927155] py-2">Homepage</a>
+        <a href="{% url 'user_profile:profile' %}" class="block text-center text-[#e8dcd4] hover:text-[#927155] py-2">Profile</a>
+        <a href="{% url 'authentication:logout' %}" class="block text-center bg-[#3d200a] hover:bg-[#654a2d] text-[#e8dcd4] font-bold py-2 px-4 rounded transition duration-300">Logout</a>
+      {% else %}
+        <a href="{% url 'authentication:login' %}" class="block text-center text-[#e8dcd4] hover:text-[#927155] py-2">Login</a>
+        <a href="{% url 'authentication:register' %}" class="block text-center text-[#e8dcd4] hover:text-[#927155] py-2">Register</a>
+      {% endif %}
+    </div>
+  </div>
+</nav>
+
+<script>
+  const btn = document.querySelector(".mobile-menu-button");
+  const menu = document.querySelector(".mobile-menu");
+  
+  btn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
+</script>
