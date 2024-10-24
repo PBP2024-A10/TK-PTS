@@ -1,50 +1,62 @@
-<nav class="bg-[#654a2d] shadow-lg fixed top-0 left-0 z-40 w-full">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16">
-      <div class="flex items-center">
-        <h1 class="text-2xl font-bold text-[#e8dcd4]">Ajengan Halal</h1>
-      </div>
-      <!-- Navigation Links for Desktop -->
-      <div class="hidden md:flex items-center space-x-4">
-        {% if user.is_authenticated %}
-          <a href="{% url 'main:show_main' %}" class="text-[#e8dcd4] hover:text-[#927155]">Homepage</a>
-          <a href="{% url 'user_profile:profile' %}" class="text-[#e8dcd4] hover:text-[#927155]">Profile</a>
-          <a href="{% url 'authentication:logout' %}" class="bg-[#3d200a] hover:bg-[#654a2d] text-[#e8dcd4] font-bold py-2 px-4 rounded transition duration-300">Logout</a>
-        {% else %}
-          <a href="{% url 'authentication:login' %}" class="text-[#e8dcd4] hover:text-[#927155]">Login</a>
-          <a href="{% url 'authentication:register' %}" class="text-[#e8dcd4] hover:text-[#927155]">Register</a>
-        {% endif %}
-      </div>
-      <!-- Mobile Menu Button -->
-      <div class="md:hidden flex items-center">
-        <button class="mobile-menu-button">
-          <svg class="w-6 h-6 text-[#e8dcd4]" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-            <path d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
+{% load static %}
+<nav class="bg-brown-mild border-brown-lighter dark:bg-brown-mild">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-1">
+    <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+      <img src="{% static 'images/web-logo.svg' %}" class="h-16" alt="Logo" />
+    </a>
+    <div class="flex md:order-2">
+      <!-- Cart Button -->
+      <button type="button" class="relative rounded-full bg-brown-darker p-2 text-brown-lightest hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brown-darker mr-2">
+        <span class="absolute -inset-1.5"></span>
+        <span class="sr-only">View cart/order</span>
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h18l-2 13H5L3 3zm3 16a2 2 0 1 0 4 0H6zm8 0a2 2 0 1 0 4 0h-4z" />
+        </svg>
+      </button>
+
+      <!-- Favorites Button -->
+      <button type="button" class="relative rounded-full bg-brown-darker p-2 text-brown-lightest hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brown-darker mr-2">
+        <span class="absolute -inset-1.5"></span>
+        <span class="sr-only">View favorites</span>
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </svg>
+      </button>
+
+      <!-- Profile dropdown -->
+      <div class="relative ml-3">
+        <div>
+          <button type="button" class="relative flex rounded-full bg-brown-darker text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brown-darker" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+            <span class="absolute -inset-1.5"></span>
+            <span class="sr-only">Open user menu</span>
+            <img class="h-8 w-8 rounded-full" src="{% static 'images/svg-account.png' %}" alt="">
+          </button>
+        </div>
+        <div id="user-menu" data-username="{{ user.username }}" data-username-url="{% url 'user_profile:profile' %}" data-logout-url="{% url 'authentication:logout' %}" data-login-url="{% url 'authentication:login' %}" data-register-url="{% url 'authentication:register' %}" class="absolute right-0 z-20 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none transition ease-out duration-100 transform opacity-0 scale-95 hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1"></div>
+        
       </div>
     </div>
-  </div>
-  <!-- Mobile menu -->
-  <div class="mobile-menu hidden absolute w-full bg-[#654a2d] shadow-lg z-20">
-    <div class="py-2 space-y-1">
-      {% if user.is_authenticated %}
-        <a href="{% url 'main:show_main' %}" class="block text-center text-[#e8dcd4] hover:text-[#927155] py-2">Homepage</a>
-        <a href="{% url 'user_profile:profile' %}" class="block text-center text-[#e8dcd4] hover:text-[#927155] py-2">Profile</a>
-        <a href="{% url 'authentication:logout' %}" class="block text-center bg-[#3d200a] hover:bg-[#654a2d] text-[#e8dcd4] font-bold py-2 px-4 rounded transition duration-300">Logout</a>
-      {% else %}
-        <a href="{% url 'authentication:login' %}" class="block text-center text-[#e8dcd4] hover:text-[#927155] py-2">Login</a>
-        <a href="{% url 'authentication:register' %}" class="block text-center text-[#e8dcd4] hover:text-[#927155] py-2">Register</a>
-      {% endif %}
+
+    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-search">
+      <div class="relative mt-3 md:hidden">
+        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+          <svg class="w-4 h-4 text-brown-mild" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+          </svg>
+        </div>
+        <input type="text" id="search-navbar" class="block w-full p-2 ps-10 text-sm text-brown-darkest border border-brown-lighter rounded-lg bg-brown-lightest focus:ring-brown-mild focus:border-brown-mild dark:bg-brown-darker dark:border-brown-darker dark:placeholder-brown-lighter dark:text-brown-lightest dark:focus:ring-brown-mild dark:focus:border-brown-mild" placeholder="Search...">
+      </div>
+      <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-brown-lighter rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-brown-darkest dark:bg-brown-darker md:dark:bg-brown-darker dark:border-brown-darker">
+        <li>
+          <a href="{% url 'main:show_main' %}" class="block py-2 px-3 text-brown-lightest md:bg-transparent md:text-brown-mild md:p-0 md:dark:text-brown-lightest" aria-current="page">Home</a>
+        </li>
+        <li>
+          <a href="#" class="block py-2 px-3 text-brown-darkest md:hover:bg-transparent md:hover:text-brown-mild md:p-0 md:dark:hover:text-brown-mild dark:text-brown-lightest dark:hover:bg-brown-darker dark:hover:text-brown-lightest md:dark:hover:bg-transparent dark:border-brown-darker">Editor's Choice</a>
+        </li>
+        <li>
+          <a href="#" class="block py-2 px-3 text-brown-darkest md:hover:bg-transparent md:hover:text-brown-mild md:p-0 dark:text-brown-lightest md:dark:hover:text-brown-mild dark:hover:bg-brown-darker dark:hover:text-brown-lightest md:dark:hover:bg-transparent dark:border-brown-darker">Souvenir</a>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
-
-<script>
-  const btn = document.querySelector(".mobile-menu-button");
-  const menu = document.querySelector(".mobile-menu");
-  
-  btn.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
-  });
-</script>

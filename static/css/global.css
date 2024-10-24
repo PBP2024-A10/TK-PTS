@@ -1,0 +1,76 @@
+/* *
+  * General menu
+  */
+/* Background colors */
+:root {
+  --brown-darkest: #3d200a;
+  --brown-darker: #654a2d;
+  --brown-mild: #927155;
+  --brown-lighter: #cbbcb5;
+  --brown-lightest: #e8dcd4;
+}
+
+.bg-brown-darkest {
+  background-color: var(--brown-darkest);
+}
+
+.bg-brown-darker {
+  background-color: var(--brown-darker);
+}
+
+.bg-brown-mild {
+  background-color: var(--brown-mild);
+}
+
+.bg-brown-lighter {
+  background-color: var(--brown-lighter);
+}
+
+.bg-brown-lightest {
+  background-color: var(--brown-lightest);
+}
+
+.bg-brown-darkest:hover,
+.hover\:bg-brown-darkest {
+  background-color: var(--brown-darkest);
+}
+
+.bg-brown-darker:hover,
+.hover\:bg-brown-darker {
+  background-color: var(--brown-darker);
+}
+
+.bg-brown-mild:hover,
+.hover\:bg-brown-mild {
+  background-color: var(--brown-mild);
+}
+
+.bg-brown-lighter:hover,
+.hover\:bg-brown-lighter {
+  background-color: var(--brown-lighter);
+}
+
+.bg-brown-lightest:hover,
+.hover\:bg-brown-lightest {
+  background-color: var(--brown-lightest);
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #927155; }
+}
+
+.typing-animation {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #927155;
+  animation:
+    typing 3s steps(30, end),
+    blink-caret 1s step-end infinite;
+}

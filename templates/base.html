@@ -1,16 +1,58 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {% block meta %} {% endblock meta %}
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
-  </head>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Rasa:wght@400;700&display=swap" rel="stylesheet">
-<body>
-  {% block content %} {% endblock content %}
-  <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
-</body>
+    <head>
+        {% block meta %}
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {% endblock meta %}
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/global.css' %}" />
+        <link href="https://fonts.googleapis.com/css2?family=Rasa:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+        <!-- add new link/script: db, cdn, fonts, etc. -->
+        <!-- <link href='https://fonts.googleapis.com/css?family=Plus Jakarta Sans' rel='stylesheet'> -->
+
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            'rasa': ['Rasa', 'sans-serif'],
+                            'plus-jakarta-sans': ['"Plus Jakarta Sans"', 'sans-serif'],
+                        },
+                    },
+                },
+            };
+        </script>
+          <style>
+            @keyframes typing {
+              from { width: 0; }
+              to { width: 100%; }
+            }
+    
+            @keyframes blink-caret {
+              from, to { border-color: transparent; }
+              50% { border-color: #927155; }
+            }
+    
+            .typing-animation {
+              display: inline-block;
+              overflow: hidden;
+              white-space: nowrap;
+              border-right: 2px solid #927155;
+              animation:
+                typing 3s steps(30, end),
+                blink-caret 0.75s step-end infinite;
+            }
+        </style>
+    </head>
+    
+    <body>
+        {% block content %} {% endblock content %}
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script type="text/JavaScript" src="{% static 'js/global.js' %}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.7/dist/purify.min.js"></script>
+        <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
+    </body>
 </html>

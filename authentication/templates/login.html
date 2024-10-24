@@ -5,27 +5,29 @@
 {% endblock meta %}
 
 {% block content %}
-<div class="min-h-screen bg-cover bg-center flex items-center justify-between" style="background-image: url('{% static "image/image 3.png" %}')">
+<div class="min-h-screen bg-cover bg-center bg-[#654a2d] flex items-center justify-between" style="background-image: url('{% static "image/image 3.png" %}')">
   <div class="flex w-1/2 flex-col justify-center items-center gap-4">
-    <h2 class="text-4xl font-bold text-[#3d200a]">Ajengan Halal</h2>
-    <p class="text-lg font-semibold text-[#654a2d] mb-4">Temukan Kuliner Halal di Bali!</p>
+    <a href="{% url 'authentication:login' %}" class="flex items-center space-x-3 rtl:space-x-reverse">
+      <img src="{% static 'images/web-logo.svg' %}" class="h-80" alt="Logo" />
+    </a>
+    <p class="text-4xl font-semibold text-[#cbbcb5] mb-8 font-rasa typing-animation">Temukan Kuliner Halal di Bali!</p>
   </div>
-  <div class="w-full max-w-md p-8 pt-4 space-y-6 bg-white/90 rounded-lg shadow-md m-8">
+  <div class="w-full max-w-md p-8 pt-4 space-y-6 bg-white/90 rounded-lg shadow-md m-10">
     <form method="POST" action="" class="space-y-6">
       {% csrf_token %}
 
       <div>
-        <label for="username" class="block mb-2 text-sm font-medium text-[#654a2d]">Username</label>
-        <input type="text" id="username" name="username" placeholder="Enter username" class="w-full px-4 py-2 text-sm border rounded-lg bg-[#cbbcb5] text-[#3d200a] focus:outline-none focus:ring-2 focus:ring-[#654a2d]">
+        <label for="username" class="block mb-2 text-sm font-medium text-[#654a2d] font-plus-jakarta-sans">Username</label>
+        <input type="text" id="username" name="username" placeholder="Enter username" class="w-full px-4 py-2 text-sm border rounded-lg bg-[#cbbcb5] text-[#3d200a] focus:outline-none focus:ring-2 focus:ring-[#654a2d] font-plus-jakarta-sans">
       </div>
 
       <div>
-        <label for="password" class="block mb-2 text-sm font-medium text-[#654a2d]">Password</label>
-        <input type="password" id="password" name="password" placeholder="Enter password" class="w-full px-4 py-2 text-sm border rounded-lg bg-[#cbbcb5] text-[#3d200a] focus:outline-none focus:ring-2 focus:ring-[#654a2d]">
+        <label for="password" class="block mb-2 text-sm font-medium text-[#654a2d] font-plus-jakarta-sans">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter password" class="w-full px-4 py-2 text-sm border rounded-lg bg-[#cbbcb5] text-[#3d200a] focus:outline-none focus:ring-2 focus:ring-[#654a2d] font-plus-jakarta-sans">
       </div>
 
       <div>
-        <input class="w-full px-4 py-2 text-white bg-[#654a2d] rounded-lg cursor-pointer hover:bg-[#927155]" type="submit" value="Log In" />
+        <input class="w-full px-4 py-2 text-white bg-[#654a2d] rounded-lg cursor-pointer hover:bg-[#927155] font-plus-jakarta-sans" type="submit" value="Log In" />
       </div>
     </form>
 
@@ -37,13 +39,14 @@
     </ul>
     {% endif %}
 
-    <p class="mt-6 text-sm text-center text-[#654a2d]">
+    <p class="mt-6 text-sm text-center text-[#654a2d] font-plus-jakarta-sans">
       Don't have an account? 
       <a href="{% url 'authentication:register' %}" class="text-[#3d200a] hover:underline">Sign Up</a>
-      <p class="mt-6 text-sm text-center text-[#654a2d]">
-        Log in as a guest?
-        <a href="{% url 'main:show_main' %}" class="text-[#3d200a] hover:underline">Log in</a>
-      </p>
+    </p>
+
+    <p class="mt-6 text-sm text-center text-[#654a2d] font-plus-jakarta-sans">
+      Log in as a guest?
+      <a href="{% url 'main:show_main' %}" class="text-[#3d200a] hover:underline">Log in</a>
     </p>
   </div>
 </div>

@@ -1,55 +1,60 @@
+# authentication/forms.py
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .models import UserProfile
 
 class UserRegistrationForm(UserCreationForm):
-    email = forms.EmailField(required=True)
+    email = forms.EmailField(
+        required=True,
+        widget=forms.EmailInput(attrs={
+            'class': 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#927155] focus:border-[#927155] block w-full p-2.5',
+            'placeholder': 'john.doe@example.com',
+        }),
+        help_text="Enter a valid email address.",
+    )
+    username = forms.CharField(
+        max_length=150,
+        widget=forms.TextInput(attrs={
+            'class': 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#927155] focus:border-[#927155] block w-full p-2.5',
+            'placeholder': 'Your username',
+        }),
+        help_text="Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.",
+    )
+    password1 = forms.CharField(
+        label="Password",
+        widget=forms.PasswordInput(attrs={
+            'class': 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#927155] focus:border-[#927155] block w-full p-2.5',
+            'placeholder': '•••••••••',
+        }),
+        help_text="Your password must contain at least 8 characters.",
+    )
+    password2 = forms.CharField(
+        label="Confirm Password",
+        widget=forms.PasswordInput(attrs={
+            'class': 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#927155] focus:border-[#927155] block w-full p-2.5',
+            'placeholder': '•••••••••',
+        }),
+        help_text="Enter the same password as before, for verification.",
+    )
+
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
-        widgets = {
-            'username': forms.Textarea(attrs={
-            'class': 'block p-2.5 w-full text-sm text-[#e8dcd4] bg-[#654a2d] rounded-lg border border-[#654a2d] focus:ring-[#927155] focus:border-[#927155]',
-            'rows': 1,
-             }),
-            'email': forms.EmailInput(attrs={
-                'class': 'block p-2.5 w-full text-sm text-[#e8dcd4] bg-[#654a2d] rounded-lg border border-[#654a2d] focus:ring-[#927155] focus:border-[#927155]',
-            }),
-            'password1': forms.PasswordInput(attrs={
-                'class': 'block p-2.5 w-full text-sm text-[#e8dcd4] bg-[#654a2d] rounded-lg border border-[#654a2d] focus:ring-[#927155] focus:border-[#927155]',
-            }),
-            'password2': forms.PasswordInput(attrs={
-                'class': 'block p-2.5 w-full text-sm text-[#e8dcd4] bg-[#654a2d] rounded-lg border border-[#654a2d] focus:ring-[#927155] focus:border-[#927155]',
-            }),
-        }
-
-    def __init__(self, *args, **kwargs):
-        super(UserRegistrationForm, self).__init__(*args, **kwargs)
-        if 'usable_password' in self.fields:
-            del self.fields['usable_password'] 
-
-
-    def save(self, commit=True):
-        user = super(UserRegistrationForm, self).save(commit=False)
-        user.email = self.cleaned_data['email']
-        if commit:
-            user.save()
-        return user
 
 class UserUpdateForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['username', 'email']
         widgets = {
-            'username': forms.Textarea(attrs={
-                'class': 'block p-2.5 w-full text-sm text-[#e8dcd4] bg-[#654a2d] rounded-lg border border-[#654a2d] focus:ring-[#927155] focus:border-[#927155]',
-                'rows': 1,
+            'username': forms.TextInput(attrs={
+                'class': 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#927155] focus:border-[#927155] block w-full p-2.5',
+                'placeholder': 'Your username',
             }),
             'email': forms.EmailInput(attrs={
-                'class': 'block p-2.5 w-full text-sm text-[#e8dcd4] bg-[#654a2d] rounded-lg border border-[#654a2d] focus:ring-[#927155] focus:border-[#927155]',
-                'rows': 1,
-            })
+                'class': 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#927155] focus:border-[#927155] block w-full p-2.5',
+                'placeholder': 'john.doe@example.com',
+            }),
         }
 
 class ProfileUpdateForm(forms.ModelForm):
@@ -58,7 +63,7 @@ class ProfileUpdateForm(forms.ModelForm):
         fields = ['bio']
         widgets = {
             'bio': forms.Textarea(attrs={
-                'class': 'block p-2.5 w-full text-sm text-[#3d200a] bg-[#e8dcd4] rounded-lg border border-[#654a2d] focus:ring-[#927155] focus:border-[#927155]',
+                'class': 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#927155] focus:border-[#927155] block w-full p-2.5',
                 'placeholder': 'Write your thoughts here...',
                 'rows': 4,
             }),
