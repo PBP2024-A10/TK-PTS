@@ -20,3 +20,25 @@ class UserUpdateForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['username', 'email']
+        widgets = {
+            'username': forms.Textarea(attrs={
+                'class': 'block p-2.5 w-full text-sm text-[#e8dcd4] bg-[#654a2d] rounded-lg border border-[#654a2d] focus:ring-[#927155] focus:border-[#927155]',
+                'rows': 1,
+            }),
+            'email': forms.Textarea(attrs={
+                'class': 'block p-2.5 w-full text-sm text-[#e8dcd4] bg-[#654a2d] rounded-lg border border-[#654a2d] focus:ring-[#927155] focus:border-[#927155]',
+                'rows': 1,
+            })
+        }
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ['bio']
+        widgets = {
+            'bio': forms.Textarea(attrs={
+                'class': 'block p-2.5 w-full text-sm text-[#3d200a] bg-[#e8dcd4] rounded-lg border border-[#654a2d] focus:ring-[#927155] focus:border-[#927155]',
+                'placeholder': 'Write your thoughts here...',
+                'rows': 4,
+            }),
+        }

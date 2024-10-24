@@ -4,4 +4,4 @@ from authentication.models import UserProfile
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = ['bio']
+        fields = ['email']  

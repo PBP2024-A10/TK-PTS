@@ -1,29 +1,31 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block meta %}
 <title>Login</title>
 {% endblock meta %}
 
 {% block content %}
-<div class="flex items-center justify-center min-h-screen bg-[#3d200a]">
-  <div class="w-full max-w-md p-8 space-y-6 bg-[#e8dcd4] rounded-lg shadow-md">
-    <h2 class="text-3xl font-extrabold text-center text-[#3d200a]">Ajengan Halal</h2>
-    
+<div class="min-h-screen bg-cover bg-center flex items-center justify-between" style="background-image: url('{% static "image/image 3.png" %}')">
+  <div class="flex w-1/2 flex-col justify-center items-center gap-4">
+    <h2 class="text-4xl font-bold text-[#3d200a]">Ajengan Halal</h2>
+    <p class="text-lg font-semibold text-[#654a2d] mb-4">Temukan Kuliner Halal di Bali!</p>
+  </div>
+  <div class="w-full max-w-md p-8 pt-4 space-y-6 bg-white/90 rounded-lg shadow-md m-8">
     <form method="POST" action="" class="space-y-6">
       {% csrf_token %}
-      
+
       <div>
         <label for="username" class="block mb-2 text-sm font-medium text-[#654a2d]">Username</label>
-        <input type="text" id="username" name="username" placeholder="Type your Username here" class="w-full px-4 py-2 text-sm border rounded-lg bg-[#cbbcb5] text-[#3d200a] focus:outline-none focus:ring-2 focus:ring-[#654a2d]">
-      </div>
-      
-      <div>
-        <label for="password" class="block mb-2 text-sm font-medium text-[#654a2d]">Password</label>
-        <input type="password" id="password" name="password" placeholder="Type your password here" class="w-full px-4 py-2 text-sm border rounded-lg bg-[#cbbcb5] text-[#3d200a] focus:outline-none focus:ring-2 focus:ring-[#654a2d]">
+        <input type="text" id="username" name="username" placeholder="Enter username" class="w-full px-4 py-2 text-sm border rounded-lg bg-[#cbbcb5] text-[#3d200a] focus:outline-none focus:ring-2 focus:ring-[#654a2d]">
       </div>
 
       <div>
-        <input class="w-full px-4 py-2 text-white bg-[#654a2d] rounded-lg cursor-pointer hover:bg-[#927155]" type="submit" value="Login" />
+        <label for="password" class="block mb-2 text-sm font-medium text-[#654a2d]">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter password" class="w-full px-4 py-2 text-sm border rounded-lg bg-[#cbbcb5] text-[#3d200a] focus:outline-none focus:ring-2 focus:ring-[#654a2d]">
+      </div>
+
+      <div>
+        <input class="w-full px-4 py-2 text-white bg-[#654a2d] rounded-lg cursor-pointer hover:bg-[#927155]" type="submit" value="Log In" />
       </div>
     </form>
 
@@ -35,8 +37,9 @@
     </ul>
     {% endif %}
 
-    <p class="mt-6 text-sm text-center text-[#654a2d]">Don't have an account yet? 
-      <a href="{% url 'authentication:register' %}" class="text-[#3d200a] hover:underline">Register here</a>
+    <p class="mt-6 text-sm text-center text-[#654a2d]">
+      Don't have an account? 
+      <a href="{% url 'authentication:register' %}" class="text-[#3d200a] hover:underline">Sign Up</a>
     </p>
   </div>
 </div>

@@ -6,16 +6,16 @@
 
 {% block content %}
 <div class="flex items-center justify-center min-h-screen bg-[#3d200a]">
-  <div class="w-full max-w-md p-8 space-y-6 bg-[#e8dcd4] rounded-lg shadow-md">
+  <div class="w-full max-w-4xl p-8 space-y-6 bg-[#e8dcd4] rounded-lg shadow-md">
     <h1 class="text-3xl font-extrabold text-center text-[#3d200a]">Register</h1>
     
     <form method="POST" class="space-y-6">
       {% csrf_token %}
       
-      <div class="space-y-4">
+      <div class="grid gap-6 mb-6 md:grid-cols-2">
         {% for field in form %}
         <div>
-          <label for="{{ field.id_for_label }}" class="block text-sm font-medium text-[#654a2d]">{{ field.label }}</label>
+          <label for="{{ field.id_for_label }}" class="block mb-2 text-sm font-medium text-[#654a2d]">{{ field.label }}</label>
           {{ field }}
           {% if field.help_text %}
           <p class="text-xs text-[#927155]">{{ field.help_text }}</p>
