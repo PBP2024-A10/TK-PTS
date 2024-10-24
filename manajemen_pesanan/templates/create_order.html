@@ -7,7 +7,7 @@
     <form method="post" class="mt-4 bg-white shadow-md rounded p-4">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="mt-4 bg-green-500 text-white py-2 px-4 rounded">Kirim Pesanan</button>
+        <button type="submit" class="mt-4 bg-[#3d200a] text-white py-2 px-4 rounded">Kirim Pesanan</button>
     </form>
 <!-- 
     {% if form_submitted %}
@@ -15,7 +15,7 @@
     {% endif %} -->
 
     <!-- Tombol untuk kembali ke daftar pesanan -->
-    <a href="{% url 'manajemen_pesanan:show_main' %}" class="mt-4 inline-block text-blue-500 hover:underline">Kembali ke Daftar Pesanan</a>
+    <a href="{% url 'manajemen_pesanan:show_main' %}" class="mt-4 inline-block text-[#927155] hover:underline">Kembali ke Daftar Pesanan</a>
 </div>
 
 {% endblock content %}

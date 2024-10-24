@@ -1,4 +1,4 @@
-<!-- main/templates/create_order.html -->
+<!-- main/templates/update_order.html -->
 {% extends 'base.html' %}
 {% block content %}
 <div class="container mx-auto px-4">
@@ -21,7 +21,7 @@
 
     <!-- Tombol untuk selalu menampilkan riwayat pesanan -->
 
-    <a href="{% url 'manajemen_pesanan:show_main' %}" class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded">Kembali ke Daftar Pesanan</a>
+    <a href="{% url 'manajemen_pesanan:show_main' %}" class="mt-4 inline-block text-[#927155] hover:underline">Kembali ke Daftar Pesanan</a>
 </div>
 
 {% endblock content %}

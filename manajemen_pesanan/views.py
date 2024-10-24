@@ -47,16 +47,6 @@ def create_order(request):
     }
     return render(request, 'create_order.html', context)
 
-#@login_required(login_url="authentication:login")
-def show_orders(request):
-    """Display the user's order history."""
-    orders = FoodOrder.objects.filter(user=request.user)
-
-    context = {
-        "orders": orders,
-    }
-    return render(request, "order_history.html", context)
-
 @csrf_exempt
 #@login_required(login_url="authentication:login")
 def update_order_status(request, order_id):

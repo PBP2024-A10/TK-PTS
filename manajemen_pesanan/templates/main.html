@@ -1,22 +1,26 @@
 <!-- main/templates/main.html -->
 {% extends 'base.html' %}
 {% block content %}
-<div class="container mx-auto px-4">
-    <h1 class="text-2xl font-bold mt-4 text-center">DAFTAR PESANAN</h1>
-    <ul class="mt-4">
-        {% for order in food_entries %}
-            <li class="bg-white shadow-md rounded p-4 mb-4">
-                <strong>Pesanan ID:</strong> {{ order.id }} <br>
-                <strong>Nama Penerima:</strong> {{ order.nama_penerima }} <br>
-                <strong>Alamat Pengiriman:</strong> {{ order.alamat_pengiriman }} <br>
-                <strong>Status Pesanan:</strong> {{ order.status_pesanan }} <br>
-                <a href="{% url 'manajemen_pesanan:get_order_by_id' order.id %}" class="text-blue-500 hover:underline">Lihat Detail</a>
-                <a href="{% url 'manajemen_pesanan:update_order_status' order.id %}" class="ml-4 text-blue-500 hover:underline">Update</a>
-            </li>
-        {% empty %}
-            <li>Tidak ada pesanan.</li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'manajemen_pesanan:create_order' %}" class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded">Buat Pesanan Baru</a>
+<!-- Background luar dibuat full krem -->
+<div class="w-full" style="background-color: white">
+    <div class="container mx-auto px-4">
+        <h1 class="text-2xl font-bold mt-4 text-center">DAFTAR PESANAN</h1>
+        <ul class="mt-4">
+            {% for order in food_entries %}
+                <!-- Kotak tetap putih dengan margin auto -->
+                <li class="bg-white shadow-md rounded p-4 mb-4 max-w-3xl mx-auto">
+                    <strong>Pesanan ID:</strong> {{ order.id }} <br>
+                    <strong>Nama Penerima:</strong> {{ order.nama_penerima }} <br>
+                    <strong>Alamat Pengiriman:</strong> {{ order.alamat_pengiriman }} <br>
+                    <strong>Status Pesanan:</strong> {{ order.status_pesanan }} <br>
+                    <a href="{% url 'manajemen_pesanan:get_order_by_id' order.id %}" class="text-[#927155] hover:underline">Lihat Detail</a>
+                    <a href="{% url 'manajemen_pesanan:update_order_status' order.id %}" class="ml-4 text-[#927155] hover:underline">Update</a>
+                </li>
+            {% empty %}
+                <li class="ml-60 mt-4 mb-2">Tidak ada pesanan.</li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'manajemen_pesanan:create_order' %}" class="ml-60 mt-4 mb-2 inline-block text-white py-2 px-4 rounded" style="background-color: #3d200a;">Buat Pesanan Baru</a>
+    </div>
 </div>
 {% endblock content %}
