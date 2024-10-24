@@ -8,6 +8,27 @@ class UserRegistrationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
+        widgets = {
+            'username': forms.Textarea(attrs={
+            'class': 'block p-2.5 w-full text-sm text-[#e8dcd4] bg-[#654a2d] rounded-lg border border-[#654a2d] focus:ring-[#927155] focus:border-[#927155]',
+            'rows': 1,
+             }),
+            'email': forms.EmailInput(attrs={
+                'class': 'block p-2.5 w-full text-sm text-[#e8dcd4] bg-[#654a2d] rounded-lg border border-[#654a2d] focus:ring-[#927155] focus:border-[#927155]',
+            }),
+            'password1': forms.PasswordInput(attrs={
+                'class': 'block p-2.5 w-full text-sm text-[#e8dcd4] bg-[#654a2d] rounded-lg border border-[#654a2d] focus:ring-[#927155] focus:border-[#927155]',
+            }),
+            'password2': forms.PasswordInput(attrs={
+                'class': 'block p-2.5 w-full text-sm text-[#e8dcd4] bg-[#654a2d] rounded-lg border border-[#654a2d] focus:ring-[#927155] focus:border-[#927155]',
+            }),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super(UserRegistrationForm, self).__init__(*args, **kwargs)
+        if 'usable_password' in self.fields:
+            del self.fields['usable_password'] 
+
 
     def save(self, commit=True):
         user = super(UserRegistrationForm, self).save(commit=False)
@@ -25,7 +46,7 @@ class UserUpdateForm(forms.ModelForm):
                 'class': 'block p-2.5 w-full text-sm text-[#e8dcd4] bg-[#654a2d] rounded-lg border border-[#654a2d] focus:ring-[#927155] focus:border-[#927155]',
                 'rows': 1,
             }),
-            'email': forms.Textarea(attrs={
+            'email': forms.EmailInput(attrs={
                 'class': 'block p-2.5 w-full text-sm text-[#e8dcd4] bg-[#654a2d] rounded-lg border border-[#654a2d] focus:ring-[#927155] focus:border-[#927155]',
                 'rows': 1,
             })

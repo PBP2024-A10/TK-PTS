@@ -25,6 +25,7 @@ def register(request):
     context = {'form': form}
     return render(request, 'register.html', context)
 
+
 def login_user(request):
    if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)
@@ -46,3 +47,4 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('authentication:login'))
     response.delete_cookie('last_login')
     return response
+
