@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Menu untuk {{ restaurant.name }}</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Nama Menu</th>
+      <th>Deskripsi</th>
+      <th>Harga</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in menu_items %}
+    <tr>
+      <td>{{ item.name }}</td>
+      <td>{{ item.description }}</td>
+      <td>Rp{{ item.price }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<a href="{% url 'cards_makanan:restaurant_list' %}" class="text-indigo-600 hover:underline mt-4 inline-block">Kembali ke daftar restoran</a>
+{% endblock %}
