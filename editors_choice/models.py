@@ -1,15 +1,19 @@
+import uuid
 from django.db import models
 from main.models import FoodItem
 from django.conf import settings
 from django.utils import timezone
+from django.contrib.auth.models import User
 import datetime
 
 # Create your models here.
 class FoodRecommendation(models.Model):
     food_item = models.OneToOneField(FoodItem, on_delete=models.CASCADE)
+    # id = food_item.id
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     # food_type = food_item.type
     rating = models.FloatField(default=0)
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.food_item.name
@@ -27,6 +31,7 @@ def get_start_of_current_week():
     return start_of_week
     
 class EditorChoice(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     food_items = models.ManyToManyField(FoodRecommendation)
     # food_type = food_items.first().food_type
     week = models.DateField(default=get_start_of_current_week)

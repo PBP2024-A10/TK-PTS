@@ -104,6 +104,57 @@ $(document).ready(function() {
         }
     }
     superuserFeatures();
+
+    async function fetchFoodTypes(url) {
+        try {
+            const response = "";
+            if (! url.includes('breakfast') && ! url.includes('lunch') && ! url.includes('dinner') && ! url.includes('souvenir')) {
+                response = await fetch('/editors-choice/json/editor-choice/');
+            } else {
+                response = await fetch(`/editors-choice/json/editor-choice/${foodType}`);
+            }
+            const data = await response.json();
+
+            const editorChoiceList = document.getElementById('editorChoiceList');
+            const editorChoiceDesc = document.getElementById('editorChoiceDesc');
+            editorChoiceList.innerHTML = ''; // Clear the existing content
+
+            if (data.length === 0) {
+                editorChoiceList.innerHTML = `
+                <div class="flex flex-col items-center justify-center min-h-[24rem] p-6">
+                    <img src="/static/image/cross-mark-no-data.png" alt="No data" class="w-32 h-32 mb-4"/>
+                    <p class="text-center text-gray-600 mt-4">No editor's choice foods at the moment.</p>
+                </div>
+                `;
+                editorChoiceDesc.innerHTML = "Bali offers a wide range of food types, from traditional Balinese cuisine to international dishes. Here are some of the halal editor's choice foods in Bali.";
+            } else {
+                const templateResponse = await fetch('/editors-choice/food-template');
+                const templateString = await templateResponse.text();
+                editorChoiceList.innerHTML += '<ul role="list" class="divide-y divide-gray-100 hover:fly-out">';
+                data.forEach(item => {
+                    let itemHtml = templateString
+                    .replace(/{{ item.name }}/g, DOMPurify.sanitize(item.food))
+                    .replace(/{{ item.description }}/g, DOMPurify.sanitize(item.description))
+                    .replace(/{{ item.image_url }}/g, DOMPurify.sanitize(item.image_url))
+                    .replace(/{{ item.food_type }}/g, DOMPurify.sanitize(item.food_type))
+                    .replace(/g{{ item.week }}/g, DOMPurify.sanitize(item.week));
+                    editorChoiceList.innerHTML += itemHtml;
+                    editorChoiceDesc.innerHTML = item.description;
+                });
+                editorChoiceList.innerHTML += '</ul>';
+            }
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            document.getElementById('editorChoiceList').innerHTML = `
+            <div class="flex flex-col items-center justify-center min-h-[24rem] p-6">
+                <img src="/static/image/cross-mark-no-data.png" alt="No data" class="w-32 h-32 mb-4"/>
+                <p class="text-center text-gray-600 mt-4">Data are not inputted yet or failed to connect.</p>
+            </div>
+            `;
+            editorChoiceDesc.innerHTML = "Bali offers a wide range of food types, from traditional Balinese cuisine to international dishes. Here are some of the halal editor's choice foods in Bali.";
+        }
+    }
+    fetchFoodTypes(document.URL);
 });
 
 /**
@@ -124,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Event listener for choosing the food type
 async function fetchFoodData(foodType) {
     try {
-        const response = await fetch(`/editors-choice/${foodType}`);
+        const response = await fetch(`/editors-choice/json/editor-choice/${foodType}`);
         const data = await response.json();
 
         const editorChoiceList = document.getElementById('editorChoiceList');
@@ -133,26 +184,31 @@ async function fetchFoodData(foodType) {
         if (data.length === 0) {
             editorChoiceList.innerHTML = `
                 <div class="flex flex-col items-center justify-center min-h-[24rem] p-6">
-                    <img src="/static/images/cross-mark-no-data.png" alt="No data" class="w-32 h-32 mb-4"/>
+                    <img src="/static/image/cross-mark-no-data.png" alt="No data" class="w-32 h-32 mb-4"/>
                     <p class="text-center text-gray-600 mt-4">No editor's choice foods at the moment.</p>
                 </div>
             `;
         } else {
+            const templateResponse = await fetch('/editors-choice/food-template');
+            const templateString = await templateResponse.text();
+            editorChoiceList.innerHTML += '<ul role="list" class="divide-y divide-gray-100 hover:fly-out">';
             data.forEach(item => {
-                editorChoiceList.innerHTML += `
-                    <div class="food-item">
-                        <h3>${item.name}</h3>
-                        <p>${item.description}</p>
-                        <img src="${item.image_url}" alt="${item.name}">
-                    </div>
-                `;
+                let itemHtml = templateString
+                .replace(/{{ item.name }}/g, DOMPurify.sanitize(item.food))
+                .replace(/{{ item.description }}/g, DOMPurify.sanitize(item.description))
+                .replace(/{{ item.image_url }}/g, DOMPurify.sanitize(item.image_url))
+                .replace(/{{ item.food_type }}/g, DOMPurify.sanitize(item.food_type))
+                .replace(/g{{ item.week }}/g, DOMPurify.sanitize(item.week));
+                editorChoiceList.innerHTML += itemHtml;
+                editorChoiceDesc.innerHTML = item.description;
             });
+            editorChoiceList.innerHTML += '</ul>';
         }
     } catch (error) {
         console.error('Error fetching data:', error);
         document.getElementById('editorChoiceList').innerHTML = `
             <div class="flex flex-col items-center justify-center min-h-[24rem] p-6">
-                <img src="/static/images/cross-mark-no-data.png" alt="No data" class="w-32 h-32 mb-4"/>
+                <img src="/static/image/cross-mark-no-data.png" alt="No data" class="w-32 h-32 mb-4"/>
                 <p class="text-center text-gray-600 mt-4">Data are not inputted yet or failed to connect.</p>
             </div>
         `;

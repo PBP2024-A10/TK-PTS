@@ -54,3 +54,11 @@
 .hover\:bg-brown-lightest {
   background-color: var(--brown-lightest);
 }
+
+.fly-out {
+  transition: transform 0.3s ease-in-out;
+}
+
+.fly-out:hover {
+  transform: translateX(20px);
+}
