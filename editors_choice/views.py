@@ -98,7 +98,7 @@ def show_index_er(request):
     return render(request, 'editors_choice.html', context)
 
 def show_food_type(request, food_type):
-    if food_type == 'all':
+    if food_type == 'all' or food_type == '':
         food_recommendations = FoodRecommendation.objects.all()
     else:
         food_recommendations = FoodRecommendation.objects.filter(food_item__food_type=food_type)
@@ -112,22 +112,10 @@ def show_food_template(request):
 
 # Show a specific food item
 def show_food_item(request):
-    if (request.method == 'GET'):
-        food_name = request.GET.get('food_name')
-        if food_name:
-            food_recommendation = get_object_or_404(FoodRecommendation, food_item__name=food_name)
-            context = {
-                'food_recommendation': food_recommendation
-            }
-            return render(request, 'food_item.html', context)
-        
-        # Handle the case where the food_name query parameter is not provided
-        else:
-            messages.error(request, 'Food name not provided')
-            return redirect('editors_choice:index_er')
-    else:
-        messages.error(request, 'Invalid request method')
-        return redirect('editors_choice:index_er')
+    food_item = request.GET.get('food_item')
+    food_id = request.GET.get('food_id')
+    food = get_object_or_404(FoodItem, pk=food_id, name=food_item)
+    return render(request, 'food_item.html', {'food': food})
     
 # Add food item (from the database, admin only) to the Editors Choice list
 @login_required(login_url='authentication:login')
@@ -155,10 +143,25 @@ def is_logged_in(request):
     is_logged_in = request.user.is_authenticated
     return JsonResponse({'is_logged_in': is_logged_in})
 
+# JSON views: all food items
+def show_json(request):
+    food = FoodItem.objects.all()
+    return HttpResponse(serializers.serialize('json', food), content_type='application/json')
+
+# JSON views: specific food by ID
+def show_json_id(request, food_id):
+    food = FoodItem.objects.filter(pk=food_id)
+    return HttpResponse(serializers.serialize('json', food), content_type='application/json')
+
 # JSON views: all food recommendation
 def show_json_food(request):
     food_recommendations = FoodRecommendation.objects.all()
     return HttpResponse(serializers.serialize('json', food_recommendations), content_type='application/json')
+
+# JSON views: specific food recommendation by ID
+def show_json_food_id(request, food_id):
+    food = FoodRecommendation.objects.filter(pk=food_id)
+    return HttpResponse(serializers.serialize('json', food), content_type='application/json')
 
 # JSON views: all food recommendations for a specific food type
 def show_json_food_type(request, food_type):
