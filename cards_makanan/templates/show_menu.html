@@ -1,23 +1,114 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>Menu untuk {{ restaurant.name }}</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Nama Menu</th>
-      <th>Deskripsi</th>
-      <th>Harga</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for item in menu_items %}
-    <tr>
-      <td>{{ item.name }}</td>
-      <td>{{ item.description }}</td>
-      <td>Rp{{ item.price }}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-<a href="{% url 'cards_makanan:restaurant_list' %}" class="text-indigo-600 hover:underline mt-4 inline-block">Kembali ke daftar restoran</a>
+<div class="menu-cards">
+    {% if menu_items %}
+        {% for item in menu_items %}
+            <div class="card">
+                <img src="https://picsum.photos/200/120?random={{ forloop.counter }}" alt="Foto {{ item.name }}">
+                <h2>{{ item.name }}</h2>
+                <p>{{ item.description }}</p>
+                <p class="price">Rp{{ item.price }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p class="no-data">Belum ada data menu.</p>
+    {% endif %}
+</div>
+<a href="{% url 'cards_makanan:restaurant_list' %}" class="back-link">Kembali ke daftar restoran</a>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #e8dcd4;
+        color: #3d200a;
+        margin: 0;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #fff;
+        margin-bottom: 30px;
+        font-size: 2em;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        background: linear-gradient(to right, #927155, #e2c7b3);
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .menu-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .card {
+        border: 2px solid #cbbcb5;
+        border-radius: 8px;
+        padding: 10px;
+        width: 200px;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        background-color: #fff;
+        transition: transform 0.2s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+    .card img {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .card h2 {
+        color: #927155;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .card p {
+        margin: 4px 0;
+        font-size: 14px;
+    }
+
+    .card .price {
+        font-weight: bold;
+        color: #654a2d;
+    }
+
+    .back-link {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        font-weight: bold;
+        color: #5d4d3b;
+        text-decoration: none;
+    }
+
+    .back-link:hover {
+        text-decoration: underline;
+    }
+
+    .no-data {
+        text-align: center;
+        color: #654a2d;
+        font-size: 1.2em;
+        margin-top: 20px;
+    }
+</style>
 {% endblock %}
