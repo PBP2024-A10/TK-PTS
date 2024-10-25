@@ -1,7 +1,7 @@
 {% load static %}
 <nav class="bg-brown-mild border-brown-lighter dark:bg-brown-mild">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-1">
-    <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+    <a href="{% url 'authentication:login' %}" class="flex items-center space-x-3 rtl:space-x-reverse">
       <img src="{% static 'images/web-logo.svg' %}" class="h-16" alt="Logo" />
     </a>
     <div class="flex md:order-2">
