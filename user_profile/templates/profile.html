@@ -41,6 +41,7 @@
         <button type="submit" class="bg-[#654a2d] hover:bg-[#927155] text-white font-bold py-2 px-4 rounded-lg">Save changes</button>
       </div>
     </form>
+    {% endif %}
   </div>
 </div>
 
@@ -56,11 +57,11 @@
       const formData = new FormData(form);
 
       // Mengirimkan permintaan AJAX menggunakan Fetch API
-      fetch("{% url 'user_profile:profile' %}", {  // Ganti 'your_view_url_name' dengan nama URL view Anda
+      fetch("{% url 'user_profile:profile' %}", {  // Pastikan nama URL sesuai dengan yang didefinisikan di urls.py
         method: 'POST',
         headers: {
           'X-Requested-With': 'XMLHttpRequest',
-          'X-CSRFToken': '{{ csrf_token }}',
+          // 'X-CSRFToken': '{{ csrf_token }}',  // Tidak perlu memasukkan CSRF token di header karena sudah termasuk dalam FormData
         },
         body: formData,
       })

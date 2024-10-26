@@ -39,3 +39,4 @@ def admin_manage_orders(request):
         return redirect('food_list')
     orders = Order.objects.filter(is_confirmed=True).order_by('-created_at')
     return render(request, 'admin_manage_orders.html', {'orders': orders})
+
