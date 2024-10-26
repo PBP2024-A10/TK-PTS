@@ -12,6 +12,7 @@ urlpatterns = [
     path('edit-restaurant/<uuid:restaurant_id>/', edit_restaurant, name='edit_restaurant'), 
     path('add-restaurant/', add_restaurant, name='add_restaurant'),
     path('delete-restaurant/<uuid:restaurant_id>/', delete_restaurant, name='delete_restaurant'),
-]
+] 
+
 
 
