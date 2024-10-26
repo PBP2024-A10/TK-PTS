@@ -5,6 +5,7 @@ from cards_makanan.views import show_restaurants, restaurant_list
 app_name = 'main'
 
 urlpatterns = [
+    path('', show_restaurants, name='show_restaurants'),
     path('food-list/', food_list, name='food_list'),
     path('add-to-cart/<int:food_id>/', add_to_cart, name='add_to_cart'),
     path('cart/', view_cart, name='view_cart'),

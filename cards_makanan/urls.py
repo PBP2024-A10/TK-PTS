@@ -8,7 +8,6 @@ from .views import (
 app_name = 'cards_makanan'
 
 urlpatterns = [
-    path('', show_restaurants, name='show_restaurants'),  # URL root
     path('restaurants/', restaurant_list, name='restaurant_list'),
     path('menu/<uuid:restaurant_id>/', show_menu, name='show_menu'),  # Menu 
     path('edit-restaurant/<uuid:restaurant_id>/', edit_restaurant, name='edit_restaurant'), 
