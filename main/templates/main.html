@@ -61,45 +61,173 @@
     <button type="button" class="text-[#3d200a] bg-[#cbbcb5] hover:bg-[#927155] focus:ring-4 focus:outline-none focus:ring-[#654a2d] rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3">Lunch</button>
     <button type="button" class="text-[#3d200a] bg-[#cbbcb5] hover:bg-[#927155] focus:ring-4 focus:outline-none focus:ring-[#654a2d] rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3">Dinner</button>
 </div>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8dcd4;
+            color: #3d200a;
+            margin: 0;
+        }
 
-<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-    <div>
-        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="">
+        .add-restaurant-button {
+            display: flex;
+            justify-content: flex-end; /* Mengatur posisi tombol di sebelah kanan */
+            margin-top: 20px; /* Meningkatkan jarak atas tombol */
+            margin-bottom: 0px; /* Jarak bawah tombol */
+            width: 80%; /* Lebar tombol agar sama dengan judul */
+            margin-left: auto; /* Memastikan tombol berada di tengah */
+            margin-right: auto; /* Memastikan tombol berada di tengah */
+        }
+
+
+        .add-restaurant-button a {
+            background-color: #927155; /* Warna latar belakang tombol */
+            color: #fff; /* Warna teks tombol */
+            padding: 10px 20px; /* Padding tombol */
+            text-decoration: none; /* Menghapus garis bawah */
+            border-radius: 5px; /* Sudut membulat pada tombol */
+            font-weight: bold; /* Menebalkan teks */
+        }
+
+        .add-restaurant-button a:hover {
+            background-color: #e2c7b3; /* Warna latar belakang saat hover */
+            color: #3d200a; /* Warna teks saat hover */
+        }
+
+        .restaurant-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;  /* Ruang antar kartu */
+            justify-content: center;
+            margin-top: 20px; /* Jarak tambahan antara judul dan kartu */
+        }
+
+        .card {
+            border: 2px solid #cbbcb5;
+            border-radius: 8px;
+            padding: 10px;
+            width: 200px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            background-color: #fff;
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .card h2 {
+            color: #927155;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            margin: 4px 0;
+            font-size: 14px;
+        }
+
+        .show-more {
+            margin-top: auto;
+            font-weight: bold;
+            color: #5d4d3b;
+            text-decoration: none;
+            align-self: flex-end;
+        }
+
+        .show-more:hover {
+            text-decoration: underline;
+        }
+
+        .delete-button {
+            margin-top: 10px;
+            font-weight: bold;
+            color: red;
+            text-decoration: none;
+            align-self: flex-end;
+        }
+
+        .delete-button:hover {
+            text-decoration: underline;
+        }
+
+        .pagination {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .pagination a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #654a2d;
+            font-weight: bold;
+        }
+
+        .pagination a:hover {
+            text-decoration: underline;
+        }
+
+        .no-data {
+            text-align: center;
+            color: #654a2d;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function confirmDelete() {
+            return confirm('Apakah Anda yakin ingin menghapus restoran ini?');
+        }
+    </script>
+</head>
+<body>
+    <!-- Tombol "Add Restaurant" di bawah judul -->
+    {% if user.is_staff %}
+    <div class="add-restaurant-button">
+      <a href="{% url 'cards_makanan:add_restaurant' %}">Add Restaurant</a>
     </div>
-    <div>
-        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="">
+    {% endif %}
+    
+    <div class="restaurant-cards">
+        {% if page_obj %}
+            {% for restaurant in page_obj %}
+                <div class="card">
+                    <img src="https://picsum.photos/200/120?random={{ forloop.counter }}" alt="Foto {{ restaurant.name }}">
+                    <h2>{{ restaurant.name }}</h2>
+                    <p>{{ restaurant.description }}</p>
+                    <a href="{% url 'cards_makanan:show_menu' restaurant.id %}" class="show-more">Show more &rarr;</a>
+                    {% if user.is_staff %}
+                    <a href="{% url 'cards_makanan:delete_restaurant' restaurant.id %}" class="delete-button" onclick="return confirm('Are you sure you want to delete this restaurant?');">Hapus</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+            <!-- Tambahkan link untuk navigasi halaman -->
+            <div class="pagination">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">Sebelumnya</a>
+                {% endif %}
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">Berikutnya</a>
+                {% endif %}
+            </div>
+        {% else %}
+            <p class="no-data">Belum ada data restoran.</p>
+        {% endif %}
     </div>
-    <div>
-        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg" alt="">
-    </div>
-</div>
+</body>
+</html>
 
 </div>
 {% endblock content %}

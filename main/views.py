@@ -2,18 +2,6 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import FoodItem, Order, OrderItem
 from django.contrib.auth.decorators import login_required
 
-def show_main(request):
-    # form = HomepageForm()
-    context = {
-        'page': 'homepage',
-        # 'last_login': request.COOKIES['last_login'],
-        'username': request.user.username,
-        'pk' : request.user.pk,
-        # 'foods' : Food.objects.all(),
-        # 'form': form
-    }
-    return render(request, 'main.html', context)
-
 @login_required
 def food_list(request):
     food_items = FoodItem.objects.all()

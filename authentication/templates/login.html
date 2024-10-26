@@ -10,7 +10,7 @@
     <a href="{% url 'authentication:login' %}" class="flex items-center space-x-3 rtl:space-x-reverse">
       <img src="{% static 'images/web-logo.svg' %}" class="h-80" alt="Logo" />
     </a>
-    <p class="text-4xl font-semibold text-[#cbbcb5] mb-8 font-rasa typing-animation">Temukan Kuliner Halal di Bali!</p>
+    <p class="text-4xl font-semibold text-[#cbbcb5] mb-8 font-rasa slide-up-animation">Temukan Kuliner Halal di Bali!</p>
   </div>
   <div class="w-full max-w-md p-8 pt-4 space-y-6 bg-white/90 rounded-lg shadow-md m-10">
     <form method="POST" action="" class="space-y-6">
@@ -46,7 +46,7 @@
 
     <p class="mt-6 text-sm text-center text-[#654a2d] font-plus-jakarta-sans">
       Log in as a guest?
-      <a href="{% url 'main:show_main' %}" class="text-[#3d200a] hover:underline">Log in</a>
+      <a href="{% url 'cards_makanan:restaurant_list' %}" class="text-[#3d200a] hover:underline">Log in</a>
     </p>
   </div>
 </div>
