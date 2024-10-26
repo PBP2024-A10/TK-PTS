@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Restoran</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8dcd4; /* Putih */
+            color: #3d200a; /* Coklat gelap */
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff; /* Putih untuk teks */
+            margin-bottom: 30px; /* Jarak antara judul dan kartu */
+            font-size: 2em; /* Ukuran font lebih besar */
+            font-weight: bold; /* Menebalkan teks */
+            text-transform: uppercase; /* Mengubah teks menjadi huruf kapital */
+            letter-spacing: 2px; /* Jarak antar huruf */
+            background: linear-gradient(to right, #927155, #e2c7b3); /* Gradien untuk latar belakang */
+            padding: 10px; /* Padding di dalam judul diubah menjadi lebih kecil */
+            border-radius: 10px; /* Sudut membulat pada latar belakang */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan untuk memberi efek kedalaman */
+            width: 80%; /* Mengatur lebar judul */
+            margin: 0 auto; /* Memusatkan judul */
+        }
+
+        /* Gaya dasar untuk kartu restoran */
+        .restaurant-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;  /* Ruang antar kartu */
+            justify-content: center;
+            margin-top: 20px; /* Jarak tambahan antara judul dan kartu */
+        }
+
+        .card {
+            border: 2px solid #cbbcb5; /* Coklat terang */
+            border-radius: 8px;
+            padding: 10px; /* Padding lebih kecil */
+            width: 200px;  /* Ukuran lebih kecil */
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            background-color: #fff; /* Warna latar belakang putih untuk kartu */
+            transition: transform 0.2s; /* Efek transisi saat hover */
+            display: flex; /* Menambahkan flexbox untuk konten kartu */
+            flex-direction: column; /* Mengatur konten secara vertikal */
+            align-items: center; /* Menyelaraskan item di tengah kartu */
+            text-align: center; /* Mengatur teks di tengah */
+        }
+
+        .card:hover {
+            transform: scale(1.05); /* Zoom in saat hover */
+        }
+
+        .card img {
+            width: 100%;  /* Memastikan gambar memenuhi lebar kartu */
+            height: 120px; /* Tinggi gambar tetap */
+            object-fit: cover; /* Memotong gambar untuk menjaga rasio */
+            border-radius: 5px; /* Sudut membulat pada gambar */
+        }
+
+        .card h2 {
+            color: #927155; /* Coklat menengah */
+            font-size: 18px; /* Ukuran font lebih kecil */
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            margin: 4px 0; /* Margin lebih kecil */
+            font-size: 14px; /* Ukuran font lebih kecil */
+        }
+
+        .show-more {
+            margin-top: auto; /* Memastikan link "Show more" berada di bawah */
+            font-weight: bold;
+            color: #5d4d3b; /* Warna untuk link "Show more" */
+            text-decoration: none; /* Menghapus garis bawah */
+            align-self: flex-end; /* Menempatkan link di kanan bawah */
+        }
+
+        .show-more:hover {
+            text-decoration: underline; /* Memberi efek hover pada link */
+        }
+
+        .pagination {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .pagination a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #654a2d; /* Coklat agak gelap */
+            font-weight: bold;
+        }
+
+        .pagination a:hover {
+            text-decoration: underline; /* Memberi efek hover pada link */
+        }
+
+        .no-data {
+            text-align: center;
+            color: #654a2d; /* Coklat agak gelap */
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Daftar Restoran</h1>
+    <div class="restaurant-cards">
+        {% if page_obj %}
+            {% for restaurant in page_obj %}
+                <div class="card">
+                    <img src="https://picsum.photos/200/120?random={{ forloop.counter }}" alt="Foto {{ restaurant.name }}">
+                    <h2>{{ restaurant.name }}</h2>
+                    <p>{{ restaurant.description }}</p>
+                    <a href="#" class="show-more">Show more &rarr;</a> <!-- Link "Show more" -->
+                </div>
+            {% endfor %}
+
+            <!-- Tambahkan link untuk navigasi halaman -->
+            <div class="pagination">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">Sebelumnya</a>
+                {% endif %}
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">Berikutnya</a>
+                {% endif %}
+            </div>
+        {% else %}
+            <p class="no-data">Belum ada data restoran.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
