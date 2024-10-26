@@ -11,4 +11,5 @@ urlpatterns = [
     path('confirm-order/', confirm_order, name='confirm_order'),
     path('order-history/', order_history, name='order_history'),
     path('admin/manage-orders/', admin_manage_orders, name='admin_manage_orders'),
+    path('show_main/', show_main, name='show_main'),
 ]
