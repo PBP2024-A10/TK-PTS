@@ -1,0 +1,56 @@
+/* Define colors */
+:root {
+    --brown-dark: #3d200a;        /* Dark Brown */
+    --brown-dark-hover: #654a2d;  /* Darker Brown for hover effect */
+    --brown-medium: #927155;      /* Medium Brown */
+    --brown-light: #cbbcb5;       /* Light Brown */
+    --cream: #e8dcd4;             /* Cream */
+}
+
+body {
+    background-color: var(--cream); /* Set a cream background for contrast */
+}
+
+.container {
+    max-width: 400px; /* Limit the maximum width for the container */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Add some padding around the container */
+}
+
+h2 {
+    color: var(--brown-dark); /* Dark Brown color for the heading */
+}
+
+form {
+    background-color: var(--brown-light); /* Light Brown for the form background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.form-input {
+    width: 100%; /* Make inputs full width within their container */
+    max-width: 300px; /* Limit the maximum width of inputs */
+    padding: 10px; /* Add some padding inside the inputs */
+    border: 1px solid var(--brown-medium); /* Border color for inputs */
+    border-radius: 4px; /* Rounded corners for inputs */
+    box-sizing: border-box; /* Ensure padding is included in width */
+    margin: 0 auto; /* Center the input fields */
+}
+
+button {
+    background-color: var(--brown-dark); /* Dark Brown for the button */
+    color: var(--cream); /* Cream color for button text */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+button:hover {
+    background-color: var(--brown-dark-hover); /* Change color on hover */
+}
+
+a {
+    color: var(--brown-medium); /* Medium Brown for links */
+}
+
+a:hover {
+    text-decoration: underline; /* Underline effect on hover */
+}

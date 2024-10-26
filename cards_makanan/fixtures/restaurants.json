@@ -78,7 +78,7 @@
             "restaurant": "39c5e061-ba23-47ac-83df-55dae7705ece",
             "name": "Ayam Betutu",
             "description": "Ayam dengan bumbu khas Bali",
-            "price": "50.00"
+            "price": "50.000"
         }
     },
     {
@@ -88,7 +88,7 @@
             "restaurant": "39c5e061-ba23-47ac-83df-55dae7705ece",
             "name": "Lontong Kuah Ayam Betutu",
             "description": "Lontong disajikan dengan kuah ayam betutu",
-            "price": "35.00"
+            "price": "35.000"
         }
     },
     {
@@ -98,7 +98,7 @@
             "restaurant": "39c5e061-ba23-47ac-83df-55dae7705ece",
             "name": "Nasi Gurih Bakar Ayam Betutu",
             "description": "Nasi gurih bakar dengan ayam betutu",
-            "price": "40.00"
+            "price": "40.000"
         }
     },
     {
@@ -108,7 +108,7 @@
             "restaurant": "39c5e061-ba23-47ac-83df-55dae7705ece",
             "name": "Nasi Campur Ayam Betutu",
             "description": "Nasi campur dengan ayam betutu dan lauk lainnya",
-            "price": "45.00"
+            "price": "45.000"
         }
     },
     {
@@ -118,7 +118,7 @@
             "restaurant": "f4a123de-2349-4f34-81d6-14e135d820bc",
             "name": "Ikan Kerapu",
             "description": "Ikan kerapu bakar dengan bumbu spesial",
-            "price": "90.00"
+            "price": "90.000"
         }
     },
     {
@@ -128,7 +128,7 @@
             "restaurant": "f4a123de-2349-4f34-81d6-14e135d820bc",
             "name": "Ikan Barramundi",
             "description": "Ikan barramundi dengan saus madu",
-            "price": "85.00"
+            "price": "85.000"
         }
     },
     {
@@ -138,7 +138,7 @@
             "restaurant": "f4a123de-2349-4f34-81d6-14e135d820bc",
             "name": "Udang Galah",
             "description": "Udang galah bakar dengan sambal matah",
-            "price": "120.00"
+            "price": "120.000"
         }
     },
     {
@@ -158,7 +158,7 @@
             "restaurant": "f4a123de-2349-4f34-81d6-14e135d820bc",
             "name": "Kepiting",
             "description": "Kepiting saus tiram",
-            "price": "180.00"
+            "price": "180.000"
         }
     },
     {
@@ -168,7 +168,7 @@
             "restaurant": "f4a123de-2349-4f34-81d6-14e135d820bc",
             "name": "Kerang",
             "description": "Kerang bakar dengan saus sambal",
-            "price": "80.00"
+            "price": "80.000"
         }
     },
     {
@@ -178,7 +178,7 @@
             "restaurant": "f4a123de-2349-4f34-81d6-14e135d820bc",
             "name": "Cumi Bakar",
             "description": "Cumi bakar dengan bumbu rempah",
-            "price": "75.00"
+            "price": "75.000"
         }
     },
     {
@@ -188,7 +188,7 @@
             "restaurant": "f4a123de-2349-4f34-81d6-14e135d820bc",
             "name": "Udang Bakar",
             "description": "Udang bakar dengan saus mentega",
-            "price": "100.00"
+            "price": "100.000"
         }
     },
     {
@@ -198,7 +198,7 @@
             "restaurant": "f4a123de-2349-4f34-81d6-14e135d820bc",
             "name": "Udang Telur Asin",
             "description": "Udang dengan telur asin",
-            "price": "110.00"
+            "price": "110.000"
         }
     },
     {
@@ -208,7 +208,7 @@
             "restaurant": "f4a123de-2349-4f34-81d6-14e135d820bc",
             "name": "Oyster",
             "description": "Oyster bakar dengan saus",
-            "price": "95.00"
+            "price": "95.000"
         }
     },
     {
@@ -218,7 +218,7 @@
             "restaurant": "f4a123de-2349-4f34-81d6-14e135d820bc",
             "name": "Kerang Dara",
             "description": "Kerang dara dengan bumbu spesial",
-            "price": "85.00"
+            "price": "85.000"
         }
     },
     {
@@ -228,7 +228,7 @@
             "restaurant": "f4a123de-2349-4f34-81d6-14e135d820bc",
             "name": "Kerang Totok",
             "description": "Kerang totok dengan sambal",
-            "price": "75.00"
+            "price": "75.000"
         }
     },
     {
@@ -238,7 +238,7 @@
             "restaurant": "f4a123de-2349-4f34-81d6-14e135d820bc",
             "name": "Kerang Asari",
             "description": "Kerang asari dengan bumbu sederhana",
-            "price": "70.00"
+            "price": "70.000"
         }
     },
     {
@@ -248,7 +248,7 @@
             "restaurant": "f4a123de-2349-4f34-81d6-14e135d820bc",
             "name": "Plecing Kangkung",
             "description": "Sayuran kangkung dengan sambal",
-            "price": "30.00"
+            "price": "30.000"
         }
     },
     {
@@ -258,7 +258,7 @@
             "restaurant": "f4a123de-2349-4f34-81d6-14e135d820bc",
             "name": "Urap Gonde",
             "description": "Salad sayuran dengan kelapa parut",
-            "price": "25.00"
+            "price": "25.000"
         }
     },
     {
@@ -268,7 +268,7 @@
             "restaurant": "f4a123de-2349-4f34-81d6-14e135d820bc",
             "name": "Bakwan Jagung",
             "description": "Bakwan jagung yang renyah",
-            "price": "20.00"
+            "price": "20.000"
         }
     },
     {
@@ -278,7 +278,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Bebek Goreng",
             "description": "Bebek goreng renyah dengan sambal",
-            "price": "60.00"
+            "price": "60.000"
         }
     },
     {
@@ -288,7 +288,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Bebek Bakar",
             "description": "Bebek bakar dengan bumbu spesial",
-            "price": "65.00"
+            "price": "65.000"
         }
     },
     {
@@ -298,7 +298,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Nasi Bebek",
             "description": "Nasi dengan bebek goreng dan sambal",
-            "price": "70.00"
+            "price": "70.000"
         }
     },
     {
@@ -308,7 +308,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Bebek Penyet",
             "description": "Bebek yang dipenyet dengan sambal",
-            "price": "65.00"
+            "price": "65.000"
         }
     },
     {
@@ -318,7 +318,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Bebek Betutu",
             "description": "Bebek yang dimasak dengan bumbu tradisional",
-            "price": "75.00"
+            "price": "75.000"
         }
     },
     {
@@ -328,7 +328,7 @@
             "restaurant": "d23b9cb6-ad63-4dd3-afb8-98ed62a40cbc",
             "name": "Ayam Betutu",
             "description": "Ayam yang dibungkus daun pisang dan dibakar",
-            "price": "55.00"
+            "price": "55.000"
         }
     },
     {
@@ -338,7 +338,7 @@
             "restaurant": "d23b9cb6-ad63-4dd3-afb8-98ed62a40cbc",
             "name": "Nasi Ayam",
             "description": "Nasi dengan ayam bakar dan sambal",
-            "price": "50.00"
+            "price": "50.000"
         }
     },
     {
@@ -348,7 +348,7 @@
             "restaurant": "d23b9cb6-ad63-4dd3-afb8-98ed62a40cbc",
             "name": "Sate Ayam",
             "description": "Sate ayam dengan bumbu kacang",
-            "price": "45.00"
+            "price": "45.000"
         }
     },
     {
@@ -358,7 +358,7 @@
             "restaurant": "d23b9cb6-ad63-4dd3-afb8-98ed62a40cbc",
             "name": "Nasi Campur",
             "description": "Nasi campur dengan pilihan lauk",
-            "price": "60.00"
+            "price": "60.000"
         }
     },
     {
@@ -368,7 +368,7 @@
             "restaurant": "d23b9cb6-ad63-4dd3-afb8-98ed62a40cbc",
             "name": "Ayam Goreng",
             "description": "Ayam goreng crispy dengan sambal",
-            "price": "50.00"
+            "price": "50.000"
         }
     },
     {
@@ -378,7 +378,7 @@
             "restaurant": "1a324fcd-2960-4d68-b42c-e1d5fffa4b82",
             "name": "Nasi Seafood",
             "description": "Nasi dengan berbagai hidangan laut",
-            "price": "75.00"
+            "price": "75.000"
         }
     },
     {
@@ -388,7 +388,7 @@
             "restaurant": "1a324fcd-2960-4d68-b42c-e1d5fffa4b82",
             "name": "Sop Ikan",
             "description": "Sop ikan segar dengan rempah",
-            "price": "45.00"
+            "price": "45.000"
         }
     },
     {
@@ -398,7 +398,7 @@
             "restaurant": "1a324fcd-2960-4d68-b42c-e1d5fffa4b82",
             "name": "Ikan Bakar Taliwang",
             "description": "Ikan bakar dengan bumbu taliwang",
-            "price": "70.00"
+            "price": "70.000"
         }
     },
     {
@@ -408,7 +408,7 @@
             "restaurant": "1a324fcd-2960-4d68-b42c-e1d5fffa4b82",
             "name": "Udang Saus Padang",
             "description": "Udang dengan saus pedas khas Padang",
-            "price": "80.00"
+            "price": "80.000"
         }
     },
     {
@@ -418,7 +418,7 @@
             "restaurant": "1a324fcd-2960-4d68-b42c-e1d5fffa4b82",
             "name": "Cumi Saus Mentega",
             "description": "Cumi dengan saus mentega yang lezat",
-            "price": "70.00"
+            "price": "70.000"
         }
     },
     {
@@ -428,7 +428,7 @@
             "restaurant": "97789d11-3deb-4c37-a4ab-b559345fee50",
             "name": "Ayam Penyet",
             "description": "Ayam yang dipenyet dengan sambal dan nasi",
-            "price": "45.00"
+            "price": "45.000"
         }
     },
     {
@@ -448,7 +448,7 @@
             "restaurant": "97789d11-3deb-4c37-a4ab-b559345fee50",
             "name": "Nasi Goreng",
             "description": "Nasi goreng dengan pilihan lauk",
-            "price": "40.00"
+            "price": "40.000"
         }
     },
     {
@@ -458,7 +458,7 @@
             "restaurant": "97789d11-3deb-4c37-a4ab-b559345fee50",
             "name": "Sate Kambing",
             "description": "Sate kambing dengan bumbu khas",
-            "price": "55.00"
+            "price": "55.000"
         }
     },
     {
@@ -468,7 +468,7 @@
             "restaurant": "97789d11-3deb-4c37-a4ab-b559345fee50",
             "name": "Roti Bakar",
             "description": "Roti bakar dengan selai",
-            "price": "15.00"
+            "price": "15.000"
         }
     },
     {
@@ -488,7 +488,7 @@
             "restaurant": "8f43b441-bd79-4337-9af8-71426f2fdfea",
             "name": "Paket Nasi Ayam",
             "description": "Paket nasi dengan ayam, sayur, dan sambal",
-            "price": "60.00"
+            "price": "60.000"
         }
     },
     {
@@ -498,7 +498,7 @@
             "restaurant": "8f43b441-bd79-4337-9af8-71426f2fdfea",
             "name": "Ayam Penyet",
             "description": "Ayam penyet dengan sambal dan nasi",
-            "price": "45.00"
+            "price": "45.000"
         }
     },
     {
@@ -508,7 +508,7 @@
             "restaurant": "8f43b441-bd79-4337-9af8-71426f2fdfea",
             "name": "Sate Ayam",
             "description": "Sate ayam dengan bumbu kacang",
-            "price": "50.00"
+            "price": "50.000"
         }
     },
     {
@@ -518,7 +518,7 @@
             "restaurant": "a3d7fda0-2f87-457b-af1f-ebcf36570c5b",
             "name": "Nasi Campur Bali",
             "description": "Nasi campur dengan pilihan lauk khas Bali",
-            "price": "70.00"
+            "price": "70.000"
         }
     },
     {
@@ -528,7 +528,7 @@
             "restaurant": "a3d7fda0-2f87-457b-af1f-ebcf36570c5b",
             "name": "Ayam Bakar Taliwang",
             "description": "Ayam bakar dengan bumbu taliwang",
-            "price": "65.00"
+            "price": "65.000"
         }
     },
     {
@@ -538,7 +538,7 @@
             "restaurant": "a3d7fda0-2f87-457b-af1f-ebcf36570c5b",
             "name": "Ikan Bakar",
             "description": "Ikan bakar dengan sambal",
-            "price": "75.00"
+            "price": "75.000"
         }
     },
     {
@@ -548,7 +548,7 @@
             "restaurant": "a3d7fda0-2f87-457b-af1f-ebcf36570c5b",
             "name": "Sop Buntut",
             "description": "Sop buntut dengan rempah khas",
-            "price": "80.00"
+            "price": "80.000"
         }
     },
     {
@@ -558,7 +558,7 @@
             "restaurant": "a3d7fda0-2f87-457b-af1f-ebcf36570c5b",
             "name": "Sate Kambing",
             "description": "Sate kambing dengan bumbu rempah",
-            "price": "60.00"
+            "price": "60.000"
         }
     },
     {
@@ -568,7 +568,7 @@
             "restaurant": "a3d7fda0-2f87-457b-af1f-ebcf36570c5b",
             "name": "Pizza Margherita",
             "description": "Pizza dengan saus tomat dan keju",
-            "price": "90.00"
+            "price": "90.000"
         }
     },
     {
@@ -578,7 +578,7 @@
             "restaurant": "a3d7fda0-2f87-457b-af1f-ebcf36570c5b",
             "name": "Pizza Pepperoni",
             "description": "Pizza dengan irisan pepperoni dan keju",
-            "price": "100.00"
+            "price": "100.000"
         }
     },
     {
@@ -588,7 +588,7 @@
             "restaurant": "a3d7fda0-2f87-457b-af1f-ebcf36570c5b",
             "name": "Pasta Carbonara",
             "description": "Pasta dengan saus krim dan bacon",
-            "price": "85.00"
+            "price": "85.000"
         }
     },
     {
@@ -598,7 +598,7 @@
             "restaurant": "a3d7fda0-2f87-457b-af1f-ebcf36570c5b",
             "name": "Lasagna",
             "description": "Lasagna lapis dengan daging dan saus tomat",
-            "price": "95.00"
+            "price": "95.000"
         }
     },
     {
@@ -608,7 +608,7 @@
             "restaurant": "a3d7fda0-2f87-457b-af1f-ebcf36570c5b",
             "name": "Salad Caesar",
             "description": "Salad dengan saus caesar dan crouton",
-            "price": "45.00"
+            "price": "45.000"
         }
     },
     {
@@ -618,7 +618,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Sushi Salmon",
             "description": "Sushi dengan irisan salmon segar",
-            "price": "100.00"
+            "price": "100.000"
         }
     },
     {
@@ -628,7 +628,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Sushi Tuna",
             "description": "Sushi dengan irisan tuna segar",
-            "price": "110.00"
+            "price": "110.000"
         }
     },
     {
@@ -638,7 +638,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Maki Uramaki",
             "description": "Maki dengan isi sayuran dan daging",
-            "price": "90.00"
+            "price": "90.000"
         }
     },
     {
@@ -648,7 +648,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Ramen Miso",
             "description": "Ramen dengan kaldu miso yang gurih",
-            "price": "75.00"
+            "price": "75.000"
         }
     },
     {
@@ -658,7 +658,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Tempura",
             "description": "Sayuran dan udang yang digoreng tepung",
-            "price": "70.00"
+            "price": "70.000"
         }
     },
     {
@@ -668,7 +668,7 @@
             "restaurant": "f4a123de-2349-4f34-81d6-14e135d820bc",
             "name": "Bubur Ayam",
             "description": "Bubur nasi dengan ayam suwir dan sambal",
-            "price": "30.00"
+            "price": "30.000"
         }
     },
     {
@@ -678,7 +678,7 @@
             "restaurant": "f4a123de-2349-4f34-81d6-14e135d820bc",
             "name": "Bubur Kacang Hijau",
             "description": "Bubur manis dari kacang hijau",
-            "price": "25.00"
+            "price": "25.000"
         }
     },
     {
@@ -688,7 +688,7 @@
             "restaurant": "f4a123de-2349-4f34-81d6-14e135d820bc",
             "name": "Kerak Telor",
             "description": "Kerak telor khas Betawi",
-            "price": "40.00"
+            "price": "40.000"
         }
     },
     {
@@ -698,7 +698,7 @@
             "restaurant": "f4a123de-2349-4f34-81d6-14e135d820bc",
             "name": "Kue Cubir",
             "description": "Kue manis berbentuk bulat",
-            "price": "15.00"
+            "price": "15.000"
         }
     },
     {
@@ -708,7 +708,7 @@
             "restaurant": "f4a123de-2349-4f34-81d6-14e135d820bc",
             "name": "Kwetiau Goreng",
             "description": "Kwetiau goreng dengan sayuran dan daging",
-            "price": "55.00"
+            "price": "55.000"
         }
     },
     {
@@ -718,7 +718,7 @@
             "restaurant": "f4a123de-2349-4f34-81d6-14e135d820bc",
             "name": "Nasi Goreng Kampung",
             "description": "Nasi goreng dengan sayur dan telur",
-            "price": "40.00"
+            "price": "40.000"
         }
     },
     {
@@ -728,7 +728,7 @@
             "restaurant": "f4a123de-2349-4f34-81d6-14e135d820bc",
             "name": "Bihun Goreng",
             "description": "Bihun goreng dengan pilihan lauk",
-            "price": "50.00"
+            "price": "50.000"
         }
     },
     {
@@ -738,7 +738,7 @@
             "restaurant": "f4a123de-2349-4f34-81d6-14e135d820bc",
             "name": "Lontong Cap Gomeh",
             "description": "Lontong dengan kuah sayur dan telur",
-            "price": "50.00"
+            "price": "50.000"
         }
     },
     {
@@ -748,7 +748,7 @@
             "restaurant": "f4a123de-2349-4f34-81d6-14e135d820bc",
             "name": "Pangsit Goreng",
             "description": "Pangsit goreng dengan isi daging",
-            "price": "30.00"
+            "price": "30.000"
         }
     },
     {
@@ -758,7 +758,7 @@
             "restaurant": "f4a123de-2349-4f34-81d6-14e135d820bc",
             "name": "Pasta Pesto",
             "description": "Pasta dengan saus pesto yang segar",
-            "price": "85.00"
+            "price": "85.000"
         }
     },
     {
@@ -768,7 +768,7 @@
             "restaurant": "f4a123de-2349-4f34-81d6-14e135d820bc",
             "name": "Fettuccine Alfredo",
             "description": "Fettuccine dengan saus krim dan parmesan",
-            "price": "90.00"
+            "price": "90.000"
         }
     },
     {
@@ -778,7 +778,7 @@
             "restaurant": "f4a123de-2349-4f34-81d6-14e135d820bc",
             "name": "Spaghetti Bolognese",
             "description": "Spaghetti dengan saus daging bolognese",
-            "price": "95.00"
+            "price": "95.000"
         }
     },
     {
@@ -788,7 +788,7 @@
             "restaurant": "f4a123de-2349-4f34-81d6-14e135d820bc",
             "name": "Lasagna",
             "description": "Lasagna dengan daging dan saus tomat",
-            "price": "100.00"
+            "price": "100.000"
         }
     },
     {
@@ -798,7 +798,7 @@
             "restaurant": "f4a123de-2349-4f34-81d6-14e135d820bc",
             "name": "Bruschetta",
             "description": "Roti panggang dengan tomat dan basil",
-            "price": "45.00"
+            "price": "45.000"
         }
     },
     {
@@ -808,7 +808,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Steak Daging Sapi",
             "description": "Steak daging sapi dengan saus lada",
-            "price": "120.00"
+            "price": "120.000"
         }
     },
     {
@@ -818,7 +818,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Steak Ayam",
             "description": "Steak ayam dengan saus jamur",
-            "price": "100.00"
+            "price": "100.000"
         }
     },
     {
@@ -828,7 +828,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Pasta Carbonara",
             "description": "Pasta dengan saus krim dan daging asap",
-            "price": "85.00"
+            "price": "85.000"
         }
     },
     {
@@ -838,7 +838,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Salad Caesar",
             "description": "Salad segar dengan saus Caesar dan croutons",
-            "price": "50.00"
+            "price": "50.000"
         }
     },
     {
@@ -848,7 +848,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Tacos Daging",
             "description": "Tacos dengan daging giling dan sayuran segar",
-            "price": "55.00"
+            "price": "55.000"
         }
     },
     {
@@ -858,7 +858,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Burrito Ayam",
             "description": "Burrito isi ayam, nasi, dan sayuran",
-            "price": "70.00"
+            "price": "70.000"
         }
     },
     {
@@ -868,7 +868,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Nachos",
             "description": "Tortilla chips dengan keju dan salsa",
-            "price": "45.00"
+            "price": "45.000"
         }
     },
     {
@@ -878,7 +878,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Quesadilla",
             "description": "Tortilla isi keju dan daging",
-            "price": "60.00"
+            "price": "60.000"
         }
     },
     {
@@ -888,7 +888,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Chili Con Carne",
             "description": "Daging sapi dengan saus cabai dan kacang",
-            "price": "85.00"
+            "price": "85.000"
         }
     },
     {
@@ -898,7 +898,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "BBQ Ribs",
             "description": "Iga panggang dengan saus BBQ",
-            "price": "130.00"
+            "price": "130.000"
         }
     },
     {
@@ -908,7 +908,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Pulled Pork Sandwich",
             "description": "Sandwich dengan daging babi suwir dan saus",
-            "price": "75.00"
+            "price": "75.000"
         }
     },
     {
@@ -918,7 +918,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Coleslaw",
             "description": "Salad kol segar dengan saus mayo",
-            "price": "30.00"
+            "price": "30.000"
         }
     },
     {
@@ -928,7 +928,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Smoothie Bowl",
             "description": "Mangkuk smoothie dengan topping buah segar",
-            "price": "50.00"
+            "price": "50.000"
         }
     },
     {
@@ -938,7 +938,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Acai Bowl",
             "description": "Mangkuk acai dengan granola dan buah",
-            "price": "55.00"
+            "price": "55.000"
         }
     },
     {
@@ -948,7 +948,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Chia Pudding",
             "description": "Pudding chia dengan susu almond",
-            "price": "40.00"
+            "price": "40.000"
         }
     },
     {
@@ -958,7 +958,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Granola Bar",
             "description": "Bar granola dengan kacang dan madu",
-            "price": "20.00"
+            "price": "20.000"
         }
     },
     {
@@ -968,7 +968,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Bubur Ayam",
             "description": "Bubur nasi dengan ayam suwir dan kecap",
-            "price": "30.00"
+            "price": "30.000"
         }
     },
     {
@@ -978,7 +978,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Nasi Uduk",
             "description": "Nasi uduk dengan ayam dan sambal",
-            "price": "40.00"
+            "price": "40.000"
         }
     },
     {
@@ -988,7 +988,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Roti Bakar",
             "description": "Roti bakar dengan selai dan mentega",
-            "price": "25.00"
+            "price": "25.000"
         }
     },
     {
@@ -998,7 +998,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Kue Cubir",
             "description": "Kue cubir manis dengan taburan kelapa",
-            "price": "15.00"
+            "price": "15.000"
         }
     },
     {
@@ -1008,7 +1008,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Ayam Bakar",
             "description": "Ayam bakar dengan bumbu khas",
-            "price": "70.00"
+            "price": "70.000"
         }
     },
     {
@@ -1018,7 +1018,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Tahu Tempe",
             "description": "Tahu dan tempe goreng",
-            "price": "30.00"
+            "price": "30.000"
         }
     },
     {
@@ -1028,7 +1028,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Sayur Asem",
             "description": "Sayur asam segar",
-            "price": "20.00"
+            "price": "20.000"
         }
     },
     {
@@ -1038,7 +1038,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Nasi Putih",
             "description": "Nasi putih hangat",
-            "price": "10.00"
+            "price": "10.000"
         }
     },
     {
@@ -1048,7 +1048,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Kari Kambing",
             "description": "Kari kambing dengan bumbu rempah",
-            "price": "90.00"
+            "price": "90.000"
         }
     },
     {
@@ -1058,7 +1058,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Kari Ayam",
             "description": "Kari ayam dengan santan",
-            "price": "75.00"
+            "price": "75.000"
         }
     },
     {
@@ -1068,7 +1068,7 @@
             "restaurant": "383d07aa-303d-4be5-b150-9cfc815a74da",
             "name": "Roti Naan",
             "description": "Roti naan lembut",
-            "price": "20.00"
+            "price": "20.000"
         }
     }
 ]
