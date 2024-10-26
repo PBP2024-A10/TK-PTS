@@ -21,6 +21,10 @@ class FoodRecommendation(models.Model):
     def show_rating(self):
         return self.rating
     
+    def validate_rating(self):
+        if self.rating < 0 or self.rating > 5:
+            raise ValueError("Rating must be between 0 and 5.")
+    
     # If provided, this function should return the type of the food item
     # def return_type(self):
     #     return self.food_item.type

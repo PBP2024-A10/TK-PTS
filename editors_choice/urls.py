@@ -4,7 +4,8 @@ from editors_choice.views import show_index_er, show_food_item, add_food_item, \
     show_food_type, show_json_editor_choice, show_json_editor_choice_food_type, \
     show_json_editor_choice_week, show_json_editor_choice_food_type_week, \
     show_json_editor_choice_food_type, show_json_editor_choice_week,\
-    show_json_food_type, show_json, show_json_id, show_json_food_id
+    show_json_food_type, show_json, show_json_id, show_json_food_id,\
+    delete_food_rec, edit_food_rec_rating
     
 
 app_name = 'editors_choice'
@@ -13,10 +14,12 @@ urlpatterns = [
     path('', show_index_er, name='index_er'),
     path('add-food/', add_food_item, name='add_food_item'),
     path('food-item/', show_food_item, name='food_item'),
+    path('delete-food/', delete_food_rec, name='delete_food_item'),
+    path('edit-food/', edit_food_rec_rating, name='edit_food_rec_rating'),
     path('food-template/', show_food_template, name='food_template'),
     path('check-loggedin/', is_logged_in, name='check_loggedin'),
-    path('show/<str:food_type>/', show_food_type, name='food_type'), 
     path('check-superuser/', check_superuser, name='check_superuser'),
+    path('show/<str:food_type>/', show_food_type, name='food_type'), 
 
     # JSON API
     path('json/food/', show_json, name='show_json_food'), # show all food recommendation

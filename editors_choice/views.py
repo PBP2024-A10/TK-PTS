@@ -1,23 +1,26 @@
 import datetime
 from main.models import FoodItem
-from django.utils import timezone
 from django.http import JsonResponse, HttpResponse
 from django.core import serializers
+from django.utils import timezone
 from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, redirect
 from editors_choice.forms import FoodRecommendationForm
 from editors_choice.models import FoodRecommendation, EditorChoice
 from django.contrib.auth.models import User
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
-# If finished working, it can be deleted as it is to be replaced by the real database
+# Don't delete this function, it is used to get the start of the current week
 def get_start_of_current_week():
     today = timezone.now().date()
     start_of_week = today - datetime.timedelta(days=today.weekday())
     return start_of_week
 
+# If finished working, it can be deleted as it is to be replaced by the real database
 def compile_editor_choices():
     food_data = {
         'ayam_betutu' : FoodItem(name='Ayam Betutu', price=50000, description='Ayam Betutu adalah makanan khas Bali yang terbuat dari ayam yang diolah dengan bumbu khas Bali.', food_type='lunch'),
@@ -49,7 +52,7 @@ def compile_editor_choices():
     food_recommendations = FoodItem.objects.all()
 
     for item in food_recommendations:
-        if not FoodRecommendation.objects.filter(food_item=item).exists():
+        if not FoodRecommendation.objects.filter(food_item=item).exists() and not item.name == 'Sate Lilit':
             FoodRecommendation.objects.create(food_item=item, rating=4.5, author=User.objects.get(username='admin1'))
 
     # Retrieve the saved instances from the database
@@ -129,10 +132,54 @@ def add_food_item(request):
         food_recommendation = form.save(commit=False)
         food_recommendation.author = request.user
         food_recommendation.save()
+
+        current_week = get_start_of_current_week()
+
+        editor_choice = EditorChoice.objects.filter(
+            week=current_week,
+            food_items__food_item__food_type=food_recommendation.food_item.food_type
+        ).first()
+
+        if editor_choice is None:
+            editor_choice = EditorChoice.objects.create()
+
+        editor_choice.food_items.add(food_recommendation)
+        editor_choice.save()
         return redirect('editors_choice:index_er')
     
     context = {'form': form}
     return render(request, 'add_food_item.html', context)
+
+@login_required(login_url='authentication:login')
+def delete_food_rec(request):
+    food_id = request.GET.get('food_recommendation_id')
+    food_rec = get_object_or_404(FoodRecommendation, pk=food_id)
+    food_rec.delete()
+    messages.success(request, 'Food recommendation has been deleted.')
+    return redirect('editors_choice:index_er')
+
+@csrf_exempt
+@require_POST
+@login_required(login_url='authentication:login')
+def edit_food_rec_rating(request):
+    if not request.user.is_superuser:
+        return HttpResponse(b"UNAUTHORIZED", status=401)
+    
+    food_id = request.GET.get('food_recommendation_id')
+    rating = request.POST.get('rating')
+
+    try:
+        rating = float(rating)
+    except ValueError:
+        return HttpResponse(b"INVALID RATING", status=400)
+
+    if not rating or rating < 0 or rating > 5:
+        return HttpResponse(b"INVALID RATING", status=400)
+    
+    food_rec = get_object_or_404(FoodRecommendation, pk=food_id)
+    food_rec.rating = rating
+    food_rec.save()
+    return HttpResponse(b"EDITED", status=200)
 
 @login_required
 def check_superuser(request):

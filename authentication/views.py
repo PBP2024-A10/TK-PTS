@@ -32,7 +32,7 @@ def login_user(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            response = HttpResponseRedirect(reverse("main:show_main"))
+            response = HttpResponseRedirect(reverse("cards_makanan:restaurant_list"))
             response.set_cookie('last_login', str(datetime.datetime.now()))
             return response
         else:
@@ -47,4 +47,3 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('authentication:login'))
     response.delete_cookie('last_login')
     return response
-

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale.0">
+    <title>Scroll</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&display=swap">
+    <style>
+        body {
+            background-color:#e8dcd4;
+            display: grid;
+            place-items: center;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .wrapper {
+            display: flex;
+            width: 100%;
+            overflow-x: scroll;
+            gap: 50px;
+            scroll-snap-type: x mandatory;
+            scrollbar-color: transparent transparent;
+        }
+
+        .card {
+            scroll-snap-align: center;
+            box-sizing: border-box;
+            padding: 0px 0px;
+            flex-shrink: 0;
+            width: 700px;
+            height: 400px;
+            background-color: #927155;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .card img {
+            width: 100%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .card-info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .card-info h3 {
+            margin-bottom: 10px;
+            color: white;
+            font-family: "Italiana", sans-serif;
+            font-size: large;
+        }
+
+        .card-info p {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sliding Cards -->
+    <div class="wrapper">
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Product Image">
+            <div class="card-info">
+                <h3>Nama Oleh-oleh</h3>
+                <p>Deskripsi Oleh-oleh</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Product Image">
+            <div class="card-info">
+                <h3>Nama Oleh-oleh</h3>
+                <p>Deskripsi Oleh-oleh</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Product Image">
+            <div class="card-info">
+                <h3>Nama Oleh-oleh</h3>
+                <p>Deskripsi Oleh-oleh</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Product Image">
+            <div class="card-info">
+                <h3>Nama Oleh-oleh</h3>
+                <p>Deskripsi Oleh-oleh</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        async function getMoodEntries(){
+            return fetch("{% url 'main:show_json' %}").then((res) => res.json())
+        }
+      </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Restoran</title>
+    <style>
+        body {
+            background-color: #e8dcd4;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .form-container {
+            max-width: 900px;
+            margin: auto;
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: calc(100% - 24px);
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid #6B7280;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        .btn {
+            background-color: #927155;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #e2c7b3;
+            color: #3d200a;
+        }
+
+        .back-btn {
+            background-color: #ffffff; /* Warna latar belakang putih */
+            color: #6B4E3D; /* Warna teks cokelat */
+            padding: 10px 20px;
+            border: 1px solid #6B4E3D; /* Border cokelat */
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-left: 10px; /* Jarak antara tombol kirim dan kembali */
+        }
+
+        .back-btn:hover {
+            background-color: #f5f5f5;
+            color: #6B4E3D;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: flex-end; /* Memposisikan tombol di sebelah kanan */
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Form Restoran</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="button-container">
+                <button type="submit" class="btn">Kirim</button>
+                <button type="button" class="back-btn" onclick="window.history.back();">Kembali ke Halaman Sebelumnya</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'authentication',
     'user_profile',
     'editors_choice',
+    'cards_makanan',
+    'manajemen_souvenir',
 ]
 
 MIDDLEWARE = [

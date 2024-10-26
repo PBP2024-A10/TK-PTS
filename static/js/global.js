@@ -83,8 +83,8 @@ $(document).ready(function() {
     /**
      * editors_choice Module / Page JS methods
      */
-    // Update the header links when the page is changed
-    async function superuserFeatures() {
+    // Update the add-food button when the user is a superuser (index page)
+    async function superuserFeaturesIndex() {
         document.getElementById("addEditorChoice").innerHTML = "";
         document.getElementById("addEditorChoice").className = "";
 
@@ -105,8 +105,50 @@ $(document).ready(function() {
             }
         }
     }
+
+    // Update the delete-food button and edit-rating button when the user is a superuser (food item page)
+    async function superuserFeaturesFoodItem() {
+        const template = document.getElementById("optionDiv");
+        const response = await fetch("/editors-choice/check-superuser/");
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        } else {
+            const data = await response.json();
+            if (data.is_superuser) {
+                // Extract food_id from URL
+                const urlParams = new URLSearchParams(window.location.search);
+                const foodItemId = urlParams.get('food_id');
+
+                // Fetch from the full FoodRecommendation json database
+                const responseFR = await fetch(`/editors-choice/json/food-rec/`);
+                const dataFR = await responseFR.json();
+
+                // Find the food item in the FoodRecommendation database
+                const foodItem = dataFR.find(item => item.fields.food_item === foodItemId);
+                const urlDeleteFoodRec = `/editors-choice/delete-food/?food_recommendation_id=${foodItem.pk}`;
+            
+                // If the food item is found, display the delete and edit buttons
+                template.innerHTML += `
+                <button data-modal-target="crudModal" data-modal-toggle="crudModal" class="mt-5 flex w-full items-center justify-center rounded-md border border-transparent bg-brown-darkest px-8 py-3 text-base font-medium text-white hover:bg-brown-darker focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 cursor-pointer" onclick="showModal();">
+                    Edit food-rating
+                </button>
+                <a href=${urlDeleteFoodRec} id="deleteFoodRec class="mt-5 flex w-full items-center justify-center rounded-md border border-transparent bg-red-700 px-8 py-3 text-base font-medium text-white hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 cursor-pointer">
+                    <button class="mt-5 flex w-full items-center justify-center rounded-md border border-transparent bg-red-700 px-8 py-3 text-base font-medium text-white hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 cursor-pointer">Delete food-recommendation</button>
+                </a>
+                `;
+            }
+        }
+    }
+
+    // Superfunction to superuser features functions
+    async function superuserFeatures() {
+        superuserFeaturesIndex();
+        superuserFeaturesFoodItem();
+    }
     superuserFeatures();
 
+    // Fetch the food types and display the editor's choice foods per given document url
     async function fetchFoodTypes(url) {
         try {
             let response;
@@ -122,7 +164,7 @@ $(document).ready(function() {
             console.error('Error fetching data:', error);
             document.getElementById('editorChoiceList').innerHTML = `
             <div class="flex flex-col items-center justify-center min-h-[24rem] p-6">
-                <img src="/static/image/cross-mark-no-data.png" alt="No data" class="w-32 h-32 mb-4"/>
+                <img src="/static/images/cross-mark-no-data.png" alt="No data" class="w-32 h-32 mb-4"/>
                 <p class="text-center text-gray-600 mt-4">Data are not inputted yet or failed to connect.</p>
             </div>
             `;
@@ -144,13 +186,13 @@ async function fetchFoodFinisher(data, foodType) {
     if (data.length === 0) {
         editorChoiceList.innerHTML = `
         <div class="flex flex-col items-center justify-center min-h-[24rem] p-6">
-            <img src="/static/image/cross-mark-no-data.png" alt="No data" class="w-32 h-32 mb-4"/>
+            <img src="/static/images/cross-mark-no-data.png" alt="No data" class="w-32 h-32 mb-4"/>
             <p class="text-center text-gray-600 mt-4">No editor's choice foods at the moment.</p>
         </div>
         `;
         editorChoiceDesc.innerHTML = "Bali offers a wide range of food types, from traditional Balinese cuisine to international dishes. Here are some of the halal editor's choice foods in Bali.";
     } else {
-        const templateResponse = await fetch(`/editors-choice/show/${foodType}`);
+        const templateResponse = await fetch(`/editors-choice/show/${foodType}/`);
         let templateString = await templateResponse.text();
         templateString = templateString.replace("Last Week", data[0].fields.week);
         editorChoiceList.innerHTML += '<ul role="list" class="divide-y divide-gray-100 hover:fly-out">';
@@ -190,7 +232,7 @@ async function fetchFoodItemsRec(foodItemIds) {
 
 // Fetch the food items based on the food item IDs
 async function fetchFoodItems(foodItemId) {
-    const response = await fetch(`/editors-choice/json/food-item/${foodItemId}`);
+    const response = await fetch(`/editors-choice/json/food/${foodItemId}`);
     const data = await response.json();
     return data;
 }
@@ -217,7 +259,7 @@ async function fetchFoodData(foodType) {
         if (foodType === 'all') {
             response = await fetch('/editors-choice/json/editor-choice/');
         } else {
-            response = await fetch(`/editors-choice/json/editor-choice/${foodType}`);
+            response = await fetch(`/editors-choice/json/editor-choice/${foodType}/`);
         }
         const data = await response.json();
         fetchFoodFinisher(data, foodType);
@@ -225,9 +267,134 @@ async function fetchFoodData(foodType) {
         console.error('Error fetching data:', error);
         document.getElementById('editorChoiceList').innerHTML = `
             <div class="flex flex-col items-center justify-center min-h-[24rem] p-6">
-                <img src="/static/image/cross-mark-no-data.png" alt="No data" class="w-32 h-32 mb-4"/>
+                <img src="/static/images/cross-mark-no-data.png" alt="No data" class="w-32 h-32 mb-4"/>
                 <p class="text-center text-gray-600 mt-4">Data are not inputted yet or failed to connect.</p>
             </div>
         `;
     }
 }
+
+// Event listener for the food item page
+document.addEventListener('DOMContentLoaded', function() {   
+    // Call the updateDescription function
+    updateDescriptionForFoodRec();
+});
+
+// Function to get query parameters
+function getQueryParams() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+        food_item: params.get('food_item'),
+        food_id: params.get('food_id')
+    };
+}
+
+// Function to fetch food item data
+async function fetchFoodItemDataHelper(food_item, food_id) {
+    try {
+        const response = await fetch(`/editors-choice/json/food/${food_id}`);
+        const data = await response.json();
+        return data[0].fields;
+    } catch (error) {
+        console.error('Error fetching food item data:', error);
+        return null;
+    }
+}
+
+// Function to fetch rating data from full json database
+async function fetchRatingDataHelper(food_item, food_id) {
+    const response = await fetch(`/editors-choice/json/food-rec/`);
+    const data = await response.json();
+    const ratingData = data.find(item => item.fields.food_item === food_id);
+    return ratingData;
+}
+
+// Function to update the description paragraph
+async function updateDescriptionForFoodRec() {
+    const { food_item, food_id } = getQueryParams();
+    if (food_item && food_id) {
+        const item = await fetchFoodItemDataHelper(food_item, food_id);
+        if (item) {
+            document.getElementById('descParagraph').innerHTML = DOMPurify.sanitize(item.description);
+            document.getElementById('productName').innerHTML = DOMPurify.sanitize(item.name);
+            const formattedPrice = Number(item.price).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            document.getElementById('productPrice').innerHTML = "Rp" + DOMPurify.sanitize(formattedPrice);
+            document.getElementById('highlightProduct').innerHTML = DOMPurify.sanitize(item.name) + " is best eaten at:";
+            document.getElementById('bestEatenHighlighted').innerHTML = DOMPurify.sanitize(item.food_type.charAt(0).toUpperCase() + item.food_type.slice(1));
+            document.getElementById('anchorToFood').href;
+        }
+        const ratingData = await fetchRatingDataHelper(food_item, food_id);
+        if (ratingData) {
+            document.getElementById('anchorToFood').innerHTML = DOMPurify.sanitize(ratingData.fields.rating) + " out of 5 (verified by admin: " + ratingData.fields.author + ")";
+        }
+    }
+}
+
+function showModal() {
+    const modal = document.getElementById('crudModal');
+    const modalContent = document.getElementById('crudModalContent');
+
+    modal.classList.remove('hidden');
+    modal.removeAttribute('aria-hidden');
+    modalContent.classList.remove('opacity-0', 'scale-95');
+    modalContent.classList.add('opacity-100', 'scale-100');
+
+    setTimeout(() => {
+        modalContent.classList.remove('opacity-0', 'scale-95');
+        modalContent.classList.add('opacity-100', 'scale-100');
+    }, 50);
+}
+
+function hideModal() {
+    const modal = document.getElementById('crudModal');
+    const modalContent = document.getElementById('crudModalContent');
+
+    modalContent.classList.remove('opacity-100', 'scale-100');
+    modalContent.classList.add('opacity-0', 'scale-95');
+
+    setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.setAttribute('aria-hidden', 'true');
+    }, 150);
+}
+
+// Function to submit the edited rating via AJAX
+async function submitEditRating() {
+    // Extract food_id from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const foodItemId = urlParams.get('food_id');
+
+    // Fetch from the full FoodRecommendation JSON database
+    const responseFR = await fetch(`/editors-choice/json/food-rec/`);
+    const dataFR = await responseFR.json();
+
+    // Find the food item in the FoodRecommendation database
+    const foodItem = dataFR.find(item => item.fields.food_item === foodItemId);
+    const foodRecommendationId = foodItem.pk;
+
+    // const rating = parseFloat(document.getElementById('rating').value); // Ensure rating is a float
+    const formElement = document.getElementById('editRatingForm');
+
+    const response = await fetch(`/editors-choice/edit-food/?food_recommendation_id=${foodRecommendationId}`, {
+        method: 'POST',
+        body: new FormData(formElement)
+    }).then(response => updateDescriptionForFoodRec());
+    formElement.reset();
+    document.querySelector('[data-modal-toggle="crudModal"]').click();
+
+    if (response.ok) {
+        const data = await response.json();
+        alert(data.message);
+        document.getElementById('crudModal').classList.add('hidden');
+    } else {
+        alert('Failed to update rating.');
+    }
+}
+
+document.getElementById("cancelButton").addEventListener("click", hideModal);
+document.getElementById("closeModalBtn").addEventListener("click", hideModal);
+document.getElementById("submitEditRating").addEventListener("click", hideModal);
+document.getElementById('submitEditRating').addEventListener("click", (event) => {
+    event.preventDefault();
+    submitEditRating();
+});

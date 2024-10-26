@@ -15,7 +15,11 @@
   <!-- Account Details Section -->
   <div class="w-2/3 bg-[#e8dcd4] rounded-lg shadow-md p-6">
     <h3 class="text-lg font-semibold text-[#3d200a] mb-4">Account Details</h3>
-    <form method="POST" enctype="multipart/form-data" class="space-y-6">
+    
+    <!-- Area untuk Menampilkan Pesan -->
+    <div id="form-messages" class="mb-4"></div>
+    {% if not user.is_staff %}
+    <form id="account-form" method="POST" enctype="multipart/form-data" class="space-y-6">
       {% csrf_token %}
       
       <div class="grid grid-cols-2 gap-4">
@@ -37,6 +41,52 @@
         <button type="submit" class="bg-[#654a2d] hover:bg-[#927155] text-white font-bold py-2 px-4 rounded-lg">Save changes</button>
       </div>
     </form>
+    {% endif %}
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('account-form');
+    const messagesDiv = document.getElementById('form-messages');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Mengumpulkan data formulir
+      const formData = new FormData(form);
+
+      // Mengirimkan permintaan AJAX menggunakan Fetch API
+      fetch("{% url 'user_profile:profile' %}", {  // Pastikan nama URL sesuai dengan yang didefinisikan di urls.py
+        method: 'POST',
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest',
+          // 'X-CSRFToken': '{{ csrf_token }}',  // Tidak perlu memasukkan CSRF token di header karena sudah termasuk dalam FormData
+        },
+        body: formData,
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          messagesDiv.innerHTML = `<div class="text-green-700 px-4 py-3 rounded relative" role="alert">
+            <strong class="font-bold">Success!</strong>
+            <span class="block sm:inline">${data.message}</span>
+          </div>`;
+        } else {
+          messagesDiv.innerHTML = `<div class="text-red-700 px-4 py-3 rounded relative" role="alert">
+            <strong class="font-bold">Error!</strong>
+            <span class="block sm:inline">${data.message}</span>
+          </div>`;
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        messagesDiv.innerHTML = `<div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+          <strong class="font-bold">Error!</strong>
+          <span class="block sm:inline">An unexpected error occurred.</span>
+        </div>`;
+      });
+    });
+  });
+</script>
 {% endblock content %}

@@ -1,0 +1,92 @@
+[
+  {
+    "pk": "e7133b9d-3949-46a1-8646-dbd1aa6a132d",
+    "model": "manajemen_souvenir.SouvenirEntry",
+    "fields": {
+      "name": "Kebaya Bali",
+      "description": "Kebaya Bali merupakan pakaian tradisional Bali yang mencerminkan keindahan dan keanggunan wanita Bali. Kebaya ini biasanya dipadukan dengan kain kamen atau songket bermotif cantik untuk menghadiri upacara adat, bersembahyang, dan acara penting lainnya. Di Pasar Seni Kumbasari, tersedia berbagai pilihan kain dan kebaya Bali yang cocok dijadikan oleh-oleh istimewa khas Bali.",
+      "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fstylo.grid.id%2Fread%2F14967887%2F5-online-shop-yang-menjual-kebaya-bali-modern-harga-terjangkau%3Fpage%3Dall&psig=AOvVaw11n3hk07n0GBO8lAF0fNMv&ust=1729946503039000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNC3u5PHqYkDFQAAAAAdAAAAABAb"
+    }
+  },
+  {
+    "pk": "a5dd1b9e-2a7c-4d6a-8410-08c49f8e5e23",
+    "model": "manajemen_souvenir.SouvenirEntry",
+    "fields": {
+      "name": "Udeng",
+      "description": "Udeng adalah penutup kepala khas Bali yang sering dikenakan oleh pria, terutama umat Hindu di Bali. Bagi masyarakat setempat, udeng lebih dari sekadar aksesoris. Setiap bentuk dan letak ikatannya memiliki makna simbolis tersendiri, mencerminkan nilai-nilai spiritual dan budaya yang dalam.",
+      "image": "https://iradiofm.com/wp-content/uploads/2023/05/NB-Aug-20-Typical-Bali-Udeng-thumb.png"
+    }
+  },
+  {
+    "pk": "13a4f7a7-5223-452e-b120-f4c9425c8cbe",
+    "model": "manajemen_souvenir.SouvenirEntry",
+    "fields": {
+      "name": "Tas rotan",
+      "description": "Sebagian besar penduduk Bali membuat kerajinan tangan yang khas, memanfaatkan bahan-bahan alami seperti rotan dan bambu. Kerajinan rotan hadir dalam berbagai bentuk, desain, dan pola menarik, termasuk tas rotan yang menjadi favorit. Selain di toko oleh-oleh, tas-tas ini juga dapat ditemukan di Pasar Seni Kumbasari dan Pasar Seni Sukawati.",
+      "image": "https://asset.kompas.com/crops/tDhQKeWBELUeTmN63YMWj9_V4nk=/120x0:3348x2152/750x500/data/photo/2020/09/24/5f6c9159ec97a.jpg"
+    }
+  },
+  {
+    "pk": "ac0971be-4ae4-4d7d-9b68-72c7a92b4e96",
+    "model": "manajemen_souvenir.SouvenirEntry",
+    "fields": {
+      "name": "Batik Bali",
+      "description": "Batik Bali lahir dari penyebaran seni batik dari Pulau Jawa. Batik Bali memiliki beragam motif yang khas dan mencerminkan kehidupan masyarakat Bali. Ragam motif yang unik, seperti Pisang Bali, Barong Bali, Merak Abyorhokokai, dan Buketan Bali, menjadi representasi visual yang memikat. Setiap motif ini membawa kisah dan makna tersendiri, terkait erat dengan tradisi, budaya, dan kehidupan sehari-hari masyarakat Bali.",
+      "image": "https://mctexstyle.id/artikel/wp-content/uploads/2023/11/Batik-Bali.jpg"
+    }
+  },
+  {
+    "pk": "b5eaf6d7-f7c9-43a1-8db9-9d19ff8b8263",
+    "model": "manajemen_souvenir.SouvenirEntry",
+    "fields": {
+      "name": "Kaos Barong",
+      "description": "Barong bisa dibilang sebagai ikon yang paling dikenal di Bali. Wajahnya tak hanya hadir dalam topeng ukir dan pertunjukan Tari Barong, tetapi juga menjadi motif populer pada kaos dan pakaian lainnya. Pakaian dengan gambar Barong ini mudah ditemukan di berbagai toko oleh-oleh, pasar seni, serta tersedia di pusat perbelanjaan atau pasar tradisional.",
+      "image": "https://assets.ntvnews.id/crop/0x0:0x0/690x388/photo/2024/06/21/755317769.jpg"
+    }
+  },
+  {
+    "pk": "c7d7a741-47e1-4f34-90a5-0e9b23e92b56",
+    "model": "manajemen_souvenir.SouvenirEntry",
+    "fields": {
+      "name": "Sarung Bali",
+      "description": "Sarung Bali adalah kain tradisional yang dihasilkan melalui keterampilan kerajinan tangan, dengan salah satu yang paling terkenal adalah kain tenun ikat ganda dari Desa Tenganan. Proses pembuatan kain tenun khas Bali ini membutuhkan ketelitian dan teknik yang rumit, sehingga memerlukan waktu yang cukup lama untuk menciptakan tiap helai kain dengan detail yang memukau.",
+      "image": "https://img.okezone.com/content/2017/03/03/337/1633458/kapolda-bali-pecalang-dilibatkan-dalam-pengamanan-raja-salman-A0Tv3horze.jpg"
+    }
+  },
+  {
+    "pk": "f77f94f8-742b-4395-bbd4-bc0b4a3bf9be",
+    "model": "manajemen_souvenir.SouvenirEntry",
+    "fields": {
+      "name": "Gelang",
+      "description": "Kerajinan gelang adalah salah satu oleh-oleh terjangkau yang banyak tersedia di Bali. Pengunjung dapat menemukan gelang dengan beragam gaya, mulai dari anyaman rajut, gelang tali, hingga yang dihiasi bebatuan, serta banyak pilihan lainnya. Setiap desain membawa sentuhan unik yang cocok untuk oleh-oleh atau kenang-kenangan khas Bali.",
+      "image": "https://media.istockphoto.com/id/1171780925/id/foto/wanita-membeli-gelang-buatan-tangan-dari-sebuah-toko-di-bali-indonesia.jpg?s=1024x1024&w=is&k=20&c=XCpvK9rpRcDJESvdikn0GHLKvjvDY6RWRK43hlPPmfs="
+    }
+  },
+  {
+    "pk": "29dafa82-0b2f-4f9f-8f8d-81fd76d9c831",
+    "model": "manajemen_souvenir.SouvenirEntry",
+    "fields": {
+      "name": "Pahatan kayu",
+      "description": "Di Bali, Anda dapat menemukan beragam karya seni pahatan kayu yang menakjubkan. Bentuknya sangat bervariasi, mulai dari topeng hingga patung hewan. Contohnya, di Pasar Seni Sukawati, tersedia pahatan kayu dalam berbagai ukuran, baik besar maupun kecil. Selain itu, tidak hanya patung, tetapi juga terdapat ukiran kayu berbentuk bongkahan besar yang dihiasi dengan relief yang indah, menambah keindahan dan nilai seni pada setiap karya.",
+      "image": "https://www.dernabalitours.com/images/ubud-tours/8-ubud-traditional-art-market-bali-indonesia.jpg"
+    }
+  },
+  {
+    "pk": "e84a5f2c-2bb6-4bc8-99e1-e43f27db144c",
+    "model": "manajemen_souvenir.SouvenirEntry",
+    "fields": {
+      "name": "Gantungan Kunci",
+      "description": "Gantungan kunci merupakan oleh-oleh khas Bali yang terjangkau dan mudah dijumpai di berbagai tempat di Bali. Anda dapat memilih dari beragam bentuk gantungan kunci yang menarik, seperti replika Pura Bali, pulau Bali, dan beragam desain lainnya yang kaya akan motif tradisional Bali.",
+      "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQxMyzf7dvIkXOAPopBOZqhH-BuIbxZ3s-Noh55iDfBjcyl4u4Z"
+    }
+  },
+  {
+    "pk": "6e8df7e8-03d2-4a8d-957e-8380d1f531af",
+    "model": "manajemen_souvenir.SouvenirEntry",
+    "fields": {
+      "name": "Kerajinan Batok Kelapa",
+      "description": "Selain kayu, rotan, dan bambu, banyak pengrajin di Bali juga memanfaatkan batok kelapa sebagai media untuk mengekspresikan kreativitas mereka dan menciptakan barang-barang yang unik. Hasil kerajinan ini bervariasi, mulai dari cangkir dan teko, mangkuk, hingga patung hewan dan ukiran rumit yang menawan. Anda dapat menemukan kerajinan dari batok kelapa ini di berbagai pasar seni di Bali, yang dapat dijadikan pilihan untuk membeli oleh-oleh yang menarik dan khas Bali.",
+      "image": "https://asset.kompas.com/crops/wal5IdESrbpSPJYT-x-umq5-i_E=/0x0:738x492/750x500/data/photo/2020/09/24/5f6c1929a2494.jpg"
+    }
+  }
+]
