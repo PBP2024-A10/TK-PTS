@@ -14,27 +14,27 @@ class FoodOrderModelTest(TestCase):
         # Buat objek FoodOrder untuk diuji
         self.order = FoodOrder.objects.create(
             user=self.user,
-            nama_penerima="John Doe",
+            nama_penerima="Joe",
             alamat_pengiriman="1234 Street Name",
             status_pesanan="pending"
         )
 
     def test_order_creation(self):
         """Test pembuatan FoodOrder berhasil"""
-        self.assertEqual(self.order.nama_penerima, "John Doe")
+        self.assertEqual(self.order.nama_penerima, "Joe")
         self.assertEqual(self.order.alamat_pengiriman, "1234 Street Name")
         self.assertEqual(self.order.status_pesanan, "pending")
 
     def test_order_str_method(self):
         """Test metode __str__ menghasilkan string yang sesuai"""
-        self.assertEqual(str(self.order), f"Order #{self.order.id} - John Doe (pending)")
+        self.assertEqual(str(self.order), f"Order #{self.order.id} - Joe (pending)")
 
 #forms
 class FoodOrderFormTest(TestCase):
     def test_valid_form(self):
         """Test valid form"""
         form_data = {
-            "nama_penerima": "John Doe",
+            "nama_penerima": "Joe",
             "alamat_pengiriman": "1234 Street Name",
             "status_pesanan": "pending"
         }
@@ -70,23 +70,26 @@ class FoodOrderViewTest(TestCase):
         """Test mengambil pesanan berdasarkan ID"""
         order = FoodOrder.objects.create(
             user=self.user,
-            nama_penerima="John Doe",
+            nama_penerima="Joe",
             alamat_pengiriman="1234 Street Name",
             status_pesanan="pending"
         )
         response = self.client.get(reverse('manajemen_pesanan:get_order_by_id', args=[order.id]))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "John Doe")  # Memastikan respons berisi nama penerima
+        self.assertContains(response, "Joe")  # Memastikan respons berisi nama penerima
 
     def test_delete_order_view(self):
         """Test penghapusan pesanan melalui view delete_order"""
         order = FoodOrder.objects.create(
             user=self.user,
-            nama_penerima="John Doe",
+            nama_penerima="Joe",
             alamat_pengiriman="1234 Street Name",
             status_pesanan="pending"
         )
         response = self.client.post(reverse('manajemen_pesanan:delete_order', args=[order.id]))
         self.assertEqual(response.status_code, 302)  # Redirect setelah penghapusan
         self.assertEqual(FoodOrder.objects.count(), 0)  # Pastikan pesanan terhapus
+
+
+
 
