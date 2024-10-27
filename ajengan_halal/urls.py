@@ -27,5 +27,6 @@ urlpatterns = [
     path('profile/', include('user_profile.urls')),
     path('editors-choice/', include('editors_choice.urls')),
     path('makanan/', include('cards_makanan.urls')),
-    path('souvenir/', include('manajemen_souvenir.urls'))
+    path('souvenir/', include('manajemen_souvenir.urls')),
+    path('wishlist/', include('wishlist.urls')),
 ]
