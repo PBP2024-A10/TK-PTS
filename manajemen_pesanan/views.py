@@ -10,6 +10,10 @@ from manajemen_pesanan.forms import FoodOrderForm  # Pastikan Anda telah membuat
 from manajemen_pesanan.models import FoodOrder
 from manajemen_pesanan.forms import FoodOrderUpdateForm
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.decorators import user_passes_test
+
+def is_admin(user):
+    return user.is_staff  # atau user.is_superuser, sesuai dengan kebutuhan
 
 def show_main(request):
     food_entries = FoodOrder.objects.all()
@@ -26,19 +30,16 @@ def show_main(request):
 @csrf_exempt
 #@login_required(login_url="authentication:login")
 def create_order(request):
-    """Handle order creation tanpa autentikasi."""
+    """Handle order creation dengan status default 'pending'."""
     if request.method == 'POST':
         form = FoodOrderForm(request.POST)
         if form.is_valid():
             order = form.save(commit=False)
-            # Menetapkan user pertama dari database sebagai user sementara
-            user = User.objects.first()  # Ambil user pertama dari database
-            if user:  # Cek apakah user tersedia
-                order.user = user  # Tetapkan user yang valid
-                order.save()
-                return redirect('manajemen_pesanan:show_main')  # Redirect ke halaman riwayat pesanan
-            else:
-                return HttpResponse("Tidak ada user di database.", status=500)  # Berikan pesan jika tidak ada user
+            order.status_pesanan = 'pending'  # Tetapkan status default ke 'pending'
+            user = request.user  # Set pengguna yang sedang login sebagai pembuat pesanan
+            order.user = user  # Tetapkan user yang valid
+            order.save()
+            return redirect('manajemen_pesanan:show_main')  # Redirect ke halaman riwayat pesanan
     else:
         form = FoodOrderForm()
 
@@ -47,21 +48,23 @@ def create_order(request):
     }
     return render(request, 'create_order.html', context)
 
-@csrf_exempt
 #@login_required(login_url="authentication:login")
+#@user_passes_test(is_admin, login_url="authentication:login")  # Hanya admin yang bisa mengakses
+@csrf_exempt
 def update_order_status(request, order_id):
-    order = get_object_or_404(FoodOrder, id=order_id)  # Pastikan hanya pemilik yang bisa mengubah
+    order = get_object_or_404(FoodOrder, id=order_id)  # Dapatkan pesanan berdasarkan ID
 
     if request.method == 'POST':
         form = FoodOrderUpdateForm(request.POST, instance=order)
         if form.is_valid():
             form.save()
-            return redirect('manajemen_pesanan:show_main')  # Ganti dengan URL yang sesuai
+            return redirect('manajemen_pesanan:show_main')  # Redirect ke halaman utama pesanan
     else:
         form = FoodOrderUpdateForm(instance=order)
 
     return render(request, 'update_order.html', {'form': form, 'order': order})
 
+#@login_required(login_url="authentication:login")
 @csrf_exempt
 def delete_order(request, order_id):
     """Hapus pesanan berdasarkan ID."""
