@@ -11,6 +11,8 @@ class SouvenirEntryForm(ModelForm):
     class Meta:
         model = SouvenirEntry
         fields = ["name", "description","image"]
+    
+    image = forms.ImageField(widget=CustomClearableFileInput)
 
     def clean_name(self):
         name = self.cleaned_data["name"]
