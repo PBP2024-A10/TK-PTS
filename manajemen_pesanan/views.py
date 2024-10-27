@@ -12,6 +12,8 @@ from manajemen_pesanan.forms import FoodOrderUpdateForm
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import user_passes_test
 
+from cards_makanan.models import MenuItem  # Import model makanan yang dihubungkan
+
 def is_admin(user):
     return user.is_staff  # atau user.is_superuser, sesuai dengan kebutuhan
 
@@ -30,8 +32,13 @@ def show_main(request):
 
 @csrf_exempt
 @login_required
-def create_order(request):
+def create_order(request, menu_item_id=None):
     """Handle order creation dengan status default 'pending'."""
+
+    menu_item = None
+    if menu_item_id:
+        menu_item = get_object_or_404(MenuItem, id=menu_item_id)
+
     if request.method == 'POST':
         form = FoodOrderForm(request.POST)
         if form.is_valid():
@@ -40,12 +47,19 @@ def create_order(request):
             user = request.user  # Set pengguna yang sedang login sebagai pembuat pesanan
             order.user = user  # Tetapkan user yang valid
             order.save()
+
+            if menu_item:
+                order.items.add(menu_item)  
+
             return redirect('manajemen_pesanan:show_main')  # Redirect ke halaman riwayat pesanan
     else:
         form = FoodOrderForm()
 
     context = {
         "form": form,
+
+        "menu_item": menu_item
+        
     }
     return render(request, 'create_order.html', context)
 
