@@ -332,7 +332,6 @@ async function updateDescriptionForFoodRec() {
             document.getElementById('productPrice').innerHTML = "Rp" + DOMPurify.sanitize(formattedPrice);
             document.getElementById('highlightProduct').innerHTML = DOMPurify.sanitize(item.name) + " is best eaten at:";
             document.getElementById('bestEatenHighlighted').innerHTML = DOMPurify.sanitize(item.food_type.charAt(0).toUpperCase() + item.food_type.slice(1));
-            document.getElementById('anchorToFood').href = `/main/food-list/`;
         }
         const ratingData = await fetchRatingDataHelper(food_item, food_id);
         if (ratingData) {

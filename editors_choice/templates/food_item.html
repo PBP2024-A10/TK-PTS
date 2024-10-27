@@ -2,6 +2,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {% include 'navbar.html' %}
+<title>Ajengan Halal: This week editor's choice: {{ food.name }}!</title>
 
 <!--
   This example requires some changes to your config:
@@ -194,8 +195,8 @@
             </fieldset>
           </div> -->
 
-          <a id="anchorToFood">
-            <button class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-brown-darker px-8 py-3 text-base font-medium text-white hover:bg-brown-mild focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 cursor-pointer">Go to food page</button>
+          <a id="anchorToFood" href="{% url 'main:food_list' %}">
+            <button class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-brown-darker px-8 py-3 text-base font-medium text-white hover:bg-brown-mild focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 cursor-pointer">Go to food list page</button>
           </a>
         <!-- </form> -->
       </div>
@@ -224,7 +225,7 @@
           <h2 class="text-sm font-medium text-gray-900">Details</h2>
 
           <div class="mt-4 space-y-6">
-            <p class="text-sm text-gray-600">Please click on the "Go to food page" for more details and payments.</p>
+            <p class="text-sm text-gray-600">Please click on the "Go to food list page" for more details and payments.</p>
           </div>
         </div>
       </div>
