@@ -11,7 +11,6 @@ from manajemen_pesanan.models import FoodOrder
 from manajemen_pesanan.forms import FoodOrderUpdateForm
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import user_passes_test
-
 from cards_makanan.models import MenuItem  # Import model makanan yang dihubungkan
 
 def is_admin(user):
@@ -57,9 +56,8 @@ def create_order(request, menu_item_id=None):
 
     context = {
         "form": form,
-
         "menu_item": menu_item
-        
+
     }
     return render(request, 'create_order.html', context)
 
