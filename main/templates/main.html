@@ -39,6 +39,8 @@
     <!-- Slider controls -->
     <div class="flex items-center justify-center mt-10 mb-4 relative z-20">
         <input type="text" id="restaurant-search" class="border border-[#cbbcb5] rounded-lg px-4 py-2 w-2/3 text-[#3d200a] bg-[#e8dcd4] placeholder-[#3d200a]" placeholder="Cari restoran...">
+    <div id="search-results"></div>
+
     </div>
 
       
@@ -232,30 +234,70 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Mengarahkan ketika tombol 'Show More' diklik
-            const showMoreButtons = document.querySelectorAll('.show-more');
-            showMoreButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const uuid = this.getAttribute('data-uuid');
-                    window.location.href = `http://127.0.0.1:8000/makanan/menu/${uuid}`;
-                });
-            });
-    
-            // Mengarahkan ketika teks dicari di search bar
-            const searchBar = document.getElementById('search-bar');
-            searchBar.addEventListener('keypress', function(event) {
-                if (event.key === 'Enter') {
-                    const query = this.value; // Ambil nilai pencarian
-                    // Anda bisa mengarahkan ke halaman pencarian atau memfilter item makanan di sini.
-                    window.location.href = `http://127.0.0.1:8000/makanan/search/?q=${query}`;
+            const searchBar = document.getElementById('restaurant-search');
+        
+            // Function to fetch CSRF token
+            function getCookie(name) {
+                let cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                    const cookies = document.cookie.split(';');
+                    for (let i = 0; i < cookies.length; i++) {
+                        const cookie = cookies[i].trim();
+                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
                 }
+                return cookieValue;
+            }
+        
+            const csrfToken = getCookie('csrftoken');
+        
+            searchBar.addEventListener('input', function() {
+                const query = this.value;
+        
+                fetch('/filter_restaurants/?q=' + query, {
+                    method: 'GET',
+                    headers: {
+                        'X-CSRFToken': csrfToken,
+                        'Accept': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const restaurantContainer = document.querySelector('.restaurant-cards');
+                    restaurantContainer.innerHTML = ''; // Clear current restaurant cards
+        
+                    if (data.restaurants.length > 0) {
+                        data.restaurants.forEach(restaurant => {
+                            const card = document.createElement('div');
+                            card.classList.add('card');
+        
+                            // Create restaurant card elements
+                            card.innerHTML = `
+                                <img src="https://picsum.photos/200/120?random=${restaurant.id}" alt="Foto ${restaurant.name}">
+                                <h2>${restaurant.name}</h2>
+                                <p>${restaurant.description}</p>
+                                <a href="/makanan/menu/${restaurant.id}" class="show-more">Show more &rarr;</a>
+                            `;
+                            restaurantContainer.appendChild(card);
+                        });
+                    } else {
+                        restaurantContainer.innerHTML = '<p class="no-data">No restaurants found.</p>';
+                    }
+                })
+                .catch(error => console.error('Error fetching data:', error));
             });
         });
-    </script>
+        </script>
+        
+    
     
     
 </body>
 </html>
 
 </div>
-{% endblock content %}sh
+{% endblock content %}

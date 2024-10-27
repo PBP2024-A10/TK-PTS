@@ -9,6 +9,11 @@
                 <h2>{{ item.name }}</h2>
                 <p>{{ item.description }}</p>
                 <p class="price">Rp{{ item.price }}</p>
+                
+                <!-- Button with updated content from meal_type -->
+                <div class="custom-button">
+                    <div class="button-text">{{ item.meal_type }}</div> <!-- Display meal_type here -->
+                </div>
             </div>
         {% endfor %}
     {% else %}
@@ -29,7 +34,7 @@
     h1 {
         text-align: center;
         color: #fff;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
         font-size: 2em;
         font-weight: bold;
         text-transform: uppercase;
@@ -53,8 +58,9 @@
     .card {
         border: 2px solid #cbbcb5;
         border-radius: 8px;
-        padding: 10px;
+        padding: 15px;  /* Increased padding for more space */
         width: 200px;
+        height: 330px;  /* Increased height to allow space for button */
         box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
         background-color: #fff;
         transition: transform 0.2s;
@@ -62,6 +68,8 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
+        gap: 10px; /* Adjust gap between card content and button */
+        position: relative; /* Positioning for the button */
     }
 
     .card:hover {
@@ -78,17 +86,49 @@
     .card h2 {
         color: #927155;
         font-size: 18px;
-        margin-bottom: 8px;
+        margin-bottom: 1px;
     }
 
     .card p {
-        margin: 4px 0;
-        font-size: 14px;
+    margin: 1px 0;
+    font-size: 14px;
+    color: #8B4513; /* Warna coklat menengah */
     }
 
     .card .price {
         font-weight: bold;
         color: #654a2d;
+    }
+
+    /* Style for the custom button */
+    .custom-button {
+        width: 80px;  /* Adjusted width */
+        height: 35px; /* Adjusted height */
+        border-radius: 100px;
+        border: 2px solid #8B4513; /* Brown border color */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        position: absolute; /* Absolute positioning */
+        bottom: 10px; /* Distance from the bottom */
+        left: 10px; /* Distance from the left */
+        transition: background-color 0.3s;
+    }
+
+    .custom-button:hover {
+        background-color: #8B4513; /* Brown background on hover */
+    }
+
+    .button-text {
+        color: #8B4513; /* Match text color with border */
+        font-size: 0.9rem; /* Adjust font size */
+        font-weight: 500;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .custom-button:hover .button-text {
+        color: #fff; /* Change text color on hover */
     }
 
     .back-link {

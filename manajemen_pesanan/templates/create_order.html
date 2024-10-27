@@ -1,0 +1,21 @@
+<!-- main/templates/create_order.html -->
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mx-auto px-4">
+    <h1 class="text-2xl font-bold mt-4">Buat Pesanan Baru</h1>
+
+    <form method="post" class="mt-4 bg-white shadow-md rounded p-4">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="mt-4 bg-[#3d200a] text-white py-2 px-4 rounded">Kirim Pesanan</button>
+    </form>
+<!-- 
+    {% if form_submitted %}
+    <p>Pesanan berhasil dikirim!</p>
+    {% endif %} -->
+
+    <!-- Tombol untuk kembali ke daftar pesanan -->
+    <a href="{% url 'manajemen_pesanan:show_main' %}" class="mt-4 inline-block text-[#927155] hover:underline">Kembali ke Daftar Pesanan</a>
+</div>
+
+{% endblock content %}

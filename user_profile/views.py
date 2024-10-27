@@ -5,8 +5,10 @@ from django.http import JsonResponse
 from authentication.forms import UserUpdateForm
 from .forms import ProfileUpdateForm
 from django.contrib import messages
+from django.views.decorators.csrf import csrf_exempt
 
 @login_required
+@csrf_exempt
 def profile(request):
     if request.user.is_staff:
         messages.error(request, "You do not have permission to edit your profile.")
