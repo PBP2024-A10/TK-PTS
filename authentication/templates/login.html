@@ -5,7 +5,7 @@
 {% endblock meta %}
 
 {% block content %}
-<div class="min-h-screen bg-cover bg-center bg-[#654a2d] flex items-center justify-between" style="background-image: url('{% static "image/image 3.png" %}')">
+<div class="min-h-screen bg-cover bg-center bg-[#654a2d] flex items-center justify-between bg-opacity-80" style="background-image: url('{% static "image/image 3.png" %}')">
   <div class="flex w-1/2 flex-col justify-center items-center gap-4">
     <a href="{% url 'authentication:login' %}" class="flex items-center space-x-3 rtl:space-x-reverse">
       <img src="{% static 'images/web-logo.svg' %}" class="h-80" alt="Logo" />

@@ -4,7 +4,7 @@ from .models import Restaurant, MenuItem
 class RestaurantForm(forms.ModelForm):
     class Meta:
         model = Restaurant
-        fields = ['name', 'description', 'location']
+        fields = ['name', 'description', 'location','image_url']
         widgets = {
             'name': forms.TextInput(attrs={
                 'class': 'form-input',
@@ -21,6 +21,12 @@ class RestaurantForm(forms.ModelForm):
             'location': forms.TextInput(attrs={
                 'class': 'form-input',
                 'placeholder': 'Masukkan lokasi restoran',
+                'style': 'padding: 12px; border-radius: 12px; border: 1px solid #6B7280; width: 100%; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); transition: border 0.3s;',
+                'onfocus': 'this.style.borderColor="#3B82F6";'
+            }),
+            'image_url': forms.URLInput(attrs={
+                'class': 'form-input',
+                'placeholder': 'Masukkan URL gambar restoran',
                 'style': 'padding: 12px; border-radius: 12px; border: 1px solid #6B7280; width: 100%; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); transition: border 0.3s;',
                 'onfocus': 'this.style.borderColor="#3B82F6";'
             }),

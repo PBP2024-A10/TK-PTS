@@ -208,7 +208,7 @@
         {% if page_obj %}
             {% for restaurant in page_obj %}
                 <div class="card">
-                    <img src="https://picsum.photos/200/120?random={{ forloop.counter }}" alt="Foto {{ restaurant.name }}">
+                    <img src="{{ restaurant.image_url }}" alt="Foto {{ restaurant.name }}">
                     <h2>{{ restaurant.name }}</h2>
                     <p>{{ restaurant.description }}</p>
                     <a href="{% url 'cards_makanan:show_menu' restaurant.id %}" class="show-more">Show more &rarr;</a>
@@ -232,6 +232,10 @@
         {% endif %}
     </div>
 
+    <script>
+        // Mendefinisikan variabel isStaff berdasarkan status pengguna
+        const isStaff = {{ user.is_staff|yesno:"true,false" }};
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const searchBar = document.getElementById('restaurant-search');
@@ -277,10 +281,11 @@
         
                             // Create restaurant card elements
                             card.innerHTML = `
-                                <img src="https://picsum.photos/200/120?random=${restaurant.id}" alt="Foto ${restaurant.name}">
+                                <img src="${restaurant.image_url}" alt="Foto ${restaurant.name}">
                                 <h2>${restaurant.name}</h2>
                                 <p>${restaurant.description}</p>
                                 <a href="/makanan/menu/${restaurant.id}" class="show-more">Show more &rarr;</a>
+                                ${isStaff ? `<a href="/makanan/delete-restaurant/${restaurant.id}/" class="delete-button" onclick="return confirm('Are you sure you want to delete this restaurant?');">Hapus</a>` : ''}
                             `;
                             restaurantContainer.appendChild(card);
                         });

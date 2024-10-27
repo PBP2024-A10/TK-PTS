@@ -103,6 +103,7 @@ def filter_restaurants(request):
                 'id': restaurant.id,
                 'name': restaurant.name,
                 'description': restaurant.description,
+                'image_url': restaurant.image_url,
             } for restaurant in filtered_restaurants
         ]
     }
