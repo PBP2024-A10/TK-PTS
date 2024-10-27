@@ -15,6 +15,7 @@ from django.contrib.auth.decorators import user_passes_test
 def is_admin(user):
     return user.is_staff  # atau user.is_superuser, sesuai dengan kebutuhan
 
+@login_required
 def show_main(request):
     food_entries = FoodOrder.objects.all()
 
@@ -25,10 +26,10 @@ def show_main(request):
         'food_entries': food_entries
     }
 
-    return render(request, "main.html", context)
+    return render(request, "pesanan.html", context)
 
 @csrf_exempt
-#@login_required(login_url="authentication:login")
+@login_required
 def create_order(request):
     """Handle order creation dengan status default 'pending'."""
     if request.method == 'POST':
@@ -48,9 +49,8 @@ def create_order(request):
     }
     return render(request, 'create_order.html', context)
 
-#@login_required(login_url="authentication:login")
-#@user_passes_test(is_admin, login_url="authentication:login")  # Hanya admin yang bisa mengakses
 @csrf_exempt
+#@login_required(login_url="authentication:login")
 def update_order_status(request, order_id):
     order = get_object_or_404(FoodOrder, id=order_id)  # Dapatkan pesanan berdasarkan ID
 
@@ -66,6 +66,7 @@ def update_order_status(request, order_id):
 
 #@login_required(login_url="authentication:login")
 @csrf_exempt
+@login_required
 def delete_order(request, order_id):
     """Hapus pesanan berdasarkan ID."""
     try:
@@ -78,7 +79,7 @@ def delete_order(request, order_id):
         return JsonResponse({"status": "Order not found"}, status=404)
 
 @csrf_exempt
-#@login_required(login_url="authentication:login")
+@login_required
 def cancel_order(request, order_id):
     """Cancel an existing order."""
     try:
@@ -94,14 +95,14 @@ def get_order_json(request):
     orders = FoodOrder.objects.all()
     return JsonResponse(serializers.serialize('json', orders), safe=False)
 
-#@login_required(login_url="authentication:login")
+@login_required
 def get_order_by_user(request):
     """Retrieve orders for a specific user."""
     orders = FoodOrder.objects.filter(user=request.user)
     return JsonResponse(serializers.serialize('json', orders), safe=False)
 
-#@login_required(login_url="authentication:login")
 @csrf_exempt
+@login_required
 def get_order_by_id(request, order_id):
     """Retrieve a specific order by ID."""
     try:

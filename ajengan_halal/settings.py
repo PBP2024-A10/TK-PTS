@@ -41,8 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'authentication',
+    'user_profile',
+    'editors_choice',
+    'cards_makanan',
+    'manajemen_souvenir',
     'manajemen_pesanan'
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -74,7 +79,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'ajengan_halal.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
@@ -121,7 +125,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 if DEBUG:
     STATICFILES_DIRS = [
         BASE_DIR / 'static'
@@ -134,4 +138,4 @@ else:
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ["http://localhost","http://127.0.0.1"]
+CSRF_TRUSTED_ORIGINS = ["http://localhost","http://127.0.0.1","http://rafansya-daryltama-ajenganhalal.pbp.cs.ui.ac.id","https://rafansya-daryltama-ajenganhalal.pbp.cs.ui.ac.id"]

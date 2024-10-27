@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ajengan Halal: Editor's Choice</title>
+    </head>
+    <body class="bg-brown-lightest">
+    {% include 'navbar.html' %}
+    {% include 'header.html' %}
+    <div class="container mx-auto p-4">
+        <h1>Name: {{ username }}</h1>
+        <h1>Email: {{ email }}</h1>
+        <h1>Last login: {{ last_login }}</h1>
+
+        <!-- List of editor's choice items -->
+        <div id="editorChoiceList"></div>
+
+        <!-- Button to add new editor's choice -->
+        <div id="addEditorChoice"></div>
+
+        <!-- Modal -->
+        <div id="messageModal" class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 hidden">
+            <div class="bg-white p-6 rounded shadow-lg">
+                <h5 class="text-xl font-bold mb-4">Message</h5>
+                <p id="modalMessage" class="mb-4"></p>
+                <button id="closeModal" class="bg-blue-500 text-white px-4 py-2 rounded">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Embed messages in a script tag -->
+    <script>
+        var messages = [];
+        {% if messages %}
+            {% for message in messages %}
+                messages.push("{{ message }}");
+            {% endfor %}
+        {% endif %}
+
+        // Embed the URL for adding a food item
+        var addFoodItemUrl = "{% url 'editors_choice:add_food_item' %}";
+    </script>
+</body>
+</html>
+{% endblock content %}

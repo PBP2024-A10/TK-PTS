@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Menu untuk {{ restaurant.name }}</h1>
+
+<table>
+    <tr>
+        <th>Nama Menu</th>
+        <th>Deskripsi</th>
+        <th>Harga</th>
+    </tr>
+    {% for item in menu_items %}
+    <tr>
+        <td>{{ item.name }}</td>
+        <td>{{ item.description }}</td>
+        <td>Rp{{ item.price }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="{% url cards_restaurant:show_restaurants' %}" style="background-color: #3d200a; color: white; padding: 10px; text-decoration: none;">Kembali ke Daftar Restoran</a>
+
+{% endblock %}
