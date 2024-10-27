@@ -6,7 +6,7 @@
         "name": "Ayam Betutu",
         "price": "50000.00",
         "description": "Ayam dengan bumbu khas Bali",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -16,7 +16,7 @@
         "name": "Lontong Kuah Ayam",
         "price": "35000.00",
         "description": "Lontong disajikan dengan kuah ayam betutu",
-        "food_type": "Breakfast"
+        "food_type": "breakfast"
     }
   },
   {
@@ -26,7 +26,7 @@
         "name": "Nasi Gurih Bakar",
         "price": "40000.00",
         "description": "Nasi gurih bakar dengan ayam betutu",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -36,7 +36,7 @@
         "name": "Nasi Campur Ayam",
         "price": "45000.00",
         "description": "Nasi campur dengan ayam betutu",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -46,7 +46,7 @@
         "name": "Ikan Kerapu",
         "price": "90000.00",
         "description": "Ikan kerapu bakar dengan bumbu spesial",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -56,7 +56,7 @@
         "name": "Ikan Barramundi",
         "price": "85000.00",
         "description": "Ikan barramundi dengan saus madu",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -66,7 +66,7 @@
         "name": "Udang Galah",
         "price": "120000.00",
         "description": "Udang galah bakar dengan sambal matah",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -76,7 +76,7 @@
         "name": "Lobster",
         "price": "200000.00",
         "description": "Lobster bakar dengan bumbu spesial",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -86,7 +86,7 @@
         "name": "Kepiting",
         "price": "180000.00",
         "description": "Kepiting saus tiram",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -96,7 +96,7 @@
         "name": "Kerang",
         "price": "80000.00",
         "description": "Kerang bakar dengan saus sambal",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -106,7 +106,7 @@
         "name": "Cumi Bakar",
         "price": "75000.00",
         "description": "Cumi bakar dengan bumbu rempah",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -116,7 +116,7 @@
         "name": "Udang Bakar",
         "price": "100000.00",
         "description": "Udang bakar dengan saus mentega",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -126,7 +126,7 @@
         "name": "Udang Telur Asin",
         "price": "110000.00",
         "description": "Udang dengan telur asin",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -136,7 +136,7 @@
         "name": "Oyster",
         "price": "95000.00",
         "description": "Oyster bakar dengan saus",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -146,7 +146,7 @@
         "name": "Kerang Dara",
         "price": "85000.00",
         "description": "Kerang dara dengan bumbu spesial",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -156,7 +156,7 @@
         "name": "Kerang Totok",
         "price": "75000.00",
         "description": "Kerang totok dengan sambal",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -166,7 +166,7 @@
         "name": "Kerang Asari",
         "price": "70000.00",
         "description": "Kerang asari dengan bumbu sederhana",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -176,7 +176,7 @@
         "name": "Plecing Kangkung",
         "price": "30000.00",
         "description": "Sayuran kangkung dengan sambal",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -186,7 +186,7 @@
         "name": "Urap Gonde",
         "price": "25000.00",
         "description": "Salad sayuran dengan kelapa parut",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -196,7 +196,7 @@
         "name": "Bakwan Jagung",
         "price": "20000.00",
         "description": "Bakwan jagung yang renyah",
-        "food_type": "Breakfast"
+        "food_type": "breakfast"
     }
   },
   {
@@ -206,7 +206,7 @@
         "name": "Bebek Goreng",
         "price": "60000.00",
         "description": "Bebek goreng renyah dengan sambal",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -216,7 +216,7 @@
         "name": "Bebek Bakar",
         "price": "65000.00",
         "description": "Bebek bakar dengan bumbu spesial",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -226,7 +226,7 @@
         "name": "Nasi Bebek",
         "price": "70000.00",
         "description": "Nasi dengan bebek goreng dan sambal",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -236,7 +236,7 @@
         "name": "Bebek Penyet",
         "price": "65000.00",
         "description": "Bebek yang dipenyet dengan sambal",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -246,7 +246,7 @@
         "name": "Bebek Betutu",
         "price": "75000.00",
         "description": "Bebek yang dimasak dengan bumbu tradisional",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -256,7 +256,7 @@
         "name": "Ayam Betutu",
         "price": "55000.00",
         "description": "Ayam yang dibungkus daun pisang dan dibakar",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -266,7 +266,7 @@
         "name": "Nasi Ayam",
         "price": "50000.00",
         "description": "Nasi dengan ayam bakar dan sambal",
-        "food_type": "Breakfast"
+        "food_type": "breakfast"
     }
   },
   {
@@ -276,7 +276,7 @@
         "name": "Sate Ayam",
         "price": "45000.00",
         "description": "Sate ayam dengan bumbu kacang",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -286,7 +286,7 @@
         "name": "Nasi Campur",
         "price": "60000.00",
         "description": "Nasi campur dengan pilihan lauk",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -296,7 +296,7 @@
         "name": "Ayam Goreng",
         "price": "50000.00",
         "description": "Ayam goreng crispy dengan sambal",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -306,7 +306,7 @@
         "name": "Nasi Seafood",
         "price": "75000.00",
         "description": "Nasi dengan berbagai hidangan laut",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -316,7 +316,7 @@
         "name": "Sop Ikan",
         "price": "45000.00",
         "description": "Sop ikan segar dengan rempah",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -326,7 +326,7 @@
         "name": "Ikan Bakar Taliwang",
         "price": "70000.00",
         "description": "Ikan bakar dengan bumbu taliwang",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -336,7 +336,7 @@
         "name": "Udang Saus Padang",
         "price": "80000.00",
         "description": "Udang dengan saus pedas khas Padang",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -346,7 +346,7 @@
         "name": "Cumi Saus Mentega",
         "price": "70000.00",
         "description": "Cumi dengan saus mentega yang lezat",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -356,7 +356,7 @@
         "name": "Ayam Penyet",
         "price": "45000.00",
         "description": "Ayam yang dipenyet dengan sambal dan nasi",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -366,7 +366,7 @@
         "name": "Tahu Tempe",
         "price": "20000.00",
         "description": "Tahu dan tempe goreng dengan sambal",
-        "food_type": "Breakfast"
+        "food_type": "breakfast"
     }
   },
   {
@@ -376,7 +376,7 @@
         "name": "Nasi Goreng",
         "price": "40000.00",
         "description": "Nasi goreng dengan pilihan lauk",
-        "food_type": "Breakfast"
+        "food_type": "breakfast"
     }
   },
   {
@@ -386,7 +386,7 @@
         "name": "Sate Kambing",
         "price": "55000.00",
         "description": "Sate kambing dengan bumbu khas",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -396,7 +396,7 @@
         "name": "Roti Bakar",
         "price": "15000.00",
         "description": "Roti bakar dengan selai",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -406,7 +406,7 @@
         "name": "Nasi Ayam Jimbaran",
         "price": "50000.00",
         "description": "Nasi dengan ayam bakar khas Jimbaran",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -416,7 +416,7 @@
         "name": "Paket Nasi Ayam",
         "price": "60000.00",
         "description": "Paket nasi dengan ayam, sayur, dan sambal",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -426,7 +426,7 @@
         "name": "Ayam Penyet",
         "price": "45000.00",
         "description": "Ayam penyet dengan sambal dan nasi",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -436,7 +436,7 @@
         "name": "Sate Ayam",
         "price": "50000.00",
         "description": "Sate ayam dengan bumbu kacang",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -446,7 +446,7 @@
         "name": "Nasi Campur Bali",
         "price": "70000.00",
         "description": "Nasi campur dengan pilihan lauk khas Bali",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -456,7 +456,7 @@
         "name": "Ayam Taliwang",
         "price": "65000.00",
         "description": "Ayam bakar dengan bumbu taliwang",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -466,7 +466,7 @@
         "name": "Ikan Bakar",
         "price": "75000.00",
         "description": "Ikan bakar dengan sambal",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -476,7 +476,7 @@
         "name": "Sop Buntut",
         "price": "80000.00",
         "description": "Sop buntut dengan rempah khas",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -486,7 +486,7 @@
         "name": "Sate Kambing",
         "price": "60000.00",
         "description": "Sate kambing dengan bumbu rempah",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -496,7 +496,7 @@
         "name": "Pizza Margherita",
         "price": "90000.00",
         "description": "Pizza dengan saus tomat dan keju",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -506,7 +506,7 @@
         "name": "Pizza Pepperoni",
         "price": "100000.00",
         "description": "Pizza dengan irisan pepperoni dan keju",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -516,7 +516,7 @@
         "name": "Pasta Carbonara",
         "price": "85000.00",
         "description": "Pasta dengan saus krim dan bacon",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -526,7 +526,7 @@
         "name": "Lasagna",
         "price": "95000.00",
         "description": "Lasagna lapis dengan daging dan saus tomat",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -536,7 +536,7 @@
         "name": "Salad Caesar",
         "price": "45000.00",
         "description": "Salad dengan saus caesar dan crouton",
-        "food_type": "Breakfast"
+        "food_type": "breakfast"
     }
   },
   {
@@ -546,7 +546,7 @@
         "name": "Sushi Salmon",
         "price": "100000.00",
         "description": "Sushi dengan irisan salmon segar",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -556,7 +556,7 @@
         "name": "Sushi Tuna",
         "price": "110000.00",
         "description": "Sushi dengan irisan tuna segar",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -566,7 +566,7 @@
         "name": "Maki Uramaki",
         "price": "90000.00",
         "description": "Maki dengan isi sayuran dan daging",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -576,7 +576,7 @@
         "name": "Ramen Miso",
         "price": "75000.00",
         "description": "Ramen dengan kaldu miso yang gurih",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -586,7 +586,7 @@
         "name": "Tempura",
         "price": "70000.00",
         "description": "Sayuran dan udang yang digoreng tepung",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -596,7 +596,7 @@
         "name": "Jamur Goreng",
         "price": "30000.00",
         "description": "Jamur Enoki Goreng Krispi",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -606,7 +606,7 @@
         "name": "Lumpia Sayur",
         "price": "25000.00",
         "description": "Lumpia dengan kulit renyah dan isian sayur",
-        "food_type": "Breakfast"
+        "food_type": "breakfast"
     }
   },
   {
@@ -616,7 +616,7 @@
         "name": "Terong Gurih",
         "price": "40000.00",
         "description": "Terong yang digoreng dengan cita rasa asin",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -626,7 +626,7 @@
         "name": "Tape Gulung Keju",
         "price": "15000.00",
         "description": "Tape dibaluri keju manis",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -636,7 +636,7 @@
         "name": "Ice Cream Goreng",
         "price": "55000.00",
         "description": "Es krim dengan cita rasa unik",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -646,7 +646,7 @@
         "name": "Klepon Cake",
         "price": "40000.00",
         "description": "Kue tart rasa klepon khas jajanan tradisional",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -656,7 +656,7 @@
         "name": "Es Teler",
         "price": "40000.00",
         "description": "Es serut dengan topping buah-buahan dan sirup",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -666,7 +666,7 @@
         "name": "Es Doger",
         "price": "40000.00",
         "description": "Es serut dengan topping cokelat meses dan susu kental manis",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -676,7 +676,7 @@
         "name": "Es Campur",
         "price": "30000.00",
         "description": "Es serut dengan topping cincau serta buah",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -686,7 +686,7 @@
         "name": "Es Puter",
         "price": "25000.00",
         "description": "Es serut dengan susu kental manis rasa cokelat",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -696,7 +696,7 @@
         "name": "Es Soda Gembira",
         "price": "20000.00",
         "description": "Soda dingin dengan campuran sirup manis",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -706,7 +706,7 @@
         "name": "Bebek Goreng",
         "price": "95000.00",
         "description": "Bebek garing khas restoran",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -716,7 +716,7 @@
         "name": "Bebek Bakar",
         "price": "100000.00",
         "description": "Bebek dibaluri kecap yang dibakar hingga wangi",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -726,7 +726,7 @@
         "name": "Ayam Kampung Goreng",
         "price": "45000.00",
         "description": "Ayam kampung renyah dan garing",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -736,7 +736,7 @@
         "name": "Ayam Kampung Bakar",
         "price": "120000.00",
         "description": "Ayam kampung bakar dengan baluran kecap",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -746,7 +746,7 @@
         "name": "Gurame Goreng",
         "price": "100000.00",
         "description": "Ikan gurame goreng garing spesial",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -756,7 +756,7 @@
         "name": "Soto Ayam",
         "price": "55000.00",
         "description": "Soto berisikan ayam dengan kuah kuning dan tauge",
-        "food_type": "Breakfast"
+        "food_type": "breakfast"
     }
   },
   {
@@ -766,7 +766,7 @@
         "name": "Sate Lilit",
         "price": "80000.00",
         "description": "Sate ayam dengan daging yang telah dihaluskan dan dibakar",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -776,7 +776,7 @@
         "name": "Tempe/Tahu Goreng",
         "price": "25000.00",
         "description": "Tempe dan tahu goreng renyah",
-        "food_type": "Breakfast"
+        "food_type": "breakfast"
     }
   },
   {
@@ -786,7 +786,7 @@
         "name": "Pisang Aroma",
         "price": "30000.00",
         "description": "Pisang goreng manis dan sedap",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -796,7 +796,7 @@
         "name": "Nastar Cake",
         "price": "55000.00",
         "description": "Kue dengan isian nanas",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -806,7 +806,7 @@
         "name": "Mocca Cake",
         "price": "60000.00",
         "description": "Kue dengan varian rasa mocca",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -816,7 +816,7 @@
         "name": "Tiramisu Cup",
         "price": "85000.00",
         "description": "Kue tiramisu yang disajikan dalam bentuk cup",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -826,7 +826,7 @@
         "name": "Ayam Betutu",
         "price": "90000.00",
         "description": "Ayam khas Bali yang dimasak dengan rempah",
-        "food_type": "Lunch"
+        "food_type": "lunch"
     }
   },
   {
@@ -836,7 +836,7 @@
       "name": "Ayam Taliwang",
       "price": "80000.00",
       "description": "Ayam pedas berbumbu khas Lombok",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -846,7 +846,7 @@
       "name": "Ayam Bukakak",
       "price": "80000.00",
       "description": "Ayam panggang Sunda yang dibumbui kecap",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -856,7 +856,7 @@
       "name": "Bebek Betutu",
       "price": "90000.00",
       "description": "Bebek khas Bali yang dimasak dengan bumbu rempah",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -866,7 +866,7 @@
       "name": "Sate Ayam",
       "price": "55000.00",
       "description": "Sate ayam empuk dengan bumbu kacang",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -876,7 +876,7 @@
       "name": "Sate Sapi",
       "price": "100000.00",
       "description": "Sate daging sapi dengan saus kacang",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -886,7 +886,7 @@
       "name": "Sate Languan",
       "price": "110000.00",
       "description": "Sate ikan khas Bali dengan bumbu rempah",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -896,7 +896,7 @@
       "name": "Fish and Chips",
       "price": "80000.00",
       "description": "Hidangan ikan dengan kentang goreng dan saus tartar",
-      "food_type": "Dinner"
+      "food_type": "dinner"
     }
   },
   {
@@ -906,7 +906,7 @@
       "name": "Kare Ayam",
       "price": "50000.00",
       "description": "Kari ayam berkuah santan dengan cita rasa rempah",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -916,7 +916,7 @@
       "name": "Kare Sapi",
       "price": "55000.00",
       "description": "Kari daging sapi yang gurih dengan bumbu rempah dan kuah santan",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -926,7 +926,7 @@
       "name": "Kare Seafood",
       "price": "55000.00",
       "description": "Kari seafood dengan campuran ikan, udang, dan cumi",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -936,7 +936,7 @@
       "name": "Nachos",
       "price": "20000.00",
       "description": "Camilan tortilla chips renyah dengan topping keju, salsa, dan jalapeno",
-      "food_type": "Breakfast"
+      "food_type": "breakfast"
     }
   },
   {
@@ -946,7 +946,7 @@
       "name": "Rujak Bali",
       "price": "30000.00",
       "description": "Salad buah khas Bali dengan saus kacang pedas",
-      "food_type": "Dinner"
+      "food_type": "dinner"
     }
   },
   {
@@ -956,7 +956,7 @@
       "name": "Lobster Asam Manis",
       "price": "120000.00",
       "description": "Lobster segar dengan saus asam manis yang menggugah selera",
-      "food_type": "Dinner"
+      "food_type": "dinner"
     }
   },
   {
@@ -966,7 +966,7 @@
       "name": "Pepes Ikan Nila",
       "price": "10000.00",
       "description": "Ikan nila berbumbu rempah yang dibungkus daun pisang dan dikukus",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -976,7 +976,7 @@
       "name": "Kari Kambing",
       "price": "90000.00",
       "description": "Kari kambing dengan bumbu rempah",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -986,7 +986,7 @@
       "name": "Gurame Goreng Ibu Mina",
       "price": "75000.00",
       "description": "Gurame yang digoreng renyah dengan sambal",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -996,7 +996,7 @@
       "name": "Kerang Asam Manis",
       "price": "30000.00",
       "description": "Kerang segar yang dimasak dengan saus asam manis lezat",
-      "food_type": "Dinner"
+      "food_type": "dinner"
     }
   },
   {
@@ -1006,7 +1006,7 @@
       "name": "Mujair Nyat-Nyat",
       "price": "80000.00",
       "description": "Mujair khas Bali dengan bumbu nyat-nyat yang gurih dan pedas",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -1016,7 +1016,7 @@
       "name": "Kakap Nyat-Nyat",
       "price": "100000.00",
       "description": "Ikan kakap berbumbu nyat-nyat khas Bali yang kaya rempah",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -1026,7 +1026,7 @@
       "name": "Kepiting Asam Manis",
       "price": "120000.00",
       "description": "Kepiting dengan saus asam manis",
-      "food_type": "Dinner"
+      "food_type": "dinner"
     }
   },
   {
@@ -1036,7 +1036,7 @@
       "name": "Ayam Goreng Mentega",
       "price": "40000.00",
       "description": "Ayam goreng dengan saus mentega gurih dan sedikit manis",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -1046,7 +1046,7 @@
       "name": "Udang Bakar Madu",
       "price": "70000.00",
       "description": "Udang panggang dengan lapisan madu yang manis dan lezat",
-      "food_type": "Dinner"
+      "food_type": "dinner"
     }
   },
   {
@@ -1056,7 +1056,7 @@
       "name": "Gurame Kecap",
       "price": "90000.00",
       "description": "Gurame panggang dengan olesan kecap manis dan bumbu rempah",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -1066,7 +1066,7 @@
       "name": "Kacang Panjang",
       "price": "20000.00",
       "description": "Kacang panjang dimasak dengan bumbu khas Kalasan yang gurih",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -1076,7 +1076,7 @@
       "name": "Capcay Ayam",
       "price": "30000.00",
       "description": "Tumisan sayuran segar dengan potongan ayam dalam saus gurih",
-      "food_type": "Dinner"
+      "food_type": "dinner"
     }
   },
   {
@@ -1086,7 +1086,7 @@
       "name": "Cah Kangkung",
       "price": "25000.00",
       "description": "Kangkung segar ditumis dengan bawang putih dan sedikit sambal",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -1096,7 +1096,7 @@
       "name": "Sop Jagung",
       "price": "40000.00",
       "description": "Sup jagung manis dengan potongan ayam dan sayuran",
-      "food_type": "Dinner"
+      "food_type": "dinner"
     }
   },
   {
@@ -1106,7 +1106,7 @@
       "name": "Kerang Bakar",
       "price": "45000.00",
       "description": "Kerang bakar dengan bumbu pedas manis khas laut",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -1116,7 +1116,7 @@
       "name": "Sayur Urap",
       "price": "20000.00",
       "description": "Sayuran segar dengan taburan kelapa parut berbumbu khas",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -1126,7 +1126,7 @@
       "name": "Tumis Baby Buncis",
       "price": "30000.00",
       "description": "Baby buncis yang ditumis dengan bawang putih untuk cita rasa gurih",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -1136,7 +1136,7 @@
       "name": "Sayur Asam",
       "price": "25000.00",
       "description": "Sup sayur dengan rasa asam segar dari asam jawa",
-      "food_type": "Breakfast"
+      "food_type": "breakfast"
     }
   },
   {
@@ -1146,7 +1146,7 @@
       "name": "Karedok",
       "price": "35000.00",
       "description": "Salad sayuran mentah khas Sunda dengan saus kacang yang segar",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -1156,7 +1156,7 @@
       "name": "Sapo Tahu",
       "price": "45000.00",
       "description": "Tahu lembut dengan sayuran dalam saus kental yang gurih",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -1166,7 +1166,7 @@
       "name": "Pisang Goreng Keju",
       "price": "25000.00",
       "description": "Pisang goreng renyah dengan taburan keju parut",
-      "food_type": "Breakfast"
+      "food_type": "breakfast"
     }
   },
   {
@@ -1176,7 +1176,7 @@
       "name": "Es Pisang Ijo",
       "price": "30000.00",
       "description": "Pisang dibalut kulit hijau, disajikan dengan sirup dan santan dingin",
-      "food_type": "Dinner"
+      "food_type": "dinner"
     }
   },
   {
@@ -1186,7 +1186,7 @@
       "name": "Dadar Gulung",
       "price": "15000.00",
       "description": "Kue dadar berisi kelapa parut manis, berwarna hijau dari pandan",
-      "food_type": "Breakfast"
+      "food_type": "breakfast"
     }
   },
   {
@@ -1196,7 +1196,7 @@
       "name": "Tape Goreng",
       "price": "15000.00",
       "description": "Tape singkong digoreng dengan lapisan tepung renyah",
-      "food_type": "Breakfast"
+      "food_type": "breakfast"
     }
   },
   {
@@ -1206,7 +1206,7 @@
       "name": "Rujak",
       "price": "20000.00",
       "description": "Buah-buahan segar dengan saus kacang pedas",
-      "food_type": "Dinner"
+      "food_type": "dinner"
     }
   },
   {
@@ -1216,7 +1216,7 @@
       "name": "Pancake Durian",
       "price": "40000.00",
       "description": "Kue pancake lembut dengan topping buah durian",
-      "food_type": "Dinner"
+      "food_type": "dinner"
     }
   },
   {
@@ -1226,7 +1226,7 @@
       "name": "Ayam Betutu Bu Oki",
       "price": "50000.00",
       "description": "Ayam khas Bali yang dimasak dengan rempah khas Bu Oki",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -1236,7 +1236,7 @@
       "name": "Ayam Suwir",
       "price": "40000.00",
       "description": "Ayam suwir yang dimasak dengan bumbu pedas manis, khas Bali",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -1246,7 +1246,7 @@
       "name": "Telur Pindang",
       "price": "8000.00",
       "description": "Telur rebus dengan warna coklat dan rasa gurih dari bumbu khas",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -1256,7 +1256,7 @@
       "name": "Soto Ayam Bu Oki",
       "price": "35000.00",
       "description": "Sup ayam berkuah kuning dengan rempah-rempah khas Bu Oki",
-      "food_type": "Dinner"
+      "food_type": "dinner"
     }
   },
   {
@@ -1266,7 +1266,7 @@
       "name": "Pisang Madu",
       "price": "20000.00",
       "description": "Pisang yang digoreng hingga renyah dengan madu",
-      "food_type": "Breakfast"
+      "food_type": "breakfast"
     }
   },
   {
@@ -1276,7 +1276,7 @@
       "name": "Ayam Pelalah",
       "price": "40000.00",
       "description": "Ayam suwir khas Bali dengan bumbu pedas dan sambal yang segar",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -1286,7 +1286,7 @@
       "name": "Tuna Sambal Matah",
       "price": "45000.00",
       "description": "Tuna panggang disajikan dengan sambal matah khas Bali",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -1296,7 +1296,7 @@
       "name": "Sayur Pecel",
       "price": "30000.00",
       "description": "Sayuran segar dengan siraman bumbu kacang yang gurih",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -1306,7 +1306,7 @@
       "name": "Sup Ayam",
       "price": "45000.00",
       "description": "Sup ayam hangat dengan potongan sayuran",
-      "food_type": "Dinner"
+      "food_type": "dinner"
     }
   },
   {
@@ -1316,7 +1316,7 @@
       "name": "Kare Sayur",
       "price": "20000.00",
       "description": "Kari sayuran dengan kuah santan dan rempah yang lezat",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -1326,7 +1326,7 @@
       "name": "Bihun Goreng",
       "price": "80000.00",
       "description": "Bihun goreng dengan topping telur",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -1336,7 +1336,7 @@
       "name": "Mie Goreng",
       "price": "50000.00",
       "description": "Mie goreng dengan bumbu gurih, dilengkapi sayuran dan pilihan lauk",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -1346,7 +1346,7 @@
       "name": "Nasi Goreng",
       "price": "50000.00",
       "description": "Nasi goreng khas Indonesia, disajikan dengan acar dan telur",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -1356,7 +1356,7 @@
       "name": "Lawar Ayam",
       "price": "55000.00",
       "description": "Campuran ayam cincang dengan kelapa parut dan rempah khas Bali",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -1366,7 +1366,7 @@
       "name": "Rendang Sapi",
       "price": "60000.00",
       "description": "Daging sapi yang dimasak lama dengan bumbu rendang kental dan pedas",
-      "food_type": "Lunch"
+      "food_type": "lunch"
     }
   },
   {
@@ -1376,7 +1376,7 @@
         "name": "Bubur Injin",
         "price": "30000.00",
         "description": "Bubur ketan hitam manis khas Bali, disajikan dengan santan",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -1386,7 +1386,7 @@
         "name": "Banana Split",
         "price": "25000.00",
         "description": "Pisang dengan es krim dan saus cokelat, topping buah dan kacang",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   },
   {
@@ -1396,7 +1396,7 @@
         "name": "Buah-Buahan Segar",
         "price": "35000.00",
         "description": "Aneka buah segar",
-        "food_type": "Dinner"
+        "food_type": "dinner"
     }
   }
 
