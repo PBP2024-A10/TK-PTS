@@ -99,3 +99,13 @@ Admin memiliki kontrol penuh terhadap aplikasi dan dapat mengelola pengguna, kon
 
 ## Daftar Pustaka
 🔗 https://gis.dukcapil.kemendagri.go.id/peta/
+
+## Pembagian Tugas
+| Nama       | Modul dan Jobdesc                                                                     |
+|------------|-------------------------------------------------------------------------------------|
+| Anggun     | Authentication, authorization, profile, homepage (list restoran)                    |
+| Dandi      | Manajemen oleh-oleh (cards, form)                                                   |
+| Leonita    | Manajemen makanan (list restoran, menu makanan, form add restaurant), database json |
+| Rafansya   | Editor's choice (cards, form)                                                       |
+| Salsabila  | Manajemen pemesanan (cards, form)                                                   |
+| Olav       | Wishlist                                                                            |
