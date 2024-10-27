@@ -192,6 +192,17 @@ async function fetchFoodFinisher(data, foodType) {
         `;
         editorChoiceDesc.innerHTML = "Bali offers a wide range of food types, from traditional Balinese cuisine to international dishes. Here are some of the halal editor's choice foods in Bali.";
     } else {
+        if (foodType === 'all') {
+            editorChoiceDesc.innerHTML = "Bali offers a wide range of food types, from traditional Balinese cuisine to international dishes. Here are some of the halal editor's choice foods in Bali.";
+        } else if (foodType === 'breakfast') {
+            editorChoiceDesc.innerHTML = "In Bali, life is and will never be short. In that case, grab a bite of these breakfast foods to start your day.";
+        } else if (foodType === 'lunch') {
+            editorChoiceDesc.innerHTML = "When the sun is at its peak, it's time to enjoy a hearty lunch. In a humid, sweaty weather of Bali, it's always good to have a good palate. Unfortunately, Bali has abundant choice of especially Halal foods.";
+        } else if (foodType === 'dinner') {
+            editorChoiceDesc.innerHTML = "When the sun sets, the night is still young. Enjoy a good dinner with your loved ones. Bali has a wide range of halal foods to choose from.";
+        } else if (foodType === 'souvenir') {
+            editorChoiceDesc.innerHTML = "Don't forget to bring home some souvenirs from Bali. Of course you'll gonna love Bali, so that you have to buy the souvenirs. From traditional to modern ones, Bali has it all.";
+        }
         const templateResponse = await fetch(`/editors-choice/show/${foodType}/`);
         let templateString = await templateResponse.text();
         templateString = templateString.replace("Last Week", data[0].fields.week);
@@ -206,7 +217,7 @@ async function fetchFoodFinisher(data, foodType) {
                     let itemHtml = templateString
                         .replace("#link", foodItemUrl)
                         .replace("Name", DOMPurify.sanitize(foodItem.fields.name))
-                        .replace("Description", DOMPurify.sanitize(foodItem.fields.description))
+                        .replace("Description", (DOMPurify.sanitize(foodItem.fields.description.slice(0, 50)) + (foodItem.fields.description.length > 50 ? '...' : '')))
                         .replace("Food Type", DOMPurify.sanitize(foodItem.fields.food_type))
                         .replace("Last Week", DOMPurify.sanitize(item.fields.week));
                     editorChoiceList.innerHTML += itemHtml;
@@ -321,7 +332,7 @@ async function updateDescriptionForFoodRec() {
             document.getElementById('productPrice').innerHTML = "Rp" + DOMPurify.sanitize(formattedPrice);
             document.getElementById('highlightProduct').innerHTML = DOMPurify.sanitize(item.name) + " is best eaten at:";
             document.getElementById('bestEatenHighlighted').innerHTML = DOMPurify.sanitize(item.food_type.charAt(0).toUpperCase() + item.food_type.slice(1));
-            document.getElementById('anchorToFood').href;
+            document.getElementById('anchorToFood').href = `/main/food-list/`;
         }
         const ratingData = await fetchRatingDataHelper(food_item, food_id);
         if (ratingData) {

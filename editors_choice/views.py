@@ -21,69 +21,69 @@ def get_start_of_current_week():
     return start_of_week
 
 # If finished working, it can be deleted as it is to be replaced by the real database
-def compile_editor_choices():
-    food_data = {
-        'ayam_betutu' : FoodItem(name='Ayam Betutu', price=50000, description='Ayam Betutu adalah makanan khas Bali yang terbuat dari ayam yang diolah dengan bumbu khas Bali.', food_type='lunch'),
-        'kakap_nyat' : FoodItem(name='Kakap Nyat Nyat', price=80000, description='Kakap Nyat Nyat adalah ikan yang hidup di perairan laut Indonesia.', food_type='lunch'),
-        'sate_lilit' : FoodItem(name='Sate Lilit', price=30000, description='Sate Lilit adalah makanan khas Bali yang terbuat dari daging yang dihaluskan dan dibungkus dengan daun.', food_type='lunch'),
-        'cah_kangkung' : FoodItem(name='Cah Kangkung', price=20000, description='Cah Kangkung adalah sayuran yang diolah dengan bumbu khas Indonesia.', food_type='lunch'),
-        'sate_languan' : FoodItem(name='Sate Languan', price=40000, description='Sate Languan adalah makanan khas Bali yang terbuat dari daging sapi yang diolah dengan bumbu khas Bali.', food_type='lunch'),
-        'fish_chips' : FoodItem(name='Fish and Chips', price=75000, description='Fish and Chips adalah makanan khas Inggris yang dibuat dari ikan yang digoreng dengan tepung dan kentang goreng.', food_type='dinner'),
-        'ikan_kerapu' : FoodItem(name='Ikan Kerapu', price=100000, description='Ikan Kerapu adalah ikan yang hidup di perairan laut Indonesia.', food_type='dinner'),
-        'udang_galah' : FoodItem(name='Udang Galah', price=75000, description='Udang Galah adalah udang yang hidup di perairan tawar Indonesia.', food_type='dinner'),
-        'kerang_asam_manis' : FoodItem(name='Kerang Asam Manis', price=50000, description='Kerang Asam Manis adalah kerang yang diolah dengan bumbu asam manis.', food_type='dinner'),
-        'udang_bakar_madu' : FoodItem(name='Udang Bakar Madu', price=75000, description='Udang Bakar Madu adalah udang yang diolah dengan bumbu madu.', food_type='dinner'),
-        'lawar_ayam' : FoodItem(name='Lawar Ayam', price=30000, description='Lawar Ayam adalah makanan khas Bali yang terbuat dari daging ayam yang diolah dengan bumbu khas Bali.', food_type='breakfast'),
-        'bubur_injin' : FoodItem(name='Bubur Injin', price=15000, description='Bubur Injin adalah bubur yang terbuat dari beras ketan hitam.', food_type='breakfast'),
-        'nachos' : FoodItem(name='Nachos', price=25000, description='Nachos adalah makanan khas Meksiko yang terbuat dari tortilla chips yang disajikan dengan saus dan keju.', food_type='breakfast'),
-        'rujak_bali' : FoodItem(name='Rujak Bali', price=20000, description='Rujak Bali adalah makanan khas Bali yang terbuat dari buah-buahan yang diolah dengan bumbu khas Bali.', food_type='breakfast'),
-        'pisang_goreng' : FoodItem(name='Pisang Goreng', price=10000, description='Pisang Goreng adalah makanan khas Indonesia yang terbuat dari pisang yang digoreng.', food_type='breakfast'),
-        'pie_susu' : FoodItem(name='Pie Susu', price=20000, description='Pie Susu adalah makanan khas Bali yang terbuat dari susu.', food_type='souvenir'),
-        'kacang_bali' : FoodItem(name='Kacang Bali', price=15000, description='Kacang Bali adalah makanan khas Bali yang terbuat dari kacang.', food_type='souvenir'),
-        'pie_bali' : FoodItem(name='Pie Bali', price=25000, description='Pie Bali adalah makanan khas Bali yang terbuat dari berbagai macam pilihan bahan dengan tampilan mirip bakpia jogja.', food_type='souvenir'),
-        'kopi_bali' : FoodItem(name='Kopi Bali', price=30000, description='Kopi Bali adalah minuman khas Bali yang terbuat dari kopi.', food_type='souvenir'),
-        'brem_bali' : FoodItem(name='Brem Bali', price=20000, description='Brem Bali adalah minuman khas Bali yang terbuat dari beras ketan.', food_type='souvenir'),
-        'keripik_pisang' : FoodItem(name='Keripik Pisang', price=15000, description='Keripik Pisang adalah makanan khas Indonesia yang terbuat dari pisang yang diiris tipis dan digoreng.', food_type='souvenir'),
-    }
+# def compile_editor_choices():
+#     food_data = {
+#         'ayam_betutu' : FoodItem(name='Ayam Betutu', price=50000, description='Ayam Betutu adalah makanan khas Bali yang terbuat dari ayam yang diolah dengan bumbu khas Bali.', food_type='lunch'),
+#         'kakap_nyat' : FoodItem(name='Kakap Nyat Nyat', price=80000, description='Kakap Nyat Nyat adalah ikan yang hidup di perairan laut Indonesia.', food_type='lunch'),
+#         'sate_lilit' : FoodItem(name='Sate Lilit', price=30000, description='Sate Lilit adalah makanan khas Bali yang terbuat dari daging yang dihaluskan dan dibungkus dengan daun.', food_type='lunch'),
+#         'cah_kangkung' : FoodItem(name='Cah Kangkung', price=20000, description='Cah Kangkung adalah sayuran yang diolah dengan bumbu khas Indonesia.', food_type='lunch'),
+#         'sate_languan' : FoodItem(name='Sate Languan', price=40000, description='Sate Languan adalah makanan khas Bali yang terbuat dari daging sapi yang diolah dengan bumbu khas Bali.', food_type='lunch'),
+#         'fish_chips' : FoodItem(name='Fish and Chips', price=75000, description='Fish and Chips adalah makanan khas Inggris yang dibuat dari ikan yang digoreng dengan tepung dan kentang goreng.', food_type='dinner'),
+#         'ikan_kerapu' : FoodItem(name='Ikan Kerapu', price=100000, description='Ikan Kerapu adalah ikan yang hidup di perairan laut Indonesia.', food_type='dinner'),
+#         'udang_galah' : FoodItem(name='Udang Galah', price=75000, description='Udang Galah adalah udang yang hidup di perairan tawar Indonesia.', food_type='dinner'),
+#         'kerang_asam_manis' : FoodItem(name='Kerang Asam Manis', price=50000, description='Kerang Asam Manis adalah kerang yang diolah dengan bumbu asam manis.', food_type='dinner'),
+#         'udang_bakar_madu' : FoodItem(name='Udang Bakar Madu', price=75000, description='Udang Bakar Madu adalah udang yang diolah dengan bumbu madu.', food_type='dinner'),
+#         'lawar_ayam' : FoodItem(name='Lawar Ayam', price=30000, description='Lawar Ayam adalah makanan khas Bali yang terbuat dari daging ayam yang diolah dengan bumbu khas Bali.', food_type='breakfast'),
+#         'bubur_injin' : FoodItem(name='Bubur Injin', price=15000, description='Bubur Injin adalah bubur yang terbuat dari beras ketan hitam.', food_type='breakfast'),
+#         'nachos' : FoodItem(name='Nachos', price=25000, description='Nachos adalah makanan khas Meksiko yang terbuat dari tortilla chips yang disajikan dengan saus dan keju.', food_type='breakfast'),
+#         'rujak_bali' : FoodItem(name='Rujak Bali', price=20000, description='Rujak Bali adalah makanan khas Bali yang terbuat dari buah-buahan yang diolah dengan bumbu khas Bali.', food_type='breakfast'),
+#         'pisang_goreng' : FoodItem(name='Pisang Goreng', price=10000, description='Pisang Goreng adalah makanan khas Indonesia yang terbuat dari pisang yang digoreng.', food_type='breakfast'),
+#         'pie_susu' : FoodItem(name='Pie Susu', price=20000, description='Pie Susu adalah makanan khas Bali yang terbuat dari susu.', food_type='souvenir'),
+#         'kacang_bali' : FoodItem(name='Kacang Bali', price=15000, description='Kacang Bali adalah makanan khas Bali yang terbuat dari kacang.', food_type='souvenir'),
+#         'pie_bali' : FoodItem(name='Pie Bali', price=25000, description='Pie Bali adalah makanan khas Bali yang terbuat dari berbagai macam pilihan bahan dengan tampilan mirip bakpia jogja.', food_type='souvenir'),
+#         'kopi_bali' : FoodItem(name='Kopi Bali', price=30000, description='Kopi Bali adalah minuman khas Bali yang terbuat dari kopi.', food_type='souvenir'),
+#         'brem_bali' : FoodItem(name='Brem Bali', price=20000, description='Brem Bali adalah minuman khas Bali yang terbuat dari beras ketan.', food_type='souvenir'),
+#         'keripik_pisang' : FoodItem(name='Keripik Pisang', price=15000, description='Keripik Pisang adalah makanan khas Indonesia yang terbuat dari pisang yang diiris tipis dan digoreng.', food_type='souvenir'),
+#     }
 
-    for item in food_data:
-        if not FoodItem.objects.filter(name=food_data[item].name).exists():
-            food_data[item].save()
+#     for item in food_data:
+#         if not FoodItem.objects.filter(name=food_data[item].name).exists():
+#             food_data[item].save()
 
-    food_recommendations = FoodItem.objects.all()
+#     food_recommendations = FoodItem.objects.all()
 
-    for item in food_recommendations:
-        if not FoodRecommendation.objects.filter(food_item=item).exists() and not (item.name == 'Sate Lilit' or item.name== 'Keripik Pisang'):
-            FoodRecommendation.objects.create(food_item=item, rating=4.5, author=User.objects.get(username='admin1'))
+#     for item in food_recommendations:
+#         if not FoodRecommendation.objects.filter(food_item=item).exists() and not (item.name == 'Sate Lilit' or item.name== 'Keripik Pisang'):
+#             FoodRecommendation.objects.create(food_item=item, rating=4.5, author=User.objects.get(username='admin1'))
 
-    # Retrieve the saved instances from the database
-    saved_recommendations = FoodRecommendation.objects.all()
+#     # Retrieve the saved instances from the database
+#     saved_recommendations = FoodRecommendation.objects.all()
 
-    # Filter food recommendations by type
-    breakfast_recommendations = [rec for rec in saved_recommendations if rec.food_item.food_type == 'breakfast']
-    lunch_recommendations = [rec for rec in saved_recommendations if rec.food_item.food_type == 'lunch']
-    dinner_recommendations = [rec for rec in saved_recommendations if rec.food_item.food_type == 'dinner']
-    souvenirs_recommendations = [rec for rec in saved_recommendations if rec.food_item.food_type == 'souvenir']
+#     # Filter food recommendations by type
+#     breakfast_recommendations = [rec for rec in saved_recommendations if rec.food_item.food_type == 'breakfast']
+#     lunch_recommendations = [rec for rec in saved_recommendations if rec.food_item.food_type == 'lunch']
+#     dinner_recommendations = [rec for rec in saved_recommendations if rec.food_item.food_type == 'dinner']
+#     souvenirs_recommendations = [rec for rec in saved_recommendations if rec.food_item.food_type == 'souvenir']
 
-    # Create EditorChoice objects for each week
-    if not EditorChoice.objects.filter(week=get_start_of_current_week()).exists():
-        editor_choices = {
-            'Breakfast': EditorChoice.objects.create(),
-            'Lunch': EditorChoice.objects.create(),
-            'Dinner': EditorChoice.objects.create(),
-            'Souvenirs': EditorChoice.objects.create()
-        }
+#     # Create EditorChoice objects for each week
+#     if not EditorChoice.objects.filter(week=get_start_of_current_week()).exists():
+#         editor_choices = {
+#             'Breakfast': EditorChoice.objects.create(),
+#             'Lunch': EditorChoice.objects.create(),
+#             'Dinner': EditorChoice.objects.create(),
+#             'Souvenirs': EditorChoice.objects.create()
+#         }
 
-        # Add up to 5 food recommendations to each EditorChoice
-        editor_choices['Breakfast'].food_items.add(*breakfast_recommendations[:5])
-        editor_choices['Lunch'].food_items.add(*lunch_recommendations[:5])
-        editor_choices['Dinner'].food_items.add(*dinner_recommendations[:5])
-        editor_choices['Souvenirs'].food_items.add(*souvenirs_recommendations[:5])
+#         # Add up to 5 food recommendations to each EditorChoice
+#         editor_choices['Breakfast'].food_items.add(*breakfast_recommendations[:5])
+#         editor_choices['Lunch'].food_items.add(*lunch_recommendations[:5])
+#         editor_choices['Dinner'].food_items.add(*dinner_recommendations[:5])
+#         editor_choices['Souvenirs'].food_items.add(*souvenirs_recommendations[:5])
 
-        # Save the EditorChoice objects again to commit the ManyToMany relationships
-        # for choice in editor_choices:
-        #     if not EditorChoice.objects.filter(week=editor_choices[choice].week).exists():
-        #         editor_choices[choice].save()
+#         # Save the EditorChoice objects again to commit the ManyToMany relationships
+#         # for choice in editor_choices:
+#         #     if not EditorChoice.objects.filter(week=editor_choices[choice].week).exists():
+#         #         editor_choices[choice].save()
 
 # Main / Index page for Editors Choice
 def show_index_er(request):
@@ -95,7 +95,7 @@ def show_index_er(request):
         context['last_login'] = request.COOKIES.get('last_login')
 
     # Compile editor choices and add to context (can be deleted if the database is properly set up)
-    compile_editor_choices()
+    # compile_editor_choices()
     context['editor_choices'] = EditorChoice.objects.all()
     # print(context['editor_choices'])
     
@@ -125,12 +125,12 @@ def show_food_item(request):
 @login_required(login_url='authentication:login')
 def add_food_item(request):
     # Can be deleted when finished implementation
-    if not request.user.is_superuser:
+    if not request.user.is_staff:
         return redirect('editors_choice:index_er')
 
     form = FoodRecommendationForm(request.POST or None)
     
-    if (form.is_valid() and request.method == 'POST' and request.user.is_superuser):
+    if (form.is_valid() and request.method == 'POST' and request.user.is_staff):
         food_recommendation = form.save(commit=False)
         food_recommendation.author = request.user
         food_recommendation.save()
@@ -168,7 +168,7 @@ def delete_food_rec(request):
 @require_POST
 @login_required(login_url='authentication:login')
 def edit_food_rec_rating(request):
-    if not request.user.is_superuser:
+    if not request.user.is_staff:
         return HttpResponse(b"UNAUTHORIZED", status=401)
     
     food_id = request.GET.get('food_recommendation_id')
@@ -189,7 +189,7 @@ def edit_food_rec_rating(request):
 
 @login_required
 def check_superuser(request):
-    is_superuser = request.user.is_superuser
+    is_superuser = request.user.is_staff
     return JsonResponse({'is_superuser': is_superuser})
 
 def is_logged_in(request):
