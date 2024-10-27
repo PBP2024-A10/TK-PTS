@@ -17,7 +17,7 @@ def is_admin(user):
 
 def show_souvenir(request):
     souvenirs = SouvenirEntry.objects.all()
-    return render(request, 'coba2.html', {'souvenirs': souvenirs})
+    return render(request, 'souvenir.html', {'souvenirs': souvenirs})
 
 def show_json(request):
     data = SouvenirEntry.objects.all()
@@ -44,8 +44,8 @@ def add_souvenir_entry(request):
 @login_required
 @user_passes_test(is_admin)
 def edit_souvenir(request, id):
-    # Dapatkan instance souvenir berdasarkan id
-    souvenir = get_object_or_404(SouvenirEntry, pk=id)
+    # Get product entry berdasarkan id
+    souvenir = get_object_or_404(SouvenirEntry, pk = id)
 
     if request.method == 'POST':
         # Membuat form dengan data dari request

@@ -19,6 +19,7 @@
         </svg>
       </button>
       {% endif %}
+      {% endif %}
     </div>
     
     <div id="souvenir_entry_cards"></div>
@@ -89,6 +90,15 @@
         souvenirEntries.forEach((item) => {
             const name = DOMPurify.sanitize(item.fields.name);
             const description = DOMPurify.sanitize(item.fields.description);
+            const image = `${item.fields.image}`;
+            let imageUrl;
+            if (image.startsWith("http") || image.startsWith("/")) {
+                // Jika image merupakan URL lengkap atau sudah memiliki prefix '/', gunakan langsung
+                imageUrl = image;
+            } else {
+                // Jika bukan, maka asumsikan ini adalah image yang diupload dari web dan perlu path '/media/'
+                imageUrl = `/media/${image}`;
+            }
 
             htmlString += `
             <div class="relative break-inside-avoid">
@@ -103,6 +113,7 @@
                         <p class="excerpt text-white">${description}</p>
                       </div>
 
+                      {% if request.user.is_staff %}
                       {% if request.user.is_staff %}
                       <div class="bottom flex justify-end space-x-1 bottom-1 right-5">
                           <a href="/souvenir/edit-souvenir/${item.pk}/" class="hover:bg-gray-400 text-white rounded-full p-2 transition duration-300">
