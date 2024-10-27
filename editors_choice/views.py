@@ -43,6 +43,7 @@ def compile_editor_choices():
         'pie_bali' : FoodItem(name='Pie Bali', price=25000, description='Pie Bali adalah makanan khas Bali yang terbuat dari berbagai macam pilihan bahan dengan tampilan mirip bakpia jogja.', food_type='souvenir'),
         'kopi_bali' : FoodItem(name='Kopi Bali', price=30000, description='Kopi Bali adalah minuman khas Bali yang terbuat dari kopi.', food_type='souvenir'),
         'brem_bali' : FoodItem(name='Brem Bali', price=20000, description='Brem Bali adalah minuman khas Bali yang terbuat dari beras ketan.', food_type='souvenir'),
+        'keripik_pisang' : FoodItem(name='Keripik Pisang', price=15000, description='Keripik Pisang adalah makanan khas Indonesia yang terbuat dari pisang yang diiris tipis dan digoreng.', food_type='souvenir'),
     }
 
     for item in food_data:
@@ -52,7 +53,7 @@ def compile_editor_choices():
     food_recommendations = FoodItem.objects.all()
 
     for item in food_recommendations:
-        if not FoodRecommendation.objects.filter(food_item=item).exists() and not item.name == 'Sate Lilit':
+        if not FoodRecommendation.objects.filter(food_item=item).exists() and not (item.name == 'Sate Lilit' or item.name== 'Keripik Pisang'):
             FoodRecommendation.objects.create(food_item=item, rating=4.5, author=User.objects.get(username='admin1'))
 
     # Retrieve the saved instances from the database
@@ -123,6 +124,7 @@ def show_food_item(request):
 # Add food item (from the database, admin only) to the Editors Choice list
 @login_required(login_url='authentication:login')
 def add_food_item(request):
+    # Can be deleted when finished implementation
     if not request.user.is_superuser:
         return redirect('editors_choice:index_er')
 
@@ -142,6 +144,10 @@ def add_food_item(request):
 
         if editor_choice is None:
             editor_choice = EditorChoice.objects.create()
+        elif editor_choice.food_items.count() >= 5:
+            food_recommendation.delete()
+            messages.error(request, 'The EditorChoice for this week and food type is already full.')
+            return redirect('editors_choice:add_food_item')
 
         editor_choice.food_items.add(food_recommendation)
         editor_choice.save()
