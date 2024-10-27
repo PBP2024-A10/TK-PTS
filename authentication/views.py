@@ -14,7 +14,7 @@ def register(request):
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            UserProfile.objects.create(user=user, email=form.cleaned_data['email'])
+            UserProfile.objects.create(user=user)
             messages.success(request, 'Account created successfully')
             user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password1'])
             if user is not None:

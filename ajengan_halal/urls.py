@@ -28,6 +28,3 @@ urlpatterns = [
     path('makanan/', include('cards_makanan.urls')),
     path('souvenir/', include('manajemen_souvenir.urls'))
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

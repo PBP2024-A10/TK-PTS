@@ -1,10 +1,21 @@
 {% load static %}
-<nav class="bg-brown-mild border-brown-lighter dark:bg-brown-mild">
+<nav class="bg-brown-mild dark:bg-brown-mild">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-1">
+    <!-- Logo Section -->
     <a href="{% url 'authentication:login' %}" class="flex items-center space-x-3 rtl:space-x-reverse">
       <img src="{% static 'images/web-logo.svg' %}" class="h-16" alt="Logo" />
     </a>
-    <div class="flex md:order-2">
+
+    <!-- Mobile Menu Toggle Button -->
+    <button data-collapse-toggle="navbar-search" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-brown-lightest rounded-lg md:hidden hover:bg-brown-darker focus:outline-none focus:ring-2 focus:ring-brown-lightest" aria-controls="navbar-search" aria-expanded="false">
+      <span class="sr-only">Open main menu</span>
+      <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M3 5h14a1 1 0 010 2H3a1 1 0 110-2zm0 6h14a1 1 0 010 2H3a1 1 0 110-2zm0 6h14a1 1 0 010 2H3a1 1 0 110-2z" clip-rule="evenodd"></path>
+      </svg>
+    </button>
+
+    <!-- Right Side Buttons (Cart, Favorites, Profile) -->
+    <div class="flex items-center md:order-2">
       <!-- Cart Button -->
       <button type="button" class="relative rounded-full bg-brown-darker p-2 text-brown-lightest hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brown-darker mr-2">
         <span class="absolute -inset-1.5"></span>
@@ -23,7 +34,7 @@
         </svg>
       </button>
 
-      <!-- Profile dropdown -->
+      <!-- Profile Dropdown -->
       <div class="relative ml-3">
         <div>
           <button type="button" class="relative flex rounded-full bg-brown-darker text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brown-darker" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
@@ -32,26 +43,22 @@
             <img class="h-8 w-8 rounded-full" src="{% static 'images/svg-account.png' %}" alt="">
           </button>
         </div>
-        <div id="user-menu" data-username="{{ user.username }}" data-username-url="{% url 'user_profile:profile' %}" data-logout-url="{% url 'authentication:logout' %}" data-login-url="{% url 'authentication:login' %}" data-register-url="{% url 'authentication:register' %}" class="absolute right-0 z-20 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none transition ease-out duration-100 transform opacity-0 scale-95 hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1"></div>
-        
+        <div id="user-menu" data-username="{{ user.username }}" data-username-url="{% url 'user_profile:profile' %}" data-logout-url="{% url 'authentication:logout' %}" data-login-url="{% url 'authentication:login' %}" data-register-url="{% url 'authentication:register' %}" class="absolute right-0 z-20 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button">
+          <a href="{% url 'user_profile:profile' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
+          <a href="{% url 'authentication:logout' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
+        </div>
       </div>
     </div>
 
-    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-search">
-      <div class="relative mt-3 md:hidden">
-        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-          <svg class="w-4 h-4 text-brown-mild" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-          </svg>
-        </div>
-        <input type="text" id="search-navbar" class="block w-full p-2 ps-10 text-sm text-brown-darkest border border-brown-lighter rounded-lg bg-brown-lightest focus:ring-brown-mild focus:border-brown-mild dark:bg-brown-darker dark:border-brown-darker dark:placeholder-brown-lighter dark:text-brown-lightest dark:focus:ring-brown-mild dark:focus:border-brown-mild" placeholder="Search...">
-      </div>
-      <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-brown-lighter rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-brown-darkest dark:bg-brown-darker md:dark:bg-brown-darker dark:border-brown-darker">
+    <!-- Navigation Links and Search Bar -->
+    <div class="hidden w-full md:flex md:w-auto md:order-1" id="navbar-search">
+      <!-- Navigation Links -->
+      <ul class="flex flex-col p-4 mt-4 font-medium border border-brown-lighter rounded-lg bg-brown-darkest md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent dark:bg-brown-darker dark:border-brown-darker">
         <li>
           <a href="{% url 'cards_makanan:restaurant_list' %}" class="block py-2 px-3 text-brown-lightest md:bg-transparent md:text-brown-mild md:p-0 md:dark:text-brown-lightest" aria-current="page">Home</a>
         </li>
         <li>
-          <a href="#" class="block py-2 px-3 text-brown-darkest md:hover:bg-transparent md:hover:text-brown-mild md:p-0 md:dark:hover:text-brown-mild dark:text-brown-lightest dark:hover:bg-brown-darker dark:hover:text-brown-lightest md:dark:hover:bg-transparent dark:border-brown-darker">Editor's Choice</a>
+          <a href="#" class="block py-2 px-3 text-brown-darkest md:hover:bg-transparent md:hover:text-brown-mild md:p-0 dark:text-brown-lightest md:dark:hover:text-brown-mild dark:hover:bg-brown-darker dark:hover:text-brown-lightest md:dark:hover:bg-transparent dark:border-brown-darker">Editor's Choice</a>
         </li>
         <li>
           <a href="{% url 'manajemen_souvenir:show_souvenir' %}" class="block py-2 px-3 text-brown-darkest md:hover:bg-transparent md:hover:text-brown-mild md:p-0 dark:text-brown-lightest md:dark:hover:text-brown-mild dark:hover:bg-brown-darker dark:hover:text-brown-lightest md:dark:hover:bg-transparent dark:border-brown-darker">Souvenir</a>

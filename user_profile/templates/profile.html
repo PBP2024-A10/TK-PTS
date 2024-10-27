@@ -31,6 +31,14 @@
           <label for="email" class="block text-sm font-medium text-[#654a2d]">Email</label>
           {{ user_form.email }}
         </div>
+        <div>
+          <label for="first_name" class="block text-sm font-medium text-[#654a2d]">First Name</label>
+          {{ user_form.first_name }}
+        </div>
+        <div>
+          <label for="last_name" class="block text-sm font-medium text-[#654a2d]">Last Name</label>
+          {{ user_form.last_name }}
+        </div>
       </div>
       <div>
         <label for="bio" class="block mb-2 text-sm font-medium text-[#654a2d]">Bio</label>
@@ -57,11 +65,10 @@
       const formData = new FormData(form);
 
       // Mengirimkan permintaan AJAX menggunakan Fetch API
-      fetch("{% url 'user_profile:profile' %}", {  // Pastikan nama URL sesuai dengan yang didefinisikan di urls.py
+      fetch("{% url 'user_profile:profile' %}", {
         method: 'POST',
         headers: {
           'X-Requested-With': 'XMLHttpRequest',
-          // 'X-CSRFToken': '{{ csrf_token }}',  // Tidak perlu memasukkan CSRF token di header karena sudah termasuk dalam FormData
         },
         body: formData,
       })
@@ -70,7 +77,7 @@
         if (data.success) {
           messagesDiv.innerHTML = `<div class="text-green-700 px-4 py-3 rounded relative" role="alert">
             <strong class="font-bold">Success!</strong>
-            <span class="block sm:inline">${data.message}</span>
+            <span class="block sm:inline">Profile update successfully</span>
           </div>`;
         } else {
           messagesDiv.innerHTML = `<div class="text-red-700 px-4 py-3 rounded relative" role="alert">

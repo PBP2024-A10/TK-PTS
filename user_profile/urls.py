@@ -4,7 +4,7 @@ from user_profile.views import profile
 app_name = 'user_profile'
 
 urlpatterns = [
-    path('profile/', profile, name='profile'),
+    path('', profile, name='profile'),
 ]
 
 

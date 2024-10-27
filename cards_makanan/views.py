@@ -4,6 +4,7 @@ from .models import Restaurant, MenuItem
 from .forms import RestaurantForm, MenuItemForm
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.core.paginator import Paginator
+from django.http import JsonResponse
 
 def is_admin(user):
     return user.is_staff
@@ -92,3 +93,17 @@ def delete_menu_item(request, menu_item_id):
     restaurant_id = menu_item.restaurant.id
     menu_item.delete()
     return redirect('cards_makanan:show_menu', restaurant_id=restaurant_id)
+
+def filter_restaurants(request):
+    query = request.GET.get('q', '')
+    filtered_restaurants = Restaurant.objects.filter(name__icontains=query) if query else Restaurant.objects.all()
+    data = {
+        'restaurants': [
+            {
+                'id': restaurant.id,
+                'name': restaurant.name,
+                'description': restaurant.description,
+            } for restaurant in filtered_restaurants
+        ]
+    }
+    return JsonResponse(data)
