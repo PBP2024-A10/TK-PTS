@@ -12,4 +12,5 @@ urlpatterns = [
     path('orders/user/json/', get_order_by_user, name='get_order_by_user'),  # Mengambil pesanan berdasarkan pengguna
     path('orders/<uuid:order_id>/', get_order_by_id, name='get_order_by_id'),  # Mengambil pesanan berdasarkan ID
     path('orders/delete/<str:order_id>/', delete_order, name='delete_order'),
+    path('order/new/<uuid:menu_item_id>/', create_order, name='create_order'),
 ]

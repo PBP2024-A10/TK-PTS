@@ -1,7 +1,8 @@
 import uuid
 from django.db import models
 from django.contrib.auth.models import User
-#from products.models import MenuItem  # Misalnya model MenuItem untuk daftar makanan
+##tambah ini jggg
+from cards_makanan.models import MenuItem  # Misalnya model MenuItem untuk daftar makanan
 
 class FoodOrder(models.Model):
     ORDER_STATUS_CHOICES = [
@@ -16,7 +17,9 @@ class FoodOrder(models.Model):
     nama_penerima = models.CharField(max_length=255)
     alamat_pengiriman = models.CharField(max_length=255)
     tanggal_pemesanan = models.DateField(auto_now_add=True)
-    #items = models.ManyToManyField(MenuItem)  # Menghubungkan ke model makanan yang dipesan
+
+##buka komen items aja nggun (jgn copas komen ini ya wkwkw)
+    items = models.ManyToManyField(MenuItem)  # Menghubungkan ke model makanan yang dipesan
     status_pesanan = models.CharField(
         max_length=20,
         choices=ORDER_STATUS_CHOICES,
@@ -25,7 +28,3 @@ class FoodOrder(models.Model):
 
     def __str__(self):
         return f"Order #{self.id} - {self.nama_penerima} ({self.status_pesanan})"
-
-
-
-

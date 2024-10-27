@@ -35,7 +35,7 @@ class RestaurantForm(forms.ModelForm):
 class MenuItemForm(forms.ModelForm):
     class Meta:
         model = MenuItem
-        fields = ['restaurant', 'name', 'description', 'price']
+        fields = ['restaurant', 'name', 'description', 'price', 'image_url_menu']
         widgets = {
             'restaurant': forms.Select(attrs={
                 'class': 'form-select',
@@ -57,6 +57,12 @@ class MenuItemForm(forms.ModelForm):
             'price': forms.NumberInput(attrs={
                 'class': 'form-input',
                 'placeholder': 'Masukkan harga menu',
+                'style': 'padding: 12px; border-radius: 12px; border: 1px solid #6B7280; width: 100%; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); transition: border 0.3s;',
+                'onfocus': 'this.style.borderColor="#3B82F6";'
+            }),
+            'image_url_menu': forms.URLInput(attrs={
+                'class': 'form-input',
+                'placeholder': 'Masukkan URL gambar menu',
                 'style': 'padding: 12px; border-radius: 12px; border: 1px solid #6B7280; width: 100%; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); transition: border 0.3s;',
                 'onfocus': 'this.style.borderColor="#3B82F6";'
             }),
