@@ -15,7 +15,7 @@
       <button data-modal-target="crudModal" data-modal-toggle="crudModal" class="btn text-white bg-[#3d200a] py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105" onclick="showModal();">
         Add New Souvenir
       </button>
-      {% endfor %}
+      {% endif %}
     </div>
     <div id="souvenir_entry_cards"></div>
 
@@ -97,7 +97,6 @@
                 // Jika bukan, maka asumsikan ini adalah image yang diupload dari web dan perlu path '/media/'
                 imageUrl = `/media/${image}`;
             }
-
 
             htmlString += `
             <div class="relative break-inside-avoid">
