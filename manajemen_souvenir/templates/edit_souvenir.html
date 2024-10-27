@@ -5,7 +5,7 @@
 {% endblock meta %}
 
 {% block content %}
-<div class="flex flex-col min-h-screen bg-[#cbbcb5]">
+<div class="flex flex-col min-h-screen bg-[#e8dcd4]">
   <div class="container mx-auto px-4 py-8 mt-16 max-w-xl">
     <h1 class="text-3xl font-bold text-center mb-8 text-black">Edit Souvenir Entry</h1>
   
@@ -14,10 +14,10 @@
           {% csrf_token %}
           {% for field in form %}
               <div class="flex flex-col">
-                  <label for="{{ field.id_for_label }}" class="mb-2 font-semibold text-gray-700">
+                  <label for="{{ field.id_for_label }}" class="mb-2 font-semibold text-white">
                       {{ field.label }}
                   </label>
-                  <div class="w-full text-black">
+                  <div class="mt-1 flex flex-col text-black mb-4 rounded-">
                       {{ field }}
                   </div>
                   {% if field.help_text %}
@@ -29,7 +29,7 @@
               </div>
           {% endfor %}
           <div class="flex justify-center mt-6">
-              <button type="submit" class="bg-indigo-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-indigo-700 transition duration-300 ease-in-out w-full">
+              <button type="submit" class="bg-[#3d200a] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#cbbcb5] hover:text-[#3d200a] border border-[#3d200a] hover:border-[#3d200a] duration-300 ease-in-out w-full">
                   Edit Souvenir Entry
               </button>
           </div>
