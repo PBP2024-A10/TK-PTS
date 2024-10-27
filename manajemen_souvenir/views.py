@@ -47,50 +47,31 @@ def edit_souvenir(request, id):
     # Get product entry berdasarkan id
     souvenir = get_object_or_404(SouvenirEntry, pk = id)
 
-    if request.method == 'POST':
-        # Membuat form dengan data dari request
-        form = SouvenirEntryForm(request.POST, request.FILES, instance=souvenir)
+    # Set souvenir entry sebagai instance dari form
+    form = SouvenirEntryForm(request.POST or None, request.FILES or None, instance=souvenir)
 
-        if form.is_valid():
-            # Jika ada gambar baru
-            if 'image' in request.FILES:
-                # Simpan terlebih dahulu gambar baru ke database
-                new_image = request.FILES['image']
-                unique_name = f"{uuid.uuid4()}_{new_image.name}"
-                souvenir.image = new_image
-                souvenir.image.name = unique_name
-                
-                # Simpan form untuk menyimpan perubahan
-                form.save()
-                
-                # Hapus gambar lama setelah menyimpan gambar baru
-                if souvenir.image and os.path.isfile(souvenir.image.path):
-                    os.remove(souvenir.image.path)
+    if form.is_valid():
+        if 'image' in request.FILES:
+            print(souvenir.image.path)
+            if souvenir.image and os.path.isfile(souvenir.image.path):
+                os.remove(souvenir.image.path)
+            unique_name = f"{uuid.uuid4()}_{request.FILES['image'].name}"
+            souvenir.image = request.FILES['image']
+            souvenir.image.name = unique_name
+        
+        # Simpan form dan kembali ke halaman awal
+        form.save()
+        return HttpResponseRedirect(reverse('show_souvenir:show_souvenir'))
 
-            else:
-                # Jika tidak ada gambar baru, tetap simpan form
-                form.save()
-            
-            # Redirect ke halaman show_souvenir setelah update
-            return redirect(reverse('show_souvenir:show_souvenir'))
-        else:
-            print("Form tidak valid:", form.errors)
-    else:
-        form = SouvenirEntryForm(instance=souvenir)
-
-    context = {
-        'form': form,
-        'souvenir': souvenir
-    }
-    return render(request, 'edit_souvenir.html', context)
+    context = {'form': form}
+    return render(request, "edit_souvenir.html", context)
 
 @login_required
 @user_passes_test(is_admin)
 def delete_souvenir(request, id):
-    if request.method == 'POST':
-        souvenir = get_object_or_404(SouvenirEntry, id=id)
-        souvenir.delete()
-        return HttpResponseRedirect(reverse('manajemen_souvenir:show_souvenir'))
-    else:
-        # Jika metode bukan POST, kembalikan 405 Method Not Allowed
-        return HttpResponse(status=405)
+    # Get product berdasarkan id
+    souvenir = SouvenirEntry.objects.get(pk = id)
+    # Hapus souvenir
+    souvenir.delete()
+    # Kembali ke halaman awal
+    return HttpResponseRedirect(reverse('show_souvenir:show_souvenir'))
