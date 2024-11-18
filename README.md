@@ -94,6 +94,8 @@ Admin memiliki kontrol penuh terhadap aplikasi dan dapat mengelola pengguna, kon
 ## Daftar Pustaka
 🔗 https://gis.dukcapil.kemendagri.go.id/peta/
 
+# 🔗Alur Pengintegrasian dengan Web Service untuk terhubung dengan Aplikasi Web🔗
+
 ## Pembagian Tugas
 | Nama       | Modul dan Jobdesc                                                                     |
 |------------|-------------------------------------------------------------------------------------|
@@ -104,4 +106,3 @@ Admin memiliki kontrol penuh terhadap aplikasi dan dapat mengelola pengguna, kon
 | Salsabila  | Manajemen pemesanan (cards, form)                                                   |
 | Olav       | Wishlist                                                                            |
 
-# 🔗Alur Pengintegrasian dengan Web Service untuk terhubung dengan Aplikasi Web🔗
