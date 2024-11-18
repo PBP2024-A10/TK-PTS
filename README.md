@@ -91,9 +91,6 @@ Admin memiliki kontrol penuh terhadap aplikasi dan dapat mengelola pengguna, kon
 
 *Registered user* dapat mengakses semua halaman dan fitur yang ada dalam aplikasi, seperti melakukan pemesanan, menambahkan dan mengedit makanan di *Wishlist page*, dan dapat memberikan penilaian berupa *rating* dan *review*.
 
-# 🔗Tautan Deployment Aplikasi🔗
-🔗 PWS: http://rafansya-daryltama-ajenganhalal.pbp.cs.ui.ac.id/
-
 ## Daftar Pustaka
 🔗 https://gis.dukcapil.kemendagri.go.id/peta/
 
@@ -106,3 +103,5 @@ Admin memiliki kontrol penuh terhadap aplikasi dan dapat mengelola pengguna, kon
 | Rafansya   | Editor's choice (cards, form)                                                       |
 | Salsabila  | Manajemen pemesanan (cards, form)                                                   |
 | Olav       | Wishlist                                                                            |
+
+# 🔗Alur Pengintegrasian dengan Web Service untuk terhubung dengan Aplikasi Web🔗
