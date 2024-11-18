@@ -111,7 +111,7 @@ Di sisi frontend, kami akan menggunakan HTTP GET untuk mengambil data dari serve
 Untuk mengirim data dari frontend ke server, kami akan menggunakan metode POST. Data yang kami kirimkan melalui POST akan diterima oleh end-point yang kami siapkan di server dan disimpan dalam database Django. Proses ini memungkinkan kami untuk memperbarui atau menyimpan informasi baru yang dimasukkan oleh pengguna.
 
 
-## Pembagian Tugas
+# Pembagian Tugas
 | Nama       | Modul dan Jobdesc                                                                     |
 |------------|-------------------------------------------------------------------------------------|
 | Anggun     | Authentication, authorization, profile, homepage (list restoran)                    |
