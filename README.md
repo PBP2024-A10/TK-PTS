@@ -96,10 +96,7 @@ Admin memiliki kontrol penuh terhadap aplikasi dan dapat mengelola pengguna, kon
 
 # 🔗Alur Pengintegrasian dengan Web Service untuk terhubung dengan Aplikasi Web🔗
 1. Menyelesaikan Penambahan End-Point pada Situs Web
-Kami menambahkan end-point untuk setiap modul dalam aplikasi yang memungkinkan kami untuk mengambil (GET) dan mengirim (POST) data. End-point ini akan memungkinkan kami untuk mengakses data dalam database dan mengirim atau menerima data dalam format yang dapat diproses, seperti JSON.
-
-GET akan kami gunakan untuk mengambil data dari server dan mengirimkannya ke frontend.
-POST akan kami gunakan untuk mengirim data dari frontend ke server untuk disimpan atau diproses lebih lanjut.
+Kami menambahkan end-point untuk setiap modul dalam aplikasi yang memungkinkan kami untuk mengambil (GET) dan mengirim (POST) data. End-point ini akan memungkinkan kami untuk mengakses data dalam database dan mengirim atau menerima data dalam format yang dapat diproses, seperti JSON. GET akan kami gunakan untuk mengambil data dari server dan mengirimkannya ke frontend. POST akan kami gunakan untuk mengirim data dari frontend ke server untuk disimpan atau diproses lebih lanjut.
 
 2. Menambahkan Middleware untuk Akses API dari Luar Situs Web
 Untuk memungkinkan API kami diakses oleh aplikasi atau situs lain, kami perlu menambahkan middleware yang menangani CORS (Cross-Origin Resource Sharing). Middleware ini akan memungkinkan server untuk mengizinkan atau membatasi akses dari domain lain. Kami biasanya menggunakan paket django-cors-headers untuk mengatur aturan akses eksternal.
