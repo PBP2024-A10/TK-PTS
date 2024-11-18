@@ -110,6 +110,8 @@ Di sisi frontend, kami akan menggunakan HTTP GET untuk mengambil data dari serve
 5. Menggunakan HTTP POST untuk Mengirim Data ke End-Point dan Menyimpannya ke Basis Data Django
 Untuk mengirim data dari frontend ke server, kami akan menggunakan metode POST. Data yang kami kirimkan melalui POST akan diterima oleh end-point yang kami siapkan di server dan disimpan dalam database Django. Proses ini memungkinkan kami untuk memperbarui atau menyimpan informasi baru yang dimasukkan oleh pengguna.
 
+# 🔗Tautan Deployment Aplikasi🔗
+🔗 PWS: http://rafansya-daryltama-ajenganhalal.pbp.cs.ui.ac.id/
 
 # Pembagian Tugas
 | Nama       | Modul dan Jobdesc                                                                     |
