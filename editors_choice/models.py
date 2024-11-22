@@ -1,6 +1,7 @@
 import uuid
 from django.db import models
 from main.models import FoodItem
+from cards_makanan.models import MenuItem
 from django.conf import settings
 from django.utils import timezone
 from django.contrib.auth.models import User
@@ -8,7 +9,8 @@ import datetime
 
 # Create your models here.
 class FoodRecommendation(models.Model):
-    food_item = models.OneToOneField(FoodItem, on_delete=models.CASCADE)
+    # food_item = models.OneToOneField(FoodItem, on_delete=models.CASCADE)
+    food_item = models.OneToOneField(MenuItem, on_delete=models.CASCADE)
     # id = food_item.id
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     # food_type = food_item.type

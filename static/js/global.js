@@ -196,7 +196,7 @@ async function fetchFoodFinisher(data, foodType) {
         } else if (foodType === 'breakfast') {
             editorChoiceDesc.innerHTML = "In Bali, life is and will never be short. In that case, grab a bite of these breakfast foods to start your day.";
         } else if (foodType === 'lunch') {
-            editorChoiceDesc.innerHTML = "When the sun is at its peak, it's time to enjoy a hearty lunch. In a humid, sweaty weather of Bali, it's always good to have a good palate. Unfortunately, Bali has abundant choice of especially Halal foods.";
+            editorChoiceDesc.innerHTML = "When the sun is at its peak, it's time to enjoy a hearty lunch. In a humid, sweaty weather of Bali, it's always good to have a good palate. Fortunately, Bali has abundant choice of especially Halal foods.";
         } else if (foodType === 'dinner') {
             editorChoiceDesc.innerHTML = "When the sun sets, the night is still young. Enjoy a good dinner with your loved ones. Bali has a wide range of halal foods to choose from.";
         } else if (foodType === 'souvenir') {
@@ -207,22 +207,21 @@ async function fetchFoodFinisher(data, foodType) {
         templateString = templateString.replace("Last Week", data[0].fields.week);
         editorChoiceList.innerHTML += '<ul role="list" class="divide-y divide-gray-100 hover:fly-out">';
 
-        for (const item of data) {
-            const foodItems = await fetchFoodItemsRec(item.fields.food_items);
-            // for (const recItems of foodRecItems) {
-            //     const foodItems = await fetchFoodItems(recItems.fields.food_item);
-                foodItems.forEach(foodItem => {
-                    const foodItemUrl = `/editors-choice/food-item/?food_item=${encodeURIComponent(foodItem.fields.name)}&food_id=${foodItem.pk}`;
-                    let itemHtml = templateString
-                        .replace("#link", foodItemUrl)
-                        .replace("Name", DOMPurify.sanitize(foodItem.fields.name))
-                        .replace("Description", (DOMPurify.sanitize(foodItem.fields.description.slice(0, 50)) + (foodItem.fields.description.length > 50 ? '...' : '')))
-                        .replace("Food Type", DOMPurify.sanitize(foodItem.fields.food_type))
-                        .replace("Last Week", DOMPurify.sanitize(item.fields.week));
-                    editorChoiceList.innerHTML += itemHtml;
-                });
-            }
-        // }
+        const foodItemPromises = data.map(item => fetchFoodItemsRec(item.fields.food_items));
+        const foodItemsArray = await Promise.all(foodItemPromises);
+
+        foodItemsArray.flat().forEach(foodItem => {
+            const foodItemUrl = `/editors-choice/food-item/?food_item=${encodeURIComponent(foodItem.fields.name)}&food_id=${foodItem.pk}`;
+            let itemHtml = templateString
+            .replace("#link", foodItemUrl)
+            .replace("Name", DOMPurify.sanitize(foodItem.fields.name))
+            .replace("Description", (DOMPurify.sanitize(foodItem.fields.description.slice(0, 50)) + (foodItem.fields.description.length > 50 ? '...' : '')))
+            .replace("Food Type", DOMPurify.sanitize(foodItem.fields.meal_type))
+            .replace("Last Week", DOMPurify.sanitize(data[0].fields.week))
+            .replace('src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"', `src="${DOMPurify.sanitize(foodItem.fields.image_url_menu)}"`);
+            editorChoiceList.innerHTML += itemHtml;
+        });
+
         editorChoiceList.innerHTML += '</ul>';
     }
 }
@@ -327,10 +326,10 @@ async function updateDescriptionForFoodRec() {
         if (item) {
             document.getElementById('descParagraph').innerHTML = DOMPurify.sanitize(item.description);
             document.getElementById('productName').innerHTML = DOMPurify.sanitize(item.name);
-            const formattedPrice = Number(item.price).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            document.getElementById('productPrice').innerHTML = "Rp" + DOMPurify.sanitize(formattedPrice);
+            document.getElementById('productPrice').innerHTML = "Rp" + DOMPurify.sanitize(item.price) + ",00";
             document.getElementById('highlightProduct').innerHTML = DOMPurify.sanitize(item.name) + " is best eaten at:";
-            document.getElementById('bestEatenHighlighted').innerHTML = DOMPurify.sanitize(item.food_type.charAt(0).toUpperCase() + item.food_type.slice(1));
+            document.getElementById('bestEatenHighlighted').innerHTML = DOMPurify.sanitize(item.meal_type.charAt(0).toUpperCase() + item.meal_type.slice(1));
+            document.querySelector('img[alt="Model wearing plain white basic tee."]').src = DOMPurify.sanitize(item.image_url_menu);
         }
         const ratingData = await fetchRatingDataHelper(food_item, food_id);
         if (ratingData) {

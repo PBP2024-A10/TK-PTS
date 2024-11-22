@@ -1,11 +1,11 @@
 from django import forms
-from main.models import FoodItem
+from cards_makanan.models import MenuItem
 from django.forms import ModelForm, ModelChoiceField
 from editors_choice.models import FoodRecommendation
 
 class FoodRecommendationForm(ModelForm):
     food_item = ModelChoiceField(
-        queryset=FoodItem.objects.all(),
+        queryset=MenuItem.objects.all(),
         label='Food Item',
         help_text='Select the food item to recommend'
     )
