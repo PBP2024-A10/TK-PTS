@@ -1,5 +1,6 @@
 import datetime
-from main.models import FoodItem
+# from main.models import FoodItem
+from cards_makanan.models import MenuItem
 from django.http import JsonResponse, HttpResponse
 from django.core import serializers
 from django.utils import timezone
@@ -105,7 +106,7 @@ def show_food_type(request, food_type):
     if food_type == 'all' or food_type == '':
         food_recommendations = FoodRecommendation.objects.all()
     else:
-        food_recommendations = FoodRecommendation.objects.filter(food_item__food_type=food_type)
+        food_recommendations = FoodRecommendation.objects.filter(food_item__meal_type=food_type)
     context = {
         'food_recommendations': food_recommendations
     }
@@ -118,7 +119,7 @@ def show_food_template(request):
 def show_food_item(request):
     food_item = request.GET.get('food_item')
     food_id = request.GET.get('food_id')
-    food = get_object_or_404(FoodItem, pk=food_id, name=food_item)
+    food = get_object_or_404(MenuItem, pk=food_id, name=food_item)
     return render(request, 'food_item.html', {'food': food})
     
 # Add food item (from the database, admin only) to the Editors Choice list
@@ -139,7 +140,7 @@ def add_food_item(request):
 
         editor_choice = EditorChoice.objects.filter(
             week=current_week,
-            food_items__food_item__food_type=food_recommendation.food_item.food_type
+            food_items__food_item__meal_type=food_recommendation.food_item.meal_type
         ).first()
 
         if editor_choice is None:
@@ -198,12 +199,12 @@ def is_logged_in(request):
 
 # JSON views: all food items
 def show_json(request):
-    food = FoodItem.objects.all()
+    food = MenuItem.objects.all()
     return HttpResponse(serializers.serialize('json', food), content_type='application/json')
 
 # JSON views: specific food by ID
 def show_json_id(request, food_id):
-    food = FoodItem.objects.filter(pk=food_id)
+    food = MenuItem.objects.filter(pk=food_id)
     return HttpResponse(serializers.serialize('json', food), content_type='application/json')
 
 # JSON views: all food recommendation
@@ -218,7 +219,8 @@ def show_json_food_id(request, food_id):
 
 # JSON views: all food recommendations for a specific food type
 def show_json_food_type(request, food_type):
-    food_recommendations = FoodRecommendation.objects.filter(food_item__food_type=food_type)
+    food_type = food_type.capitalize()
+    food_recommendations = FoodRecommendation.objects.filter(food_item__meal_type=food_type)
     return HttpResponse(serializers.serialize('json', food_recommendations), content_type='application/json')
 
 # JSON views: all editor choices
@@ -228,15 +230,17 @@ def show_json_editor_choice(request):
 
 # JSON views: all editor choices for a specific food type
 def show_json_editor_choice_food_type(request, food_type):
-    editor_choices = EditorChoice.objects.filter(food_items__food_item__food_type=food_type)
+    food_type = food_type.capitalize()
+    editor_choices = EditorChoice.objects.filter(food_items__food_item__meal_type=food_type).distinct()
     return HttpResponse(serializers.serialize('json', editor_choices), content_type='application/json')
 
 # JSON views: all editor choices for a specific week
 def show_json_editor_choice_week(request, week):
-    editor_choices = EditorChoice.objects.filter(week=week)
+    editor_choices = EditorChoice.objects.filter(week=week).distinct()
     return HttpResponse(serializers.serialize('json', editor_choices), content_type='application/json')
 
 # JSON views: all editor choices for a specific food type and week
 def show_json_editor_choice_food_type_week(request, food_type, week):
-    editor_choices = EditorChoice.objects.filter(food_items__food_item__food_type=food_type, week=week)
+    food_type = food_type.capitalize()
+    editor_choices = EditorChoice.objects.filter(food_items__food_item__meal_type=food_type, week=week).distinct()
     return HttpResponse(serializers.serialize('json', editor_choices), content_type='application/json')
