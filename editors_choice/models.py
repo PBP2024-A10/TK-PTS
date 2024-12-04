@@ -16,6 +16,12 @@ class FoodRecommendation(models.Model):
     # food_type = food_item.type
     rating = models.FloatField(default=0)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    rated_description = models.TextField(blank=True)
+    comment_count = models.PositiveIntegerField(default=0, editable=False)
+
+    def update_comment_count(self):
+        self.comment_count = self.foodcomment_set.count()
+        self.save()
 
     def __str__(self):
         return self.food_item.name
@@ -30,15 +36,21 @@ class FoodRecommendation(models.Model):
     def validate_rating(self):
         if self.rating < 0 or self.rating > 5:
             raise ValueError("Rating must be between 0 and 5.")
-    
-    # If provided, this function should return the type of the food item
-    # def return_type(self):
-    #     return self.food_item.type
 
 def get_start_of_current_week():
     today = timezone.now().date()
     start_of_week = today - datetime.timedelta(days=today.weekday())
     return start_of_week
+
+class FoodComment(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    food_item = models.ForeignKey(FoodRecommendation, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    comment = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Comment by {self.author} for Food: {self.food_item} at {self.timestamp}"
     
 class EditorChoice(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)

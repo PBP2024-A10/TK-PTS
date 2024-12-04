@@ -202,6 +202,13 @@ async function fetchFoodFinisher(data, foodType) {
         } else if (foodType === 'souvenir') {
             editorChoiceDesc.innerHTML = "Don't forget to bring home some souvenirs from Bali. Of course you'll gonna love Bali, so that you have to buy the souvenirs. From traditional to modern ones, Bali has it all.";
         }
+
+        const weeks = new Set();
+        for (let i = 0; i < data.length; i++) {
+            const week = data[i].fields.week;
+            weeks.add(week);
+        }
+
         const templateResponse = await fetch(`/editors-choice/show/${foodType}/`);
         let templateString = await templateResponse.text();
         templateString = templateString.replace("Last Week", data[0].fields.week);
@@ -209,6 +216,7 @@ async function fetchFoodFinisher(data, foodType) {
 
         const foodItemPromises = data.map(item => fetchFoodItemsRec(item.fields.food_items));
         const foodItemsArray = await Promise.all(foodItemPromises);
+        let count = 0;
 
         foodItemsArray.flat().forEach(foodItem => {
             const foodItemUrl = `/editors-choice/food-item/?food_item=${encodeURIComponent(foodItem.fields.name)}&food_id=${foodItem.pk}`;
@@ -217,9 +225,10 @@ async function fetchFoodFinisher(data, foodType) {
             .replace("Name", DOMPurify.sanitize(foodItem.fields.name))
             .replace("Description", (DOMPurify.sanitize(foodItem.fields.description.slice(0, 50)) + (foodItem.fields.description.length > 50 ? '...' : '')))
             .replace("Food Type", DOMPurify.sanitize(foodItem.fields.meal_type))
-            .replace("Last Week", DOMPurify.sanitize(data[0].fields.week))
+            .replace("Last Week", DOMPurify.sanitize(data[count].fields.week))
             .replace('src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"', `src="${DOMPurify.sanitize(foodItem.fields.image_url_menu)}"`);
             editorChoiceList.innerHTML += itemHtml;
+            count++;
         });
 
         editorChoiceList.innerHTML += '</ul>';
@@ -303,7 +312,9 @@ async function fetchFoodItemDataHelper(food_item, food_id) {
     try {
         const response = await fetch(`/editors-choice/json/food/${food_id}`);
         const data = await response.json();
-        return data[0].fields;
+        item = data[0].fields;
+        item.pk = data[0].pk;
+        return item;
     } catch (error) {
         console.error('Error fetching food item data:', error);
         return null;
@@ -330,6 +341,13 @@ async function updateDescriptionForFoodRec() {
             document.getElementById('highlightProduct').innerHTML = DOMPurify.sanitize(item.name) + " is best eaten at:";
             document.getElementById('bestEatenHighlighted').innerHTML = DOMPurify.sanitize(item.meal_type.charAt(0).toUpperCase() + item.meal_type.slice(1));
             document.querySelector('img[alt="Model wearing plain white basic tee."]').src = DOMPurify.sanitize(item.image_url_menu);
+            const userLoggedIn = await fetch("/editors-choice/check-loggedin/");
+            const userData = await userLoggedIn.json();
+            if (userData.is_logged_in) {
+                document.getElementById('anchorToOrder').href = `/manajemen-pesanan/order/new/${item.pk}`;
+            } else {
+                document.getElementById('anchorToOrder').href = `/auth/login/?next=/`;
+            }
         }
         const ratingData = await fetchRatingDataHelper(food_item, food_id);
         if (ratingData) {

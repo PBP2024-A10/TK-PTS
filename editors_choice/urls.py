@@ -5,7 +5,7 @@ from editors_choice.views import show_index_er, show_food_item, add_food_item, \
     show_json_editor_choice_week, show_json_editor_choice_food_type_week, \
     show_json_editor_choice_food_type, show_json_editor_choice_week,\
     show_json_food_type, show_json, show_json_id, show_json_food_id,\
-    delete_food_rec, edit_food_rec_rating
+    delete_food_rec, edit_food_rec_rating, show_json_comments
     
 
 app_name = 'editors_choice'
@@ -31,4 +31,5 @@ urlpatterns = [
     path('json/editor-choice/<str:food_type>/', show_json_editor_choice_food_type, name='show_json_editor_choice_food_type'), # show editor's choice by food type
     path('json/editor-choice/week/<str:week>/', show_json_editor_choice_week, name='show_json_editor_choice_week'), # show editor's choice by week
     path('json/editor-choice/<str:food_type>/<str:week>/', show_json_editor_choice_food_type_week, name='show_json_editor_choice_food_type_week'), # show editor's choice by food type and week
+    path('json/comments/<uuid:food_id>/', show_json_comments, name='show_json_comments'), # show comments for a food recommendation
 ]
