@@ -4,7 +4,8 @@ from .models import Restaurant, MenuItem
 from .forms import RestaurantForm, MenuItemForm
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.core.paginator import Paginator
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse, HttpResponseRedirect
+from django.core import serializers
 
 def is_admin(user):
     return user.is_staff
@@ -108,3 +109,14 @@ def filter_restaurants(request):
         ]
     }
     return JsonResponse(data)
+
+def show_json_restaurant(request):
+    data = Restaurant.objects.all()
+    return HttpResponse(serializers.serialize("json", data), content_type = "application/json")
+
+
+def show_json_menuitem(request, restaurant_id):
+    restaurant = get_object_or_404(Restaurant, id=restaurant_id)
+    data = MenuItem.objects.filter(restaurant=restaurant)
+    return HttpResponse(serializers.serialize("json", data), content_type = "application/json")
+
