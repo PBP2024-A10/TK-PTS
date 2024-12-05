@@ -13,6 +13,7 @@ urlpatterns = [
     path('edit-restaurant/<uuid:restaurant_id>/', edit_restaurant, name='edit_restaurant'), 
     path('add-restaurant/', add_restaurant, name='add_restaurant'),
     path('delete-restaurant/<uuid:restaurant_id>/', delete_restaurant, name='delete_restaurant'),
+<<<<<<< HEAD
     path('add-menu-item/<uuid:restaurant_id>/', add_menu_item, name='add_menu_item'),
     path('edit-menu-item/<uuid:menu_item_id>/', edit_menu_item, name='edit_menu_item'),
     path('delete-menu-item/<uuid:menu_item_id>/', delete_menu_item, name='delete_menu_item'),
@@ -20,3 +21,9 @@ urlpatterns = [
     path('menu/<uuid:restaurant_id>/json/', show_json_menuitem, name = 'show_json_menuitem'),
     path('restaurants/json/', show_json_restaurant, name = 'show_json_restaurant'),
 ]
+=======
+] 
+
+
+
+>>>>>>> 59d34e6204f91bf1129b7f633716c0a2067b34e1
