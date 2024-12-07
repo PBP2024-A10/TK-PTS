@@ -6,6 +6,7 @@ from authentication.forms import UserUpdateForm
 from .forms import ProfileUpdateForm
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
+import json
 
 @login_required
 @csrf_exempt
@@ -36,3 +37,33 @@ def profile(request):
         'profile_form': profile_form,
     }
     return render(request, 'profile.html', context)
+
+
+@csrf_exempt
+@login_required
+def update_profile_flutter(request):
+    if request.method == 'POST':
+        try:
+            # Parse JSON request body
+            data = json.loads(request.body)
+            
+            # Ambil data dari request
+            user_form = UserUpdateForm(data, instance=request.user)
+            profile_form = ProfileUpdateForm(data, instance=request.user.userprofile)
+            
+            # Validasi dan simpan data
+            if user_form.is_valid() and profile_form.is_valid():
+                user_form.save()
+                profile_form.save()
+                return JsonResponse({"status": "success", "message": "Profile updated successfully"}, status=200)
+            else:
+                errors = {
+                    'user': user_form.errors,
+                    'profile': profile_form.errors
+                }
+                return JsonResponse({"status": "error", "message": "Form validation failed", "errors": errors}, status=400)
+        except json.JSONDecodeError:
+            return JsonResponse({"status": "error", "message": "Invalid JSON"}, status=400)
+    else:
+        return JsonResponse({"status": "error", "message": "Invalid request method"}, status=405)
+
