@@ -16,6 +16,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 
+@csrf_exempt
 def register(request):
     # Jika request menggunakan metode POST
     if request.method == 'POST':
@@ -40,6 +41,7 @@ def register(request):
     return render(request, 'register.html', context)
 
 
+@csrf_exempt
 def login_user(request):
     # Jika request menggunakan metode POST
     if request.method == 'POST':
