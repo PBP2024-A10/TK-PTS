@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'cards_makanan',
     'manajemen_souvenir',
     'manajemen_pesanan',
+    'wishlist',
     'corsheaders',
 ]
 
