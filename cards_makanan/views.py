@@ -5,6 +5,9 @@ from .forms import RestaurantForm, MenuItemForm
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.core.paginator import Paginator
 from django.http import JsonResponse
+import json
+from django.views.decorators.csrf import csrf_exempt
+
 
 def is_admin(user):
     return user.is_staff
@@ -108,3 +111,76 @@ def filter_restaurants(request):
         ]
     }
     return JsonResponse(data)
+
+def restaurant_list_json(request):
+    restaurants = Restaurant.objects.all()
+    data = []
+    for restaurant in restaurants:
+        data.append({
+            "model": "cards_makanan.restaurant",
+            "pk": str(restaurant.id), 
+            "fields": {
+                "name": restaurant.name,
+                "description": restaurant.description,
+                "location": restaurant.location,
+                "image_url": restaurant.image_url,
+            }
+        })
+    return JsonResponse(data, safe=False)
+
+
+@csrf_exempt
+def add_restaurant_flutter(request):
+    if request.method == 'POST':
+        try:
+            # Parse JSON data directly from request body
+            import json
+            data = json.loads(request.body)
+            
+            # Create restaurant using the parsed data
+            restaurant = Restaurant.objects.create(
+                name=data.get('name'),
+                description=data.get('description'),
+                location=data.get('location'),
+                image_url=data.get('image_url')
+            )
+            
+            return JsonResponse({
+                'status': 'success', 
+                'status_code': 200,
+                'id': restaurant.id
+            })
+        except Exception as e:
+            return JsonResponse({
+                'status': 'error', 
+                'status_code': 400,
+                'message': str(e)
+            })
+    return JsonResponse({
+        'status': 'error', 
+        'status_code': 405,
+        'message': 'Invalid request method'
+    })
+
+
+@csrf_exempt
+def delete_restaurant_flutter(request, restaurant_id):
+    if request.method == 'DELETE':
+        try:
+            restaurant = get_object_or_404(Restaurant, id=restaurant_id)
+            restaurant.delete()
+            return JsonResponse({
+                'status': 'success', 
+                'status_code': 200
+            })
+        except Exception as e:
+            return JsonResponse({
+                'status': 'error', 
+                'status_code': 400,
+                'message': str(e)
+            })
+    return JsonResponse({
+        'status': 'error', 
+        'status_code': 405,
+        'message': 'Invalid request method'
+    })

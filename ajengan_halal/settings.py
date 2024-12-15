@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'cards_makanan',
     'manajemen_souvenir',
     'manajemen_pesanan',
+    'wishlist',
     'corsheaders',
 ]
 
@@ -153,5 +154,3 @@ CSRF_TRUSTED_ORIGINS = ["http://localhost","http://127.0.0.1", "https://rafansya
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-
