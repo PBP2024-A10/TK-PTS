@@ -1,4 +1,4 @@
-import datetime
+import datetime, json
 # from main.models import FoodItem
 from cards_makanan.models import MenuItem
 from django.http import JsonResponse, HttpResponse
@@ -6,6 +6,7 @@ from django.core import serializers
 from django.utils import timezone
 from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth import authenticate
 from editors_choice.forms import FoodRecommendationForm
 from editors_choice.models import FoodRecommendation, EditorChoice, FoodComment
 from django.contrib.auth.models import User
@@ -190,3 +191,36 @@ def show_json_editor_choice_food_type_week(request, food_type, week):
 def show_json_comments(request, food_id):
     food_comments = FoodRecommendation.objects.get(pk=food_id).foodcomment_set.all()
     return HttpResponse(serializers.serialize('json', food_comments), content_type='application/json')
+
+# Create comments for a food recommendation: Dart-Flutter project only
+@csrf_exempt
+def create_comment_mobile(request):
+    
+    if request.method == "POST":
+        rec_id = request.GET.get('rec_id')
+        try:
+            food_rec = get_object_or_404(FoodRecommendation, pk=rec_id)
+        except:
+            return HttpResponse("Food recommendation not found", status=404)
+        
+        data = json.loads(request.body)
+        timestamp = data.get("timestamp", timezone.now())
+
+        try:
+            user = User.objects.get(username=data["username"])
+        except:
+            return JsonResponse({'status': 'error'}, status=401)
+        
+        new_comment = FoodComment.objects.create(
+            food_item=food_rec,
+            author=user,
+            comment=data["comment"],
+            timestamp=timestamp
+        )
+        new_comment.save()
+        food_rec.update_comment_count()
+
+        return JsonResponse({'status': 'success', 'comment_id': new_comment.id}, status=200)
+    
+    else:
+        return JsonResponse({'status': 'error'}, status=401)
