@@ -62,23 +62,39 @@ def create_order(request, menu_item_id=None):
     return render(request, 'create_order.html', context)
 
 @csrf_exempt
-#@login_required(login_url="authentication:login")
 def update_order_status(request, order_id):
-    order = get_object_or_404(FoodOrder, id=order_id)  # Dapatkan pesanan berdasarkan ID
+    try:
+        order = FoodOrder.objects.get(id=order_id)  # Dapatkan pesanan berdasarkan ID
+    except FoodOrder.DoesNotExist:
+        return JsonResponse({"status": "error", "message": "Order not found"}, status=404)
 
     if request.method == 'POST':
-        form = FoodOrderUpdateForm(request.POST, instance=order)
-        if form.is_valid():
-            form.save()
-            return redirect('manajemen_pesanan:show_main')  # Redirect ke halaman utama pesanan
-    else:
-        form = FoodOrderUpdateForm(instance=order)
+        try:
+            # Mengambil data JSON dari request
+            data = json.loads(request.body)
+            new_status = data.get('status_pesanan')
 
-    return render(request, 'update_order.html', {'form': form, 'order': order})
+            # Debug: Periksa nilai status
+            print("Received status:", new_status)
+            
+            # Validasi status baru
+            valid_statuses = dict(FoodOrder.ORDER_STATUS_CHOICES).keys()
+            print("Valid statuses:", valid_statuses)  # Debug: Menampilkan status yang valid
+
+            if new_status in valid_statuses:
+                order.status_pesanan = new_status
+                order.save()
+                return JsonResponse({"status": "success", "message": "Order status updated"}, status=200)
+            else:
+                return JsonResponse({"status": "error", "message": "Invalid status value"}, status=400)
+        except json.JSONDecodeError:
+            return JsonResponse({"status": "error", "message": "Invalid JSON data"}, status=400)
+    else:
+        return JsonResponse({"status": "error", "message": "Invalid request method"}, status=405)
+
 
 #@login_required(login_url="authentication:login")
 @csrf_exempt
-@login_required
 def delete_order(request, order_id):
     """Hapus pesanan berdasarkan ID."""
     try:
@@ -86,10 +102,17 @@ def delete_order(request, order_id):
         
         # Hapus pesanan
         order.delete()
-        return redirect('manajemen_pesanan:show_main')  # Redirect ke halaman riwayat pesanan
+
+        # Kembalikan respons sukses
+        return JsonResponse({"status": "Order deleted successfully"}, status=200)
+
     except FoodOrder.DoesNotExist:
+        # Kembalikan respons jika pesanan tidak ditemukan
         return JsonResponse({"status": "Order not found"}, status=404)
 
+    except Exception as e:
+        # Tangani kemungkinan error lainnya
+        return JsonResponse({"status": f"Error: {str(e)}"}, status=500)
 @csrf_exempt
 @login_required
 def cancel_order(request, order_id):
@@ -131,3 +154,52 @@ def get_order_by_id(request, order_id):
         return render(request, 'detail.html',{'order': order}, status=200)
     except FoodOrder.DoesNotExist:
         return JsonResponse({"status": "Order not found"}, status=404)
+    
+from django.views.decorators.csrf import csrf_exempt
+import json
+from django.http import JsonResponse
+from manajemen_pesanan.models import FoodOrder
+
+@csrf_exempt
+def create_pesanan_flutter(request):
+    if request.method == 'POST':
+        try:
+            # Parsing body menjadi JSON
+            data = json.loads(request.body.decode('utf-8'))
+            
+            # Ambil data dengan fallback nilai default
+            nama_penerima = data.get("nama_penerima")
+            alamat_pengiriman = data.get("alamat_pengiriman")
+            status_pesanan = data.get("status_pesanan", "pending")  # Default ke "pending"
+
+            # Validasi input
+            if not nama_penerima or not alamat_pengiriman:
+                return JsonResponse({
+                    'status': 'error',
+                    'message': 'Nama penerima dan alamat pengiriman harus diisi.'
+                }, status=400)
+
+            # Jika tidak ada user yang terautentikasi, user akan dibiarkan kosong
+            order = FoodOrder.objects.create(
+                nama_penerima=nama_penerima,
+                alamat_pengiriman=alamat_pengiriman,
+                status_pesanan=status_pesanan,
+                user=None  # Tidak mengaitkan user apapun
+            )
+
+            return JsonResponse({
+                'status': 'success',
+                'message': 'Pesanan berhasil dibuat.',
+                'order_id': order.id
+            }, status=201)
+
+        except Exception as e:
+            return JsonResponse({
+                'status': 'error',
+                'message': f'Server error: {e}'
+            }, status=500)
+    else:
+        return JsonResponse({
+            'status': 'error',
+            'message': 'Invalid request method. Use POST.'
+        }, status=405)
