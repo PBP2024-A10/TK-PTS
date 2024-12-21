@@ -13,12 +13,10 @@ class FoodOrder(models.Model):
     ]
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)  # User boleh kosong
     nama_penerima = models.CharField(max_length=255)
     alamat_pengiriman = models.CharField(max_length=255)
     tanggal_pemesanan = models.DateField(auto_now_add=True)
-
-##buka komen items aja nggun (jgn copas komen ini ya wkwkw)
     items = models.ManyToManyField(MenuItem)  # Menghubungkan ke model makanan yang dipesan
     status_pesanan = models.CharField(
         max_length=20,
