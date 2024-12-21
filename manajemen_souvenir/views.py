@@ -10,7 +10,7 @@ import uuid, os, json
 
 def show_souvenir(request):
     souvenirs = SouvenirEntry.objects.all()
-    return render(request, 'coba2.html', {'souvenirs': souvenirs})
+    return render(request, 'souvenir.html', {'souvenirs': souvenirs})
 
 def show_json(request):
     data = SouvenirEntry.objects.all()
@@ -65,7 +65,7 @@ def edit_souvenir(request, id):
                 form.save()
             
             # Redirect ke halaman show_souvenir setelah update
-            return redirect(reverse('show_souvenir:show_souvenir'))
+            return redirect(reverse('manajemen_souvenir:show_souvenir'))
         else:
             print("Form tidak valid:", form.errors)
     else:
