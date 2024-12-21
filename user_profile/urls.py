@@ -7,5 +7,3 @@ urlpatterns = [
     path('', profile, name='profile'),
     path('update-profile-flutter/', update_profile_flutter, name='update_profile_flutter'),
 ]
-
-
