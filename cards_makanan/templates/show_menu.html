@@ -11,19 +11,11 @@
                 <p>{{ item.description }}</p>
                 <p class="price">Rp{{ item.price }}</p>
                 
-                <div class="button-container">
-                    <!-- Jenis Makanan -->
-                    <div class="custom-button meal-type">
-                        <div class="button-text">{{ item.meal_type }}</div>
-                    </div>
-                    
-                    <!-- Button Pesan -->
-                    <div class="custom-button a">
-                        <a href="{% url 'manajemen_pesanan:create_order' item.id %}" class="button-text">Pesan</a>
-                    </div>
+                <!-- Button with updated content from meal_type -->
+                <div class="custom-button">
+                    <div class="button-text">{{ item.meal_type }}</div> <!-- Display meal_type here -->
                 </div>
             </div>
-        </div>
         {% endfor %}
     {% else %}
         <p class="no-data">Belum ada data menu.</p>
@@ -158,20 +150,5 @@
         font-size: 1.2em;
         margin-top: 20px;
     }
-    .custom-button.a {
-    position: absolute; /* Tetap menggunakan posisi absolut */
-    bottom: 10px; /* Jarak dari bawah, sama dengan tombol kategori */
-    left: 100px; /* Mengubah posisi ke kanan */
-    width: 80px;  /* Sesuaikan lebar jika perlu */
-    height: 35px; /* Tinggi tombol */
-    border-radius: 100px; /* Sudut melengkung */
-    border: 2px solid #8B4513; /* Warna border */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
 </style>
 {% endblock %}
