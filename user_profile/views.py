@@ -39,6 +39,29 @@ def profile(request):
     }
     return render(request, 'profile.html', context)
 
+@csrf_exempt
+@login_required
+def get_profile_flutter(request):
+    if request.method == 'GET':
+        try:
+            profile, created = UserProfile.objects.get_or_create(user=request.user)
+            
+            return JsonResponse({
+                "status": "success",
+                "username": request.user.username,
+                "first_name": request.user.first_name,
+                "last_name": request.user.last_name,
+                "bio": profile.bio if hasattr(profile, 'bio') else "",
+            })
+        except Exception as e:
+            return JsonResponse({
+                "status": "error",
+                "message": str(e)
+            }, status=500)
+    return JsonResponse({
+        "status": "error",
+        "message": "Invalid request method"
+    }, status=405)
 
 @csrf_exempt
 @login_required

@@ -64,6 +64,7 @@ def delete_restaurant(request, restaurant_id):
 @login_required
 @user_passes_test(is_admin)
 def add_menu_item(request, restaurant_id):
+    
     restaurant = get_object_or_404(Restaurant, id=restaurant_id)
     if request.method == 'POST':
         form = MenuItemForm(request.POST)
@@ -111,6 +112,24 @@ def filter_restaurants(request):
         ]
     }
     return JsonResponse(data)
+
+def menu_items_json(request, restaurant_id):
+    menu_items = MenuItem.objects.filter(restaurant_id=restaurant_id)
+    data = []
+    for item in menu_items:
+        data.append({
+            "model": "cards_makanan.menuitem",
+            "pk": str(item.id),
+            "fields": {
+                "restaurant": item.restaurant.name,
+                "name": item.name,
+                "description": item.description,
+                "price": str(item.price),
+                "meal_type": item.meal_type,
+                "image_url_menu": item.image_url_menu,
+            }
+        })
+    return JsonResponse(data, safe=False)
 
 def restaurant_list_json(request):
     restaurants = Restaurant.objects.all()

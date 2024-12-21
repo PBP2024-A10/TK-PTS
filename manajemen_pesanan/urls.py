@@ -1,5 +1,5 @@
 from django.urls import path
-from manajemen_pesanan.views import show_main, create_order, update_order_status, cancel_order, get_order_json, get_order_by_user, get_order_by_id, delete_order
+from manajemen_pesanan.views import show_main, create_order, update_order_status, cancel_order, get_order_json, get_order_by_user, get_order_by_id, delete_order, create_pesanan_flutter
 
 app_name = 'manajemen_pesanan'
 
@@ -13,4 +13,5 @@ urlpatterns = [
     path('orders/<uuid:order_id>/', get_order_by_id, name='get_order_by_id'),  # Mengambil pesanan berdasarkan ID
     path('orders/delete/<str:order_id>/', delete_order, name='delete_order'),
     path('order/new/<uuid:menu_item_id>/', create_order, name='create_order'),
+    path('orders/new/create-flutter/', create_pesanan_flutter, name='create_pesanan_flutter'),
 ]
