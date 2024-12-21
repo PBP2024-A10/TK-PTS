@@ -7,6 +7,7 @@ from .forms import ProfileUpdateForm
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 import json
+from authentication.models import UserProfile 
 
 @login_required
 @csrf_exempt
@@ -38,32 +39,79 @@ def profile(request):
     }
     return render(request, 'profile.html', context)
 
+@csrf_exempt
+@login_required
+def get_profile_flutter(request):
+    if request.method == 'GET':
+        try:
+            profile, created = UserProfile.objects.get_or_create(user=request.user)
+            
+            return JsonResponse({
+                "status": "success",
+                "username": request.user.username,
+                "first_name": request.user.first_name,
+                "last_name": request.user.last_name,
+                "bio": profile.bio if hasattr(profile, 'bio') else "",
+            })
+        except Exception as e:
+            return JsonResponse({
+                "status": "error",
+                "message": str(e)
+            }, status=500)
+    return JsonResponse({
+        "status": "error",
+        "message": "Invalid request method"
+    }, status=405)
 
 @csrf_exempt
 @login_required
 def update_profile_flutter(request):
     if request.method == 'POST':
         try:
-            # Parse JSON request body
             data = json.loads(request.body)
-            
-            # Ambil data dari request
+            UserProfile.objects.get_or_create(user=request.user)
             user_form = UserUpdateForm(data, instance=request.user)
             profile_form = ProfileUpdateForm(data, instance=request.user.userprofile)
             
-            # Validasi dan simpan data
             if user_form.is_valid() and profile_form.is_valid():
                 user_form.save()
                 profile_form.save()
-                return JsonResponse({"status": "success", "message": "Profile updated successfully"}, status=200)
+                return JsonResponse({
+                    "status": "success",
+                    "message": "Profile updated successfully",
+                    "data": {
+                        "username": request.user.username,
+                        "first_name": request.user.first_name,
+                        "last_name": request.user.last_name,
+                        "bio": request.user.userprofile.bio if hasattr(request.user, 'userprofile') else "",
+                    }
+                }, status=200)
             else:
-                errors = {
-                    'user': user_form.errors,
-                    'profile': profile_form.errors
-                }
-                return JsonResponse({"status": "error", "message": "Form validation failed", "errors": errors}, status=400)
+                # Combine and format all form errors
+                errors = {}
+                if user_form.errors:
+                    errors.update(user_form.errors)
+                if profile_form.errors:
+                    errors.update(profile_form.errors)
+                return JsonResponse({
+                    "status": "error",
+                    "message": "Form validation failed",
+                    "errors": errors
+                }, status=400)
+                
         except json.JSONDecodeError:
-            return JsonResponse({"status": "error", "message": "Invalid JSON"}, status=400)
+            return JsonResponse({
+                "status": "error",
+                "message": "Invalid JSON data"
+            }, status=400)
+        except Exception as e:
+            return JsonResponse({
+                "status": "error",
+                "message": str(e)
+            }, status=500)
     else:
-        return JsonResponse({"status": "error", "message": "Invalid request method"}, status=405)
+        return JsonResponse({
+            "status": "error",
+            "message": "Invalid request method"
+        }, status=405)
 

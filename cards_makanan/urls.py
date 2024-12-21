@@ -2,7 +2,7 @@ from django.urls import path
 from .views import (
     show_restaurants, show_menu, restaurant_list, 
     add_restaurant, delete_restaurant, edit_restaurant,
-    add_menu_item, delete_menu_item, edit_menu_item, filter_restaurants, restaurant_list_json, add_restaurant_flutter, delete_restaurant_flutter
+    add_menu_item, delete_menu_item, edit_menu_item, filter_restaurants, restaurant_list_json, add_restaurant_flutter, delete_restaurant_flutter, menu_items_json
 )
 
 app_name = 'cards_makanan'
@@ -20,4 +20,5 @@ urlpatterns = [
     path('restaurant_list_json/', restaurant_list_json, name='restaurant_list_json'),
     path('add-restaurant-flutter/', add_restaurant_flutter, name='add_restaurant_flutter'),
     path('delete-restaurant-flutter/<uuid:restaurant_id>/', delete_restaurant_flutter, name='delete_restaurant_flutter'),
+    path('menu-items-json/<uuid:restaurant_id>/', menu_items_json, name='menu_items_json'),
 ]

@@ -113,6 +113,24 @@ def filter_restaurants(request):
     }
     return JsonResponse(data)
 
+def menu_items_json(request, restaurant_id):
+    menu_items = MenuItem.objects.filter(restaurant_id=restaurant_id)
+    data = []
+    for item in menu_items:
+        data.append({
+            "model": "cards_makanan.menuitem",
+            "pk": str(item.id),
+            "fields": {
+                "restaurant": item.restaurant.name,
+                "name": item.name,
+                "description": item.description,
+                "price": str(item.price),
+                "meal_type": item.meal_type,
+                "image_url_menu": item.image_url_menu,
+            }
+        })
+    return JsonResponse(data, safe=False)
+
 def restaurant_list_json(request):
     restaurants = Restaurant.objects.all()
     data = []
