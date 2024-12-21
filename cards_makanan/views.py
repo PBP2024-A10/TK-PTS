@@ -64,6 +64,7 @@ def delete_restaurant(request, restaurant_id):
 @login_required
 @user_passes_test(is_admin)
 def add_menu_item(request, restaurant_id):
+    
     restaurant = get_object_or_404(Restaurant, id=restaurant_id)
     if request.method == 'POST':
         form = MenuItemForm(request.POST)
