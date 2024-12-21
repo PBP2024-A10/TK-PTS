@@ -6,7 +6,8 @@ from editors_choice.views import show_index_er, show_food_item, add_food_item, \
     show_json_editor_choice_food_type, show_json_editor_choice_week,\
     show_json_food_type, show_json, show_json_id, show_json_food_id,\
     delete_food_rec, edit_food_rec_rating, show_json_comments,\
-    create_comment_mobile
+    create_comment_mobile, delete_food_rec_mobile, create_food_rec_mobile,\
+    edit_description_mobile, edit_rating_mobile
     
 
 app_name = 'editors_choice'
@@ -35,5 +36,9 @@ urlpatterns = [
     path('json/comments/<uuid:food_id>/', show_json_comments, name='show_json_comments'), # show comments for a food recommendation
 
     # Addition & Editing FoodRecommendation and Editor's Choice - Dart / Flutter
+    path('delete-food-mobile/', delete_food_rec_mobile, name='delete_food_mobile'), # delete food recommendation
+    path('add-food-mobile/', create_food_rec_mobile, name='add_food_mobile'), # add food recommendation
     path('add-comment/', create_comment_mobile, name='add_comment'), # add comment
+    path('edit-rating-mobile/', edit_rating_mobile, name='edit_rating_mobile'), # edit rating
+    path('edit-description-mobile/', edit_description_mobile, name='edit_description_mobile'), # edit description
 ]

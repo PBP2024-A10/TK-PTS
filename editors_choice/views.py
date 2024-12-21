@@ -73,9 +73,9 @@ def add_food_item(request):
         food_recommendation.save()
 
         # DEBUG: add a test comment (comment here if not debugging)
-        test_comment = FoodComment(food_item=food_recommendation, author=request.user, comment="This is a test comment.") # DEBUG mode: add a test comment (comment here if not debugging)
-        test_comment.save()
-        food_recommendation.update_comment_count()
+        # test_comment = FoodComment(food_item=food_recommendation, author=request.user, comment="This is a test comment.") # DEBUG mode: add a test comment (comment here if not debugging)
+        # test_comment.save()
+        # food_recommendation.update_comment_count()
         food_recommendation.save()
 
         current_week = get_start_of_current_week()
@@ -103,6 +103,7 @@ def add_food_item(request):
 def delete_food_rec(request):
     food_id = request.GET.get('food_recommendation_id')
     food_rec = get_object_or_404(FoodRecommendation, pk=food_id)
+    FoodComment.objects.filter(food_item=food_rec).delete()
     food_rec.delete()
     messages.success(request, 'Food recommendation has been deleted.')
     return redirect('editors_choice:index_er')
@@ -201,7 +202,10 @@ def create_comment_mobile(request):
         try:
             food_rec = get_object_or_404(FoodRecommendation, pk=rec_id)
         except:
-            return HttpResponse("Food recommendation not found", status=404)
+            return JsonResponse({
+            'status': 'error',
+            'detail': 'failed to find the query'
+            }, status=401)
         
         data = json.loads(request.body)
         timestamp = data.get("timestamp", timezone.now())
@@ -209,7 +213,10 @@ def create_comment_mobile(request):
         try:
             user = User.objects.get(username=data["username"])
         except:
-            return JsonResponse({'status': 'error'}, status=401)
+            return JsonResponse({
+                'status': 'error',
+                'detail': 'user is not found'
+                }, status=401)
         
         new_comment = FoodComment.objects.create(
             food_item=food_rec,
@@ -224,3 +231,165 @@ def create_comment_mobile(request):
     
     else:
         return JsonResponse({'status': 'error'}, status=401)
+
+# Delete a food recommendation: Dart-Flutter project only
+def delete_food_rec_mobile(request):
+    try:
+        food_id = request.GET.get('rec_id')
+    except:
+        return JsonResponse({
+            'status': 'error',
+            'detail': 'failed to find the query'
+            }, status=401)
+
+    try:
+        food_rec = get_object_or_404(FoodRecommendation, pk=food_id)
+    except:
+        return JsonResponse({
+            'status': 'error',
+            'detail': 'failed to find the food recommendation'
+            }, status=401)
+    
+    editor_choice = EditorChoice.objects.filter(food_items=food_rec).first()
+    if editor_choice:
+        week = editor_choice.week
+    else:
+        return JsonResponse({
+            'status': 'error',
+            'detail': 'failed to find the editor choice'
+            }, status=401)
+    
+    FoodComment.objects.filter(food_item=food_rec).delete()
+    food_rec.delete()
+
+    return JsonResponse({
+        'status': 'success',
+        'item_name': food_rec.food_item.name,
+        'item_id': food_rec.food_item.id,
+        'week': week
+        }, status=200)
+
+# Create food recommendation: Dart-Flutter project only
+@csrf_exempt
+def create_food_rec_mobile(request):
+
+    if request.method == "POST":
+        data = json.loads(request.body)
+
+        try:
+            food_item = get_object_or_404(MenuItem, pk=data["food_id"])
+        except:
+            return JsonResponse({
+                'status': 'error',
+                'detail': 'failed to find the query'
+                }, status=401)
+        
+        try:
+            user = get_object_or_404(User, username=data["author"])
+        except:
+            return JsonResponse({
+                'status': 'error',
+                'detail': 'user is not found'
+                }, status=401)
+        
+        rating = data["rating"]
+
+        try:
+            new_food_rec = FoodRecommendation.objects.create(
+                food_item=food_item,
+                author=user,
+                rating=rating,
+                rated_description=data.get("rated_description", ""),
+            )
+            new_food_rec.save()
+        except:
+            return JsonResponse({
+                'status': 'error',
+                'detail': 'food recommendation already exists'
+                }, status=401)
+
+        current_week = get_start_of_current_week()
+
+        editor_choice = EditorChoice.objects.filter(
+            week=current_week,
+            food_items__food_item__meal_type=new_food_rec.food_item.meal_type
+        ).first()
+
+        if editor_choice is None:
+            editor_choice = EditorChoice.objects.create()
+        elif editor_choice.food_items.count() >= 5:
+            new_food_rec.delete()
+            return JsonResponse({
+                'status': 'error',
+                'detail': 'EditorChoice for this week and food type is already full.'
+                }, status=401)
+
+        new_food_rec.save()
+        editor_choice.food_items.add(new_food_rec)
+        editor_choice.save()
+
+        return JsonResponse({'status': 'success', 'food_rec_id': new_food_rec.id}, status=200)
+    else:
+        return JsonResponse({'status': 'error'}, status=401)
+    
+# Edit food recommendation (rating): Dart-Flutter project only
+@csrf_exempt
+def edit_rating_mobile(request):
+
+    if request.method == "POST":
+        rec_id = request.GET.get('rec_id')
+        try:
+            food_rec = get_object_or_404(FoodRecommendation, pk=rec_id)
+        except:
+            return JsonResponse({
+            'status': 'error',
+            'detail': 'failed to find the query'
+            }, status=401)
+        
+        data = json.loads(request.body)
+
+        try:
+            rating = float(data["new_rating"])
+        except ValueError:
+            return JsonResponse({
+            'status': 'error',
+            'detail': 'invalid rating value'
+        }, status=401)
+
+        try:
+            food_rec.rating = rating
+            food_rec.save()
+        except:
+            return JsonResponse({
+            'status': 'error',
+            'detail': 'failed to update the rating'
+            }, status=401)
+        
+        return JsonResponse({'status': 'success'}, status=200)
+
+# Edit food recommendation (description): Dart-Flutter project only
+@csrf_exempt
+def edit_description_mobile(request):
+
+    if request.method == "POST":
+        rec_id = request.GET.get('rec_id')
+        try:
+            food_rec = get_object_or_404(FoodRecommendation, pk=rec_id)
+        except:
+            return JsonResponse({
+            'status': 'error',
+            'detail': 'failed to find the query'
+            }, status=401)
+        
+        data = json.loads(request.body)
+
+        try:
+            food_rec.rated_description = data["new_description"]
+            food_rec.save()
+        except:
+            return JsonResponse({
+            'status': 'error',
+            'detail': 'failed to update the description'
+            }, status=401)
+        
+        return JsonResponse({'status': 'success'}, status=200)

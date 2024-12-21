@@ -10,12 +10,13 @@ import datetime
 # Create your models here.
 class FoodRecommendation(models.Model):
     # food_item = models.OneToOneField(FoodItem, on_delete=models.CASCADE)
-    food_item = models.OneToOneField(MenuItem, on_delete=models.CASCADE)
+    food_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
     # id = food_item.id
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     # food_type = food_item.type
     rating = models.FloatField(default=0)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author_uname = models.CharField(max_length=150, editable=False, default='')
     rated_description = models.TextField(blank=True)
     comment_count = models.PositiveIntegerField(default=0, editable=False)
 
@@ -31,6 +32,7 @@ class FoodRecommendation(models.Model):
     
     def save(self, *args, **kwargs):
         self.validate_rating()
+        self.author_uname = self.author.username
         super().save(*args, **kwargs)
     
     def validate_rating(self):
@@ -46,11 +48,16 @@ class FoodComment(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     food_item = models.ForeignKey(FoodRecommendation, on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author_uname = models.CharField(max_length=150, editable=False, default='')
     comment = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"Comment by {self.author} for Food: {self.food_item} at {self.timestamp}"
+    
+    def save(self, *args, **kwargs):
+        self.author_uname = self.author.username
+        super().save(*args, **kwargs)
     
 class EditorChoice(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)

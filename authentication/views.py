@@ -159,3 +159,30 @@ def logout_flutter(request):
         "status": False,
         "message": "Logout gagal."
         }, status=401)
+
+@csrf_exempt
+def user_role_mobile(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+
+        try:
+            user = User.objects.get(username=data['username'])
+
+            if user.is_superuser:
+                role = 'admin'
+            elif user.is_authenticated:
+                role = 'customer'
+            else:
+                role = 'guest'
+
+            return JsonResponse({
+                "username": user.username,
+                "role": role,
+                "status": True,
+                "message": "Role retrieved successfully!"
+            }, status=200)
+        except:
+            return JsonResponse({
+                "status": False,
+                "message": "Role retrieval failed."
+            }, status=401)
